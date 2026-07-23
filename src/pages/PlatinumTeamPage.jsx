@@ -1,34 +1,34 @@
 import { motion } from "framer-motion";
 import { Users, GraduationCap, Calendar, Mic, CalendarDays } from "lucide-react";
-import { siteConfig } from "../config/config";
+import { siteConfig, platinumPitch } from "../config/config";
 import PageHero from "../components/ui/PageHero";
 import SectionHeading from "../components/ui/SectionHeading";
 import Button from "../components/ui/Button";
 import ContactForm from "../components/ui/ContactForm";
 
 const benefits = [
-  { icon: Users, title: "Személyes mentorálás", description: "Mária vezetésével, kezdőktől haladókig." },
+  { icon: Users, title: "Személyes mentorálás", description: "Marcsi vezetésével, kezdőktől haladókig." },
   { icon: GraduationCap, title: "Professzionális képzések", description: "Online és offline tréningek rendszeresen." },
   { icon: Calendar, title: "Események", description: "Csapatépítők, workshopok, közös programok." },
   { icon: Mic, title: "Podcast & tartalmak", description: "Inspiráló beszélgetések és oktatóanyagok." },
 ];
 
 const leaders = [
-  { name: "Mária Kovács", role: "Platinum Team vezető", initial: "M" },
+  { name: "Miskolci Marcsi", role: "Elit Team vezető", initial: "M" },
   { name: "Csapatmentor", role: "Üzleti mentor", initial: "C" },
-  { name: "Ringa Dance oktató", role: "Mozgásprogram", initial: "R" },
+  { name: "Termék mentor", role: "Támogatás & képzés", initial: "T" },
 ];
 
 const events = [
   { date: "2026. ápr. 12.", title: "Tavaszi csapatépítő", type: "Offline" },
   { date: "2026. ápr. 20.", title: "Online termékbemutató", type: "Online" },
-  { date: "2026. máj. 5.", title: "Ringa Dance workshop", type: "Offline" },
+  { date: "2026. máj. 5.", title: "Életmód workshop", type: "Offline" },
 ];
 
 const podcasts = [
   { title: "Hogyan kezdj MLM-ben?", duration: "32 perc" },
   { title: "Flavon és az immunrendszer", duration: "28 perc" },
-  { title: "Ringa Dance történet", duration: "24 perc" },
+  { title: "Egészséges rutin mindennap", duration: "24 perc" },
 ];
 
 export default function PlatinumTeamPage() {
@@ -38,9 +38,28 @@ export default function PlatinumTeamPage() {
     <>
       <PageHero
         eyebrow="Platinum Team"
-        title="Csatlakozz a csapatomhoz"
+        title={platinumPitch.headline}
         subtitle={`A ${distributor.teamName} mentori támogatást, képzéseket és egy támogató közösséget kínál — kezdőknek és tapasztalt partnereknek egyaránt.`}
       />
+
+      <section className="pb-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="aspect-[21/9] rounded-3xl bg-gradient-to-br from-brand-100 to-rose-100 flex flex-col items-center justify-center text-brand-700 mb-10">
+            <Users className="h-14 w-14 mb-3 opacity-50" />
+            <span className="font-medium">Nagy közös csapatkép helye</span>
+          </div>
+          <div className="flex flex-wrap gap-3 justify-center mb-4">
+            {platinumPitch.points.map((p) => (
+              <span
+                key={p}
+                className="px-4 py-2 rounded-full bg-brand-50 text-brand-800 text-sm font-semibold capitalize"
+              >
+                {p}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

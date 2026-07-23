@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Package } from "lucide-react";
-import { packages, siteConfig } from "../config/config";
+import { Package } from "lucide-react";
+import { packages } from "../config/config";
 import PageHero from "../components/ui/PageHero";
-import Button from "../components/ui/Button";
+import ProductPurchaseButtons from "../components/ui/ProductPurchaseButtons";
 
 export default function PackagesPage() {
   return (
@@ -46,16 +46,7 @@ export default function PackagesPage() {
                       </span>
                     ))}
                   </div>
-                  <Button
-                    href={siteConfig.links.affiliateUrl}
-                    external
-                    variant="secondary"
-                    size="sm"
-                    icon={ExternalLink}
-                    className="w-full"
-                  >
-                    Rendelés a webshopban
-                  </Button>
+                  <ProductPurchaseButtons />
                 </div>
               </motion.article>
             ))}

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Heart, LogIn, ChevronDown } from "lucide-react";
+import { Menu, X, LogIn, ChevronDown } from "lucide-react";
 import { siteConfig } from "../../config/config";
 import Button from "../ui/Button";
 
@@ -9,7 +9,6 @@ const primaryNav = [
   { label: "Rólam", to: "/rolam" },
   { label: "Termékek", to: "/termekek" },
   { label: "Csomagok", to: "/csomagok" },
-  { label: "Ringa Dance", to: "/ringa-dance" },
   { label: "Blog", to: "/blog" },
 ];
 
@@ -61,18 +60,12 @@ export default function Navbar() {
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <Link to="/" className="flex items-center gap-2.5 group" onClick={closeMenu}>
-            <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-emerald-600 text-white group-hover:shadow-lg group-hover:shadow-brand-500/30 transition-all">
-              <Heart className="h-5 w-5" fill="currentColor" />
-            </div>
-            <div className="text-left">
-              <span className="block text-lg font-bold text-gray-900 leading-tight">
-                {brand.shortName}
-              </span>
-              <span className="block text-[10px] sm:text-xs text-brand-600 font-medium tracking-wide">
-                {brand.slogan}
-              </span>
-            </div>
+          <Link to="/" className="flex items-center shrink-0" onClick={closeMenu}>
+            <img
+              src={brand.logo}
+              alt={brand.name}
+              className="h-11 md:h-14 w-auto object-contain"
+            />
           </Link>
 
           <div className="hidden xl:flex items-center gap-6">

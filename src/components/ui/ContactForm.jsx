@@ -56,7 +56,7 @@ export default function ContactForm() {
         <CheckCircle className="h-16 w-16 text-brand-500 mx-auto mb-4" />
         <h3 className="text-xl font-bold text-gray-900 mb-2">Köszönjük!</h3>
         <p className="text-gray-600 mb-6">
-          Megkaptuk jelentkezésed. Mária hamarosan felveszi veled a kapcsolatot.
+          Megkaptuk jelentkezésed. Marcsi hamarosan felveszi veled a kapcsolatot.
         </p>
         <Button variant="outline" onClick={() => setStatus("idle")}>
           Új üzenet küldése

@@ -9,7 +9,6 @@ const categoryColors = {
   Egészség: "bg-brand-100 text-brand-700",
   Autoimmun: "bg-teal-100 text-teal-700",
   Receptek: "bg-rose-100 text-rose-700",
-  Mozgás: "bg-purple-100 text-purple-700",
   Életmód: "bg-amber-100 text-amber-700",
 };
 
@@ -22,7 +21,7 @@ export default function BlogPage() {
       <PageHero
         eyebrow="Blog & Receptek"
         title="Tudás, receptek, életmód"
-        subtitle="Cikkek az egészséges táplálkozásról, mozgásról és a mindennapi vitalitásról — Mária tollából."
+        subtitle="Heti cikkek, például: életmódváltás, zöldség–gyümölcs, Hashimoto, autoimmun és tartós fogyás — Marcsi tollából."
       />
 
       {/* Marcselladiéta highlight */}

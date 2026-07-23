@@ -4,7 +4,7 @@ export const testimonials = [
     name: "Anna T.",
     role: "Platinum Team tag",
     quote:
-      "A Flavon Green után érezhetően több energiám van, és 6 hónap alatt 8 kg-ot adtam le anélkül, hogy koplaltam volna. Mária támogatása végig mellettem volt.",
+      "A Flavon Green után érezhetően több energiám van, és 6 hónap alatt 8 kg-ot adtam le anélkül, hogy koplaltam volna. Marcsi támogatása végig mellettem volt.",
     highlight: "−8 kg · 6 hónap",
     type: "quote",
   },

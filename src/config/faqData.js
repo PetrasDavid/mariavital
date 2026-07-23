@@ -21,7 +21,7 @@ export const faqItems = [
     id: "partner",
     question: "Hogyan csatlakozhatok a Platinum Teamhez?",
     answer:
-      "Töltsd ki az alábbi jelentkezési űrlapot, és Mária személyesen felveszi veled a kapcsolatot. Mentori támogatást, képzéseket és egy támogató közösséget kapsz — kezdőknek és tapasztalt partnereknek egyaránt.",
+      "Töltsd ki a jelentkezési űrlapot, és Marcsi személyesen felveszi veled a kapcsolatot. Mentori támogatást, képzéseket és egy támogató közösséget kapsz — kezdőknek és tapasztalt partnereknek egyaránt.",
   },
   {
     id: "prices",

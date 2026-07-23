@@ -17,7 +17,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Kapcsolat"
         title="Lépj kapcsolatba velünk"
-        subtitle="Kérdésed van a termékekről, a Ringa Dance-ről vagy a csatlakozásról? Írj vagy hívj bátran — szívesen segítek!"
+        subtitle="Kérdésed van a termékekről vagy a csatlakozásról? Írj vagy hívj bátran — szívesen segítek!"
         compact
       />
 
@@ -76,7 +76,7 @@ export default function ContactPage() {
                 <Calendar className="h-8 w-8 text-brand-200 mb-3" />
                 <h3 className="text-xl font-bold mb-2">Online időpontfoglalás tanácsadásra</h3>
                 <p className="text-brand-100 text-sm mb-5 leading-relaxed">
-                  Foglalj időpontot ingyenes konzultációra {distributor.name}-val — termékek,
+                  Foglalj időpontot ingyenes konzultációra Marcsival — termékek,
                   életmód vagy üzleti lehetőség témában.
                 </p>
                 <Button

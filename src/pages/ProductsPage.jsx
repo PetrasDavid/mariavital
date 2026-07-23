@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ExternalLink, Play, HelpCircle, List } from "lucide-react";
-import { products, formatPrice } from "../config/productsData";
-import { siteConfig } from "../config/config";
+import { X, Play, HelpCircle, List } from "lucide-react";
+import { products, formatProductPrice } from "../config/productsData";
 import PageHero from "../components/ui/PageHero";
 import ProductCard from "../components/ui/ProductCard";
-import Button from "../components/ui/Button";
+import ProductPurchaseButtons from "../components/ui/ProductPurchaseButtons";
 
 function ProductModal({ product, onClose }) {
   if (!product) return null;
+
+  const priceDisplay = formatProductPrice(product);
+  const isRange = typeof priceDisplay === "string";
 
   return (
     <AnimatePresence>
@@ -27,6 +29,11 @@ function ProductModal({ product, onClose }) {
           className="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
         >
           <div className={`h-40 bg-gradient-to-br ${product.accentColor} relative`}>
+            {product.onSale && (
+              <span className="absolute top-4 left-4 rounded-full bg-amber-400 text-amber-950 text-xs font-bold px-3 py-1.5">
+                Akció!
+              </span>
+            )}
             <button
               type="button"
               onClick={onClose}
@@ -39,10 +46,25 @@ function ProductModal({ product, onClose }) {
 
           <div className="p-6 md:p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-2">{product.name}</h2>
-            <p className="text-2xl font-bold text-brand-700 mb-6">
-              {formatPrice(product.retailPrice, product.currency)}
-              <span className="text-sm font-normal text-gray-500 ml-2">kiskereskedelmi ár</span>
-            </p>
+            <div className="mb-6">
+              {isRange ? (
+                <p className="text-xl font-bold text-brand-700">{priceDisplay}</p>
+              ) : (
+                <div className="flex flex-wrap items-baseline gap-3">
+                  {priceDisplay.original && (
+                    <span className="text-lg text-gray-400 line-through">
+                      {priceDisplay.original}
+                    </span>
+                  )}
+                  <p className="text-2xl font-bold text-brand-700">
+                    {priceDisplay.current}
+                    <span className="text-sm font-normal text-gray-500 ml-2">
+                      kiskereskedelmi ár
+                    </span>
+                  </p>
+                </div>
+              )}
+            </div>
 
             <div className="space-y-6">
               <div>
@@ -82,16 +104,11 @@ function ProductModal({ product, onClose }) {
             </div>
 
             <div className="mt-8 pt-6 border-t border-gray-100">
-              <Button
-                href={product.affiliateUrl || siteConfig.links.affiliateUrl}
-                external
-                variant="primary"
-                size="lg"
-                icon={ExternalLink}
-                className="w-full"
-              >
-                Megvásárolom a webshopban
-              </Button>
+              <ProductPurchaseButtons
+                retailUrl={product.retailUrl || product.affiliateUrl}
+                registerUrl={product.registerUrl}
+                size="modal"
+              />
             </div>
           </div>
         </motion.div>

@@ -1,6 +1,6 @@
 # Flavon – Affiliate / Lead Generation Website
 
-Professional, modern landing page for a Flavon MLM distributor (Mária – Platinum Team).
+Professional, modern landing page for a Flavon MLM distributor (Marcsi – Platinum Team).
 
 ## Stack
 

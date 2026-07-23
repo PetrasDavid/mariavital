@@ -6,10 +6,10 @@ import ProductsPage from "./pages/ProductsPage";
 import PackagesPage from "./pages/PackagesPage";
 import SuccessStoriesPage from "./pages/SuccessStoriesPage";
 import PlatinumTeamPage from "./pages/PlatinumTeamPage";
-import RingaDancePage from "./pages/RingaDancePage";
 import BlogPage from "./pages/BlogPage";
 import ContactPage from "./pages/ContactPage";
 import LoginPage from "./pages/LoginPage";
+import CategoryPage from "./pages/CategoryPage";
 
 export default function App() {
   return (
@@ -22,10 +22,10 @@ export default function App() {
           <Route path="csomagok" element={<PackagesPage />} />
           <Route path="sikertortenetek" element={<SuccessStoriesPage />} />
           <Route path="platinum-team" element={<PlatinumTeamPage />} />
-          <Route path="ringa-dance" element={<RingaDancePage />} />
           <Route path="blog" element={<BlogPage />} />
           <Route path="kapcsolat" element={<ContactPage />} />
           <Route path="login" element={<LoginPage />} />
+          <Route path="kategoria/:slug" element={<CategoryPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

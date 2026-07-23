@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, Heart } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 import { siteConfig } from "../../config/config";
 import { getSocialLinks, SocialIcon } from "../ui/SocialIcons";
 
@@ -13,18 +13,16 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-2.5 mb-4">
-              <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-emerald-600 text-white">
-                <Heart className="h-5 w-5" fill="currentColor" />
-              </div>
-              <div>
-                <span className="block text-lg font-bold text-white">{brand.name}</span>
-                <span className="block text-xs text-brand-400 font-medium">{brand.slogan}</span>
-              </div>
+            <div className="mb-4">
+              <img
+                src={brand.logo}
+                alt={brand.name}
+                className="h-12 w-auto object-contain brightness-0 invert opacity-90"
+              />
             </div>
             <p className="text-gray-400 leading-relaxed max-w-md mb-6">
-              {distributor.fullName} független Flavon distributor weboldala.
-              {brand.description}
+              {distributor.fullName} független Flavon distributor weboldala.{" "}
+              {brand.promise}
             </p>
             <div className="flex flex-wrap gap-3">
               {socialLinks

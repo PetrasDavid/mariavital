@@ -1,24 +1,31 @@
 /**
- * Mariavital.hu — central configuration
+ * Marcsivital.hu — central configuration
  * Update affiliate URLs, contact info, and social links here.
  */
 export const siteConfig = {
   brand: {
-    name: "Mariavital.hu",
-    shortName: "Mariavital",
-    slogan: "Egészség • Mozgás • Közösség",
-    heroTagline: "Egészség, vitalitás és közösség – szeretettel, Máriával.",
+    name: "Marcsivital.hu",
+    shortName: "Marcsivital",
+    slogan: "Egészség • Vitalitás • Közösség",
+    logo: "/marcsivital_logo.png",
+    heroHeadline: "Az egészség a legjobb befektetés – önmagadba.",
+    heroSubtitle:
+      "Segítek abban, hogy több energiád legyen, jobban érezd magad a bőrödben, és megtaláld azokat a természetes megoldásokat, amelyek hosszú távon is támogatják az egészségedet.",
+    promise:
+      "Nem csodát ígérek. Egy utat mutatok egy energikusabb, egészségesebb élet felé.",
     description:
-      "Prémium Flavon táplálkozás, Ringa Dance mozgás és támogató közösség Mária vezetésével.",
+      "Prémium Flavon táplálkozás, egészséges életmód és támogató közösség Marcsi vezetésével.",
   },
 
   distributor: {
-    name: "Mária",
-    fullName: "Mária Miskolci",
-    title: "Flavon független distributor · Ringa Dance oktató",
+    name: "Marcsi",
+    fullName: "Miskolci Marcsi",
+    formalName: "Miskolci Mária",
+    title: "Flavon független distributor · Elit Team vezető",
     teamName: "Platinum Team",
+    rank: "Elit Team vezető",
     profileImage: "/profilkep.jpg",
-    profileImageAlt: "Mária Kovács profilképe",
+    profileImageAlt: "Miskolci Marcsi profilképe",
   },
 
   contact: {
@@ -29,7 +36,7 @@ export const siteConfig = {
 
   social: {
     facebookProfile: {
-      label: "Mária Miskolci – Facebook",
+      label: "Marcsi Miskolci – Facebook",
       href: "https://www.facebook.com/miskolci.maria",
     },
     facebookGroup1: {
@@ -57,13 +64,18 @@ export const siteConfig = {
       href: "https://www.tiktok.com/@marcsella73",
     },
     messenger: {
-      label: "Messenger – írj Máriának!",
+      label: "Messenger – írj Marcsinak!",
       href: "https://m.me/miskolci.maria",
     },
   },
 
   links: {
-    affiliateUrl: "https://webshop.flavonmax.com",
+    /** Marcsi ajánlói / jutalék linkje — mindkét CTA ide vezet */
+    affiliateUrl: "https://www.healthwithflavon.com/M-486391",
+    /** Kiskereskedelmi / darabos vásárlás */
+    retailUrl: "https://www.healthwithflavon.com/M-486391",
+    /** Közvetlen gyártói vásárlás + regisztráció */
+    registerUrl: "https://www.healthwithflavon.com/M-486391",
     calendlyUrl: "#",
     ebookDownloadUrl: "#",
   },
@@ -75,116 +87,131 @@ export const siteConfig = {
     { label: "Csomagok", to: "/csomagok" },
     { label: "Sikertörténetek", to: "/sikertortenetek" },
     { label: "Platinum Team", to: "/platinum-team" },
-    { label: "Ringa Dance", to: "/ringa-dance" },
     { label: "Blog", to: "/blog" },
     { label: "Kapcsolat", to: "/kapcsolat" },
   ],
 
   legal: {
     disclaimer:
-      "Ez a Mariavital.hu egy független Flavon distributor személyes weboldala. Nem a Flavon hivatalos vállalati oldala. A vásárlás, szállítás és számlázás a Flavon hivatalos webshopján keresztül történik.",
+      "Ez a Marcsivital.hu egy független Flavon distributor személyes weboldala. Nem a Flavon hivatalos vállalati oldala. A vásárlás, szállítás és számlázás a Flavon hivatalos webshopján keresztül történik.",
   },
 
   formEndpoint: null,
 };
 
-export const homeNavCards = [
+export const productCategories = [
   {
-    title: "Termékek",
-    description: "Fedezd fel a prémium Flavon termékcsaládot",
-    to: "/termekek",
-    icon: "leaf",
-    color: "from-brand-500 to-emerald-600",
+    id: "immunrendszer",
+    emoji: "🌿",
+    title: "Immunrendszer",
+    description: "Természetes támogatás a mindennapi ellenállóképességhez.",
+    to: "/kategoria/immunrendszer",
   },
   {
-    title: "Sikertörténetek",
-    description: "Valódi emberek, valódi átalakulások",
-    to: "/sikertortenetek",
-    icon: "sparkles",
-    color: "from-rose-400 to-pink-500",
+    id: "sziv",
+    emoji: "❤️",
+    title: "Szív- és érrendszer",
+    description: "Vitalitás és keringés – a hosszú távú egészségért.",
+    to: "/kategoria/sziv",
   },
   {
-    title: "Csatlakozz hozzánk",
-    description: "Platinum Team · mentorálás · közösség",
-    to: "/platinum-team",
-    icon: "users",
-    color: "from-teal-500 to-cyan-600",
+    id: "energia",
+    emoji: "⚡",
+    title: "Energia",
+    description: "Több lendület a napjaidhoz – természetes összetevőkkel.",
+    to: "/kategoria/energia",
   },
   {
-    title: "Kapcsolat",
-    description: "Írj, hívj — szívesen segítek!",
-    to: "/kapcsolat",
-    icon: "heart",
-    color: "from-accent-400 to-orange-500",
+    id: "emesztes",
+    emoji: "🥗",
+    title: "Emésztés",
+    description: "Bélrendszer-támogatás és kiegyensúlyozott közérzet.",
+    to: "/kategoria/emesztes",
+  },
+  {
+    id: "aktiv",
+    emoji: "🏃",
+    title: "Aktív életmód",
+    description: "Mozgás, regeneráció és tartós energia.",
+    to: "/kategoria/aktiv",
+  },
+  {
+    id: "noi",
+    emoji: "🌸",
+    title: "Női egészség",
+    description: "Támogatás a változó életkorban és a női vitalitásban.",
+    to: "/kategoria/noi",
   },
 ];
 
+export const whyChooseMe = [
+  "Saját tapasztalatok",
+  "Több éves Flavon ismeret",
+  "Folyamatos támogatás",
+  "Segítség a megfelelő termék kiválasztásában",
+  "Csatlakozási lehetőség a Platinum Teamhez",
+];
+
+export const storyQuote =
+  "Nem csupán lefogytam – új életet kezdtem. Az eredményemet pedig több mint két éve sikerült megtartanom. Ez adott hitet ahhoz, hogy másoknak is segítsek elindulni.";
+
+export const platinumPitch = {
+  headline: "Egyedül nehéz. Egy jó csapatban viszont sokkal könnyebb fejlődni.",
+  points: ["mentorálás", "képzések", "közösség", "támogatás", "üzleti lehetőség"],
+  cta: "Csatlakozom",
+};
+
 export const ebookOffer = {
-  title: "7 napos lapos has kihívás Ringa Dance-szel!",
+  title: "7 napos lapos has kihívás!",
   subtitle:
-    "Töltsd le ingyenes e-bookomat, és kezdd el már ma az új életed — mozgással, táplálkozással és közösségi támogatással.",
+    "Töltsd le ingyenes e-bookomat, és kezdd el már ma az új életed — táplálkozással, rutinnal és közösségi támogatással.",
   cta: "E-book letöltése ingyen",
   downloadUrl: siteConfig.links.ebookDownloadUrl,
 };
 
 export const blogPosts = [
   {
-    id: "hashimoto-tippek",
-    title: "5 tipp Hashimoto mellett",
-    excerpt:
-      "Hogyan támogathatod a pajzsmirigy működését táplálkozással és Flavon termékekkel — praktikus tanácsok mindennapra.",
-    category: "Egészség",
+    id: "eletmodvaltas",
+    title: "Hogyan kezdj életmódváltásba?",
+    excerpt: "Gyakorlati első lépések, ha tartósan szeretnél változtatni – nem egyik napról a másikra.",
+    category: "Életmód",
     date: "2026. március 12.",
     readTime: "6 perc",
     image: null,
   },
   {
-    id: "lupusz-taplalkozas",
-    title: "Lupusz és táplálkozás",
-    excerpt:
-      "Az autoimmun életmód nemzetközi irányelvei és a gyulladáscsökkentő étrend alapjai — mit érdemes tudni?",
+    id: "zoldseg-gyumolcs",
+    title: "Miért fontos a napi zöldség- és gyümölcsbevitel?",
+    excerpt: "Antioxidánsok, rostok és energia – miért érdemes minden nap figyelni rá.",
+    category: "Egészség",
+    date: "2026. március 5.",
+    readTime: "5 perc",
+    image: null,
+  },
+  {
+    id: "hashimoto-eletmod",
+    title: "Hashimoto és életmód",
+    excerpt: "Hogyan támogathatod magad pajzsmirigy-autoimmun mellett tudatos rutinnal.",
     category: "Autoimmun",
     date: "2026. február 28.",
     readTime: "8 perc",
     image: null,
   },
   {
-    id: "magyaros-receptek",
-    title: "Magyaros fogyókúrás receptek",
-    excerpt:
-      "Ízletes, egészséges magyar ételek kalóriacsökkentett változatban — a Marcselladiéta kedvencei közül.",
-    category: "Receptek",
+    id: "autoimmun-taplalkozas",
+    title: "Autoimmun betegségek és táplálkozás",
+    excerpt: "Gyulladáscsökkentő irányelvek és mindennapi tippek a táplálkozáshoz.",
+    category: "Autoimmun",
     date: "2026. február 15.",
-    readTime: "5 perc",
-    image: null,
-  },
-  {
-    id: "ringa-dance-kezdo",
-    title: "Ringa Dance kezdőknek",
-    excerpt:
-      "Mi az a Ringa Dance, és hogyan segíthet a fogyásban, a közérzet javításában és a közösségi élményben?",
-    category: "Mozgás",
-    date: "2026. január 20.",
     readTime: "7 perc",
     image: null,
   },
   {
-    id: "flavon-napi-rutin",
-    title: "Flavon napi rutin reggelre",
-    excerpt:
-      "Egyszerű reggeli szokások, amelyek energiát adnak — termékek, víz, mozgás és pozitív gondolatok.",
+    id: "tartos-fogyas",
+    title: "Tippek a tartós fogyáshoz",
+    excerpt: "Nem diéta, hanem rendszer – amit a saját 2+ éves tapasztalatomból tanultam.",
     category: "Életmód",
-    date: "2026. január 8.",
-    readTime: "4 perc",
-    image: null,
-  },
-  {
-    id: "nyari-detox",
-    title: "Tavaszi feltöltődés otthon",
-    excerpt:
-      "Természetes méregtelenítés Flavon termékekkel és könnyű ételekkel — 2 hetes útmutató kezdőknek.",
-    category: "Életmód",
-    date: "2025. december 10.",
+    date: "2026. január 20.",
     readTime: "6 perc",
     image: null,
   },
@@ -192,43 +219,43 @@ export const blogPosts = [
 
 export const packages = [
   {
-    id: "immun",
+    id: "belrendszer",
     emoji: "🌿",
-    name: "Immunerősítő csomag",
-    description: "Flavon Green + Protect — az immunrendszer mindennapi támogatására.",
+    name: "Bélrendszer karbantartás – 2 havi",
+    description: "2× Green + 2× Protect — akciós csomag 54 000 Ft-ért (eredeti 65 000 Ft).",
     products: ["Flavon Green", "Flavon Protect"],
     accentColor: "from-emerald-400 to-green-600",
   },
   {
-    id: "ringa",
-    emoji: "💃",
-    name: "Ringa Dance energia csomag",
-    description: "Boost + Active — mozgáshoz és vitalitáshoz, edzés előtt és után.",
-    products: ["Flavon Boost", "Flavon Active"],
-    accentColor: "from-rose-400 to-pink-500",
+    id: "vitality",
+    emoji: "💚",
+    name: "Vitality csomag",
+    description: "Peak Boost + Flavon Green + Flavon Protect — teljes vitalitás a mindennapokra.",
+    products: ["Peak Boost", "Flavon Green", "Flavon Protect"],
+    accentColor: "from-emerald-500 to-teal-600",
   },
   {
-    id: "summer",
+    id: "turbo",
     emoji: "🔥",
-    name: "30 napos Summer Body csomag",
-    description: "Komplett 30 napos program termékekkel, receptekkel és Ringa Dance támogatással.",
-    products: ["Flavon Max", "Flavon Green", "Flavon Boost"],
+    name: "Turbó fogyás hatás csomag",
+    description: "2 havi Green + 1 havi Boost a kihíváshoz — akciósan 54 000 Ft.",
+    products: ["Flavon Green", "Peak Boost"],
     accentColor: "from-orange-400 to-amber-500",
   },
   {
-    id: "noi",
-    emoji: "❤️",
-    name: "Női vitalitás csomag",
-    description: "Hormonális egyensúly és energia nőknek — természetes összetevőkkel.",
-    products: ["Flavon Protect", "Flavon Max"],
-    accentColor: "from-pink-400 to-rose-500",
+    id: "vegyes-karton",
+    emoji: "📦",
+    name: "Vegyes karton",
+    description: "Flavon Green + Protect + Peak Fruit — vegyes összeállítás egy kartonban.",
+    products: ["Flavon Green", "Flavon Protect", "Peak Fruit"],
+    accentColor: "from-blue-400 to-indigo-600",
   },
   {
-    id: "autoimmun",
-    emoji: "🛡️",
-    name: "Autoimmun életmód csomag",
-    description: "Gyulladáscsökkentő támogatás autoimmun betegségek mellett élt életmódhoz.",
-    products: ["Flavon Green", "Flavon Protect", "Flavon Max"],
-    accentColor: "from-teal-400 to-cyan-600",
+    id: "izulet",
+    emoji: "🦴",
+    name: "Ízület támogató csomag",
+    description: "Glucosamine & Chondroitin + Collagen — mozgás és regeneráció.",
+    products: ["Glucosamine & Chondroitin", "Collagen"],
+    accentColor: "from-sky-400 to-blue-600",
   },
 ];

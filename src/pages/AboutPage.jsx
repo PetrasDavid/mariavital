@@ -1,26 +1,25 @@
 import { motion } from "framer-motion";
-import { Heart, TrendingDown, Music, Sparkles } from "lucide-react";
-import { siteConfig } from "../config/config";
+import { Heart, TrendingDown, Users, Sparkles, Check } from "lucide-react";
+import { siteConfig, whyChooseMe, storyQuote } from "../config/config";
 import PageHero from "../components/ui/PageHero";
-import SectionHeading from "../components/ui/SectionHeading";
 import Button from "../components/ui/Button";
 
 const milestones = [
   { icon: Heart, value: "2+ év", label: "Egészséges életmód fenntartva" },
-  { icon: TrendingDown, value: "−15 kg", label: "Súlycsökkenés természetes módon" },
-  { icon: Music, value: "Ringa Dance", label: "Mozgás a mindennapokban" },
-  { icon: Sparkles, value: "Platinum", label: "Team vezető" },
+  { icon: TrendingDown, value: "−11 kg", label: "Súlycsökkenés természetes módon" },
+  { icon: Users, value: "Közösség", label: "Támogató csapat minden nap" },
+  { icon: Sparkles, value: "Elit Team", label: "Vezető" },
 ];
 
 export default function AboutPage() {
-  const { distributor } = siteConfig;
+  const { distributor, brand } = siteConfig;
 
   return (
     <>
       <PageHero
-        eyebrow="Rólam"
-        title={`Szia, ${distributor.name} vagyok!`}
-        subtitle="Flavon distributor, Ringa Dance oktató és a Platinum Team alapítója — egészség, mozgás és közösség a mindennapjaimban."
+        eyebrow="💗 Az én történetem"
+        title="Bemutatkozás"
+        subtitle={`${distributor.fullName} — Flavon distributor és Elit Team vezető.`}
       />
 
       <section className="pb-20 md:pb-28">
@@ -32,10 +31,10 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="lg:sticky lg:top-28"
             >
-              <div className="aspect-[4/5] max-w-xs sm:max-w-sm mx-auto lg:max-w-none w-full rounded-3xl overflow-hidden shadow-xl bg-gradient-to-br from-brand-100 to-rose-100">
+              <div className="aspect-[4/5] max-w-xs sm:max-w-sm mx-auto lg:max-w-none w-full rounded-3xl overflow-hidden shadow-xl">
                 <img
-                  src={siteConfig.distributor.profileImage}
-                  alt={siteConfig.distributor.profileImageAlt}
+                  src={distributor.profileImage}
+                  alt={distributor.profileImageAlt}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -47,32 +46,43 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="space-y-6 text-gray-600 text-base sm:text-lg leading-relaxed"
             >
-              <h2 className="text-2xl font-bold text-gray-900">Hogyan találtam rá a Flavonra?</h2>
+              <p className="text-2xl font-bold text-gray-900">
+                Szia, {distributor.fullName} vagyok!
+              </p>
               <p>
-                Éveken át küzdöttem a súlyommal, a fáradtsággal és a motiváció hiányával.
-                Amikor először kipróbáltam a Flavon termékeket, lassan, de tartósan
-                megváltozott az életem — nem egy gyors diéta volt, hanem valódi életmódváltás.
+                Több éve a Flavon termékek elkötelezett ajánlója vagyok. A saját
+                életemben is megtapasztaltam, milyen sokat számít a tudatos életmód
+                és a minőségi táplálkozás.
+              </p>
+              <p>
+                A legnagyobb büszkeségem, hogy az elért fogyásomat több mint két
+                éve sikerült megtartanom (
+                <strong className="text-brand-700">−11 kg</strong>), miközben
+                energikusabbnak és kiegyensúlyozottabbnak érzem magam —{" "}
+                <strong className="text-gray-900">Hashimoto</strong> és a{" "}
+                <strong className="text-gray-900">változó életkor</strong> kihívásai
+                mellett is.
+              </p>
+              <p>
+                Hiszem, hogy minden ember megérdemli, hogy jól érezze magát a
+                testében, és ehhez szeretnék segítséget nyújtani.
               </p>
 
-              <h2 className="text-2xl font-bold text-gray-900 pt-4">Az én történetem</h2>
-              <p>
-                Több mint <strong className="text-gray-900">2 éve</strong> fenntartom az
-                egészséges testsúlyomat. A prémium táplálkozás mellett felfedeztem a{" "}
-                <strong className="text-brand-700">Ringa Dance</strong>-t is — egy vidám,
-                közösségi mozgásformát, amely segített abban, hogy ne csak lefogyjak, hanem
-                örömöt is találjak a mozgásban.
-              </p>
-              <p>
-                Ma már nem csak termékeket ajánlok, hanem mentorálást, képzéseket és egy
-                támogató közösséget kínálok a {distributor.teamName} keretében.
-              </p>
+              <blockquote className="border-l-4 border-brand-500 pl-5 py-2 italic text-gray-800 bg-brand-50/50 rounded-r-2xl">
+                „{storyQuote}”
+              </blockquote>
 
-              <h2 className="text-2xl font-bold text-gray-900 pt-4">Ringa Dance az életemben</h2>
-              <p>
-                A Ringa Dance nem csupán torna — ez egy életérzés. A zene, a ritmus és a
-                közösség ereje segít abban, hogy kitartsunk, és ne egyedül kelljen küzdenünk
-                az egészségünkért. Oktatóként és gyakorlóként is hiszek benne.
-              </p>
+              <p className="font-medium text-brand-800">{brand.promise}</p>
+
+              <h2 className="text-2xl font-bold text-gray-900 pt-4">Miért engem válassz?</h2>
+              <ul className="space-y-2">
+                {whyChooseMe.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <Check className="h-5 w-5 text-brand-600 shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
 
               <div className="grid sm:grid-cols-2 gap-4 pt-6">
                 {milestones.map(({ icon: Icon, value, label }) => (
@@ -88,8 +98,8 @@ export default function AboutPage() {
               </div>
 
               <div className="flex flex-wrap gap-4 pt-6">
-                <Button to="/ringa-dance" variant="secondary">
-                  Ringa Dance
+                <Button to="/termekek" variant="secondary">
+                  Termékek
                 </Button>
                 <Button to="/platinum-team" variant="outline">
                   Csatlakozz a csapathoz

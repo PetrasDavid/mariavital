@@ -11,7 +11,7 @@ const milestones = [
   },
   {
     icon: TrendingDown,
-    value: "−15 kg",
+    value: "−11 kg",
     label: "Súlycsökkenés természetes módon",
   },
   {
