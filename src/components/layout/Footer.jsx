@@ -17,7 +17,7 @@ export default function Footer() {
               <img
                 src={brand.logo}
                 alt={brand.name}
-                className="h-12 w-auto object-contain brightness-0 invert opacity-90"
+                className="h-16 w-auto object-contain rounded-full bg-white"
               />
             </div>
             <p className="text-gray-400 leading-relaxed max-w-md mb-6">

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { Quote, Play, Camera, MessageSquare } from "lucide-react";
+import { Quote, Play, MessageSquare } from "lucide-react";
 import { siteConfig, storyQuote } from "../config/config";
-import { testimonials, beforeAfterStories } from "../config/testimonialsData";
+import { testimonials, weightLossStories } from "../config/testimonialsData";
 import PageHero from "../components/ui/PageHero";
 import SectionHeading from "../components/ui/SectionHeading";
 import Button from "../components/ui/Button";
@@ -20,18 +20,12 @@ export default function SuccessStoriesPage() {
       <section className="pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 items-center rounded-3xl bg-gradient-to-br from-brand-50 to-rose-50 p-8 md:p-12">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="aspect-[3/4] rounded-2xl bg-gray-200 flex flex-col items-center justify-center text-gray-500 text-sm">
-                Előtte
-                <span className="text-xs opacity-70 mt-1">Kép helye</span>
-              </div>
-              <div className="aspect-[3/4] rounded-2xl overflow-hidden">
-                <img
-                  src={distributor.profileImage}
-                  alt={distributor.profileImageAlt}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+            <div className="rounded-2xl overflow-hidden shadow-lg">
+              <img
+                src={distributor.beforeAfterImage}
+                alt={distributor.beforeAfterImageAlt}
+                className="w-full h-auto object-cover"
+              />
             </div>
             <div>
               <span className="text-brand-600 font-semibold text-sm uppercase tracking-wider">
@@ -54,28 +48,37 @@ export default function SuccessStoriesPage() {
       <section className="pb-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            title="Képes ajánlások"
-            subtitle="Előtte–utána képek és történetek — engedéllyel megosztva."
+            title="Fogyástörténetek"
+            subtitle="Valódi átalakulások — engedéllyel megosztva."
           />
-          <div className="grid sm:grid-cols-2 gap-8 mb-16">
-            {beforeAfterStories.map((story) => (
-              <div
+          <div className="space-y-10 mb-16">
+            {weightLossStories.map((story, i) => (
+              <motion.article
                 key={story.id}
-                className="rounded-2xl overflow-hidden border border-gray-100 bg-white"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="grid lg:grid-cols-2 gap-0 items-stretch rounded-3xl border border-gray-100 bg-white overflow-hidden shadow-sm"
               >
-                <div className="grid grid-cols-2">
-                  <div className="aspect-[3/4] bg-gray-200 flex items-center justify-center text-gray-500 text-sm">
-                    {story.beforePlaceholder}
-                  </div>
-                  <div className="aspect-[3/4] bg-brand-200 flex items-center justify-center text-brand-800 text-sm">
-                    {story.afterPlaceholder}
-                  </div>
+                <div className="relative bg-gray-100">
+                  <img
+                    src={story.image}
+                    alt={story.imageAlt}
+                    className="w-full h-full max-h-[520px] object-cover object-top"
+                  />
+                  <span className="absolute top-4 left-4 rounded-full bg-brand-600 text-white text-sm font-bold px-4 py-1.5 shadow">
+                    {story.highlight}
+                  </span>
                 </div>
-                <p className="p-4 text-sm text-gray-600 flex items-center gap-2">
-                  <Camera className="h-4 w-4 text-brand-600" />
-                  {story.description}
-                </p>
-              </div>
+                <div className="p-6 md:p-8 lg:p-10 space-y-4 self-center">
+                  {story.paragraphs.map((p) => (
+                    <p key={p.slice(0, 48)} className="text-gray-700 leading-relaxed">
+                      {p}
+                    </p>
+                  ))}
+                </div>
+              </motion.article>
             ))}
           </div>
 

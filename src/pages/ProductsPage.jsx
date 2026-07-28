@@ -28,16 +28,28 @@ function ProductModal({ product, onClose }) {
           onClick={(e) => e.stopPropagation()}
           className="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
         >
-          <div className={`h-40 bg-gradient-to-br ${product.accentColor} relative`}>
+          <div className={`h-40 sm:h-52 bg-gradient-to-br ${product.accentColor} relative overflow-hidden`}>
+            {product.image && (
+              <img
+                src={product.image}
+                alt={product.imageAlt || product.name}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            )}
             {product.onSale && (
-              <span className="absolute top-4 left-4 rounded-full bg-amber-400 text-amber-950 text-xs font-bold px-3 py-1.5">
+              <span className="absolute top-4 left-4 rounded-full bg-amber-400 text-amber-950 text-xs font-bold px-3 py-1.5 z-10">
                 Akció!
+              </span>
+            )}
+            {product.comingSoon && (
+              <span className="absolute top-4 left-4 rounded-full bg-white text-brand-800 text-xs font-bold px-3 py-1.5 z-10">
+                Hamarosan
               </span>
             )}
             <button
               type="button"
               onClick={onClose}
-              className="absolute top-4 right-4 p-2 rounded-full bg-white/20 text-white hover:bg-white/30 transition-colors"
+              className="absolute top-4 right-4 p-2 rounded-full bg-black/40 text-white hover:bg-black/55 transition-colors z-10"
               aria-label="Bezárás"
             >
               <X className="h-5 w-5" />
@@ -63,6 +75,11 @@ function ProductModal({ product, onClose }) {
                     </span>
                   </p>
                 </div>
+              )}
+              {product.comingSoon && product.comingSoonLabel && (
+                <p className="text-sm text-brand-700 font-medium mt-2">
+                  {product.comingSoonLabel}
+                </p>
               )}
             </div>
 
@@ -108,6 +125,7 @@ function ProductModal({ product, onClose }) {
                 retailUrl={product.retailUrl || product.affiliateUrl}
                 registerUrl={product.registerUrl}
                 size="modal"
+                disabled={product.comingSoon}
               />
             </div>
           </div>

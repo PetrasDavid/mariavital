@@ -6,7 +6,9 @@ import Button from "./Button";
 
 const initialFormState = { name: "", email: "", phone: "", message: "" };
 
-export default function ContactForm() {
+export default function ContactForm({
+  messagePlaceholder = "Miért szeretnél csatlakozni a Platinum Teamhez?",
+}) {
   const [form, setForm] = useState(initialFormState);
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState("");
@@ -126,7 +128,7 @@ export default function ContactForm() {
           rows={4}
           value={form.message}
           onChange={handleChange}
-          placeholder="Miért szeretnél csatlakozni a Platinum Teamhez?"
+          placeholder={messagePlaceholder}
           className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none transition-all resize-none"
         />
       </div>

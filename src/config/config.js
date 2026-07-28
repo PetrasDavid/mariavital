@@ -26,6 +26,10 @@ export const siteConfig = {
     rank: "Elit Team vezető",
     profileImage: "/profilkep.jpg",
     profileImageAlt: "Miskolci Marcsi profilképe",
+    beforeAfterImage: "/elotte-utana.jpg",
+    beforeAfterImageAlt: "Marcsi előtte–utána átalakulása",
+    teamImage: "/csapatkep.jpg",
+    teamImageAlt: "Platinum Team közös csapatkép",
   },
 
   contact: {
@@ -40,12 +44,12 @@ export const siteConfig = {
       href: "https://www.facebook.com/miskolci.maria",
     },
     facebookGroup1: {
-      label: "Flavon / Platinum Team csoport",
-      href: "https://www.facebook.com/groups/231700674671746/",
+      label: "Platinum Team Facebook csoport",
+      href: "https://www.facebook.com/groups/2378320169060369/",
     },
     facebookGroup2: {
       label: "Közösségi csoport",
-      href: "https://www.facebook.com/groups/985737345235720/",
+      href: "https://www.facebook.com/groups/231700674671746/",
     },
     facebookRecipe1: {
       label: "Marcselladiéta",
@@ -227,14 +231,6 @@ export const packages = [
     accentColor: "from-emerald-400 to-green-600",
   },
   {
-    id: "vitality",
-    emoji: "💚",
-    name: "Vitality csomag",
-    description: "Peak Boost + Flavon Green + Flavon Protect — teljes vitalitás a mindennapokra.",
-    products: ["Peak Boost", "Flavon Green", "Flavon Protect"],
-    accentColor: "from-emerald-500 to-teal-600",
-  },
-  {
     id: "turbo",
     emoji: "🔥",
     name: "Turbó fogyás hatás csomag",
@@ -245,8 +241,9 @@ export const packages = [
   {
     id: "vegyes-karton",
     emoji: "📦",
-    name: "Vegyes karton",
-    description: "Flavon Green + Protect + Peak Fruit — vegyes összeállítás egy kartonban.",
+    name: "Vegyes karton (1#)",
+    description:
+      "Flavon Green + Protect + Peak Fruit — gyártói karton, 1# ár: 54 000 Ft.",
     products: ["Flavon Green", "Flavon Protect", "Peak Fruit"],
     accentColor: "from-blue-400 to-indigo-600",
   },

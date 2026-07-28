@@ -20,9 +20,12 @@ const leaders = [
 ];
 
 const events = [
-  { date: "2026. ápr. 12.", title: "Tavaszi csapatépítő", type: "Offline" },
-  { date: "2026. ápr. 20.", title: "Online termékbemutató", type: "Online" },
-  { date: "2026. máj. 5.", title: "Életmód workshop", type: "Offline" },
+  {
+    date: "2026. aug. 1.",
+    title: "Platinum Team találkozó",
+    location: "Budapest, Tél utca 3. (IV. kerület)",
+    type: "Offline",
+  },
 ];
 
 const podcasts = [
@@ -44,9 +47,12 @@ export default function PlatinumTeamPage() {
 
       <section className="pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="aspect-[21/9] rounded-3xl bg-gradient-to-br from-brand-100 to-rose-100 flex flex-col items-center justify-center text-brand-700 mb-10">
-            <Users className="h-14 w-14 mb-3 opacity-50" />
-            <span className="font-medium">Nagy közös csapatkép helye</span>
+          <div className="aspect-[21/9] rounded-3xl overflow-hidden shadow-xl mb-10">
+            <img
+              src={distributor.teamImage}
+              alt={distributor.teamImageAlt}
+              className="w-full h-full object-cover object-center"
+            />
           </div>
           <div className="flex flex-wrap gap-3 justify-center mb-4">
             {platinumPitch.points.map((p) => (
@@ -82,7 +88,7 @@ export default function PlatinumTeamPage() {
 
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
-              <SectionHeading title="Eseménynaptár" align="left" />
+              <SectionHeading title="Platinum team eseménynaptár" align="left" />
               <div className="space-y-3">
                 {events.map((event) => (
                   <div
@@ -97,11 +103,13 @@ export default function PlatinumTeamPage() {
                       <p className="text-sm text-gray-500">
                         {event.date} · {event.type}
                       </p>
+                      {event.location && (
+                        <p className="text-sm text-gray-500">{event.location}</p>
+                      )}
                     </div>
                   </div>
                 ))}
               </div>
-              <p className="text-xs text-gray-400 mt-4">Helyőrző események — frissítés következik.</p>
             </div>
 
             <div>
@@ -172,7 +180,7 @@ export default function PlatinumTeamPage() {
               <p className="text-gray-600 text-sm mb-6">
                 Töltsd ki az űrlapot, és {distributor.name} felveszi veled a kapcsolatot.
               </p>
-              <ContactForm />
+              <ContactForm messagePlaceholder="Mire keresed a megoldást?" />
             </div>
           </div>
         </div>

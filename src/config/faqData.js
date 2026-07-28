@@ -27,6 +27,6 @@ export const faqItems = [
     id: "prices",
     question: "Az árak véglegesek?",
     answer:
-      "Az oldalon feltüntetett árak tájékoztató jellegű kiskereskedelmi árak. A pontos ár a hivatalos webshopban látható a rendelés leadásakor.",
+      "Az oldalon feltüntetett árak tájékoztató jellegű kiskereskedelmi árak. Gyártói kartonos vásárlásnál az 1# karton ára 54 000 Ft. A pontos ár a hivatalos webshopban látható a rendelés leadásakor.",
   },
 ];

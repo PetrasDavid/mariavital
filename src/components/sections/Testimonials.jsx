@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { Quote, ArrowRight } from "lucide-react";
-import { testimonials, beforeAfterStories } from "../../config/testimonialsData";
+import { Quote } from "lucide-react";
+import { testimonials, weightLossStories } from "../../config/testimonialsData";
 import SectionHeading from "../ui/SectionHeading";
 
 export default function Testimonials() {
@@ -39,35 +39,29 @@ export default function Testimonials() {
         </div>
 
         <div className="grid sm:grid-cols-2 gap-6 md:gap-8">
-          {beforeAfterStories.map((story, index) => (
+          {weightLossStories.map((story, index) => (
             <motion.div
               key={story.id}
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.15 }}
-              className="rounded-2xl overflow-hidden border border-gray-100 shadow-sm"
+              className="rounded-2xl overflow-hidden border border-gray-100 shadow-sm bg-white"
             >
-              <div className="grid grid-cols-2">
-                <div className="aspect-[3/4] bg-gradient-to-br from-gray-200 to-gray-300 flex flex-col items-center justify-center text-gray-500">
-                  <span className="text-sm font-semibold uppercase tracking-wider mb-1">
-                    {story.beforePlaceholder}
-                  </span>
-                  <span className="text-xs opacity-70">Kép helye</span>
-                </div>
-                <div className="aspect-[3/4] bg-gradient-to-br from-brand-200 to-brand-400 flex flex-col items-center justify-center text-brand-800">
-                  <span className="text-sm font-semibold uppercase tracking-wider mb-1">
-                    {story.afterPlaceholder}
-                  </span>
-                  <span className="text-xs opacity-70">Kép helye</span>
-                </div>
+              <div className="relative aspect-[4/5]">
+                <img
+                  src={story.image}
+                  alt={story.imageAlt}
+                  className="w-full h-full object-cover object-top"
+                />
+                <span className="absolute top-3 left-3 rounded-full bg-brand-600 text-white text-xs font-bold px-3 py-1.5">
+                  {story.highlight}
+                </span>
               </div>
-              <div className="p-5 bg-white flex items-center justify-between gap-3">
-                <div>
-                  <p className="font-semibold text-gray-900">{story.label}</p>
-                  <p className="text-sm text-gray-500">{story.description}</p>
-                </div>
-                <ArrowRight className="h-5 w-5 text-brand-600 shrink-0" />
+              <div className="p-5">
+                <p className="text-sm text-gray-600 leading-relaxed line-clamp-4">
+                  {story.paragraphs[0]}
+                </p>
               </div>
             </motion.div>
           ))}

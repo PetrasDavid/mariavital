@@ -15,6 +15,8 @@ export default function ProductCard({ product, index = 0 }) {
     retailUrl,
     registerUrl,
     onSale,
+    comingSoon,
+    comingSoonLabel,
   } = product;
 
   const priceDisplay = formatProductPrice(product);
@@ -48,6 +50,11 @@ export default function ProductCard({ product, index = 0 }) {
         {onSale && (
           <span className="absolute top-3 right-3 z-10 rounded-full bg-amber-400 text-amber-950 text-xs font-bold px-3 py-1.5 shadow">
             Akció!
+          </span>
+        )}
+        {comingSoon && (
+          <span className="absolute top-3 left-3 z-10 rounded-full bg-white text-brand-800 text-xs font-bold px-3 py-1.5 shadow">
+            Hamarosan
           </span>
         )}
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300" />
@@ -89,11 +96,15 @@ export default function ProductCard({ product, index = 0 }) {
                 <p className="text-2xl font-bold text-brand-700">{priceDisplay.current}</p>
               </div>
             )}
+            {comingSoon && comingSoonLabel && (
+              <p className="text-sm text-brand-700 font-medium mt-1">{comingSoonLabel}</p>
+            )}
           </div>
 
           <ProductPurchaseButtons
             retailUrl={retailUrl || affiliateUrl}
             registerUrl={registerUrl}
+            disabled={comingSoon}
             onClick={(e) => e.stopPropagation()}
           />
         </div>

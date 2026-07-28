@@ -31,12 +31,21 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="lg:sticky lg:top-28"
             >
-              <div className="aspect-[4/5] max-w-xs sm:max-w-sm mx-auto lg:max-w-none w-full rounded-3xl overflow-hidden shadow-xl">
-                <img
-                  src={distributor.profileImage}
-                  alt={distributor.profileImageAlt}
-                  className="w-full h-full object-cover"
-                />
+              <div className="space-y-4">
+                <div className="aspect-[4/5] max-w-xs sm:max-w-sm mx-auto lg:max-w-none w-full rounded-3xl overflow-hidden shadow-xl">
+                  <img
+                    src={distributor.profileImage}
+                    alt={distributor.profileImageAlt}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="rounded-3xl overflow-hidden shadow-xl max-w-xs sm:max-w-sm mx-auto lg:max-w-none">
+                  <img
+                    src={distributor.beforeAfterImage}
+                    alt={distributor.beforeAfterImageAlt}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
               </div>
             </motion.div>
 

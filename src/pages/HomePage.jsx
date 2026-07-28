@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Check, ArrowRight, BookOpen, Download, Users } from "lucide-react";
+import { Check, ArrowRight, BookOpen, Download } from "lucide-react";
 import {
   siteConfig,
   productCategories,
@@ -184,17 +184,12 @@ export default function HomePage() {
       <section className="py-20 bg-gradient-to-br from-brand-800 to-emerald-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
-            <div className="grid grid-cols-2 gap-3">
-              <div className="aspect-[3/4] rounded-2xl bg-white/10 flex items-center justify-center text-brand-100 text-sm">
-                Előtte
-              </div>
-              <div className="aspect-[3/4] rounded-2xl overflow-hidden">
-                <img
-                  src={distributor.profileImage}
-                  alt="Utána"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+            <div className="rounded-2xl overflow-hidden shadow-lg">
+              <img
+                src={distributor.beforeAfterImage}
+                alt={distributor.beforeAfterImageAlt}
+                className="w-full h-auto object-cover"
+              />
             </div>
             <div>
               <h2 className="text-3xl font-bold mb-6">Saját történetem</h2>
@@ -217,9 +212,12 @@ export default function HomePage() {
       <section className="py-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="aspect-[16/10] rounded-3xl bg-gradient-to-br from-brand-100 to-rose-100 flex flex-col items-center justify-center text-brand-700">
-              <Users className="h-14 w-14 mb-3 opacity-50" />
-              <span className="font-medium">Nagy közös csapatkép helye</span>
+            <div className="aspect-[16/10] rounded-3xl overflow-hidden shadow-xl">
+              <img
+                src={distributor.teamImage}
+                alt={distributor.teamImageAlt}
+                className="w-full h-full object-cover object-center"
+              />
             </div>
             <div>
               <span className="text-brand-600 font-semibold text-sm uppercase tracking-wider">

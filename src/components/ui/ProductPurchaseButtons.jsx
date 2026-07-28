@@ -2,7 +2,8 @@ import { ShoppingBag, UserPlus } from "lucide-react";
 import { siteConfig } from "../../config/config";
 
 /**
- * Two purchase CTAs: retail piece purchase vs. manufacturer registration.
+ * Two purchase CTAs: retail piece purchase vs. manufacturer carton registration.
+ * Manufacturer 1# carton price: 54 000 Ft.
  */
 export default function ProductPurchaseButtons({
   retailUrl,
@@ -10,6 +11,7 @@ export default function ProductPurchaseButtons({
   className = "",
   size = "card",
   onClick,
+  disabled = false,
 }) {
   const retail = retailUrl || siteConfig.links.retailUrl || siteConfig.links.affiliateUrl;
   const register =
@@ -28,28 +30,31 @@ export default function ProductPurchaseButtons({
     : `${base} px-3 py-2.5 text-xs sm:text-sm border-2 border-brand-600 text-brand-800 bg-white hover:bg-brand-50`;
 
   const iconClass = isModal ? "h-5 w-5 shrink-0 mt-0.5" : "h-4 w-4 shrink-0 mt-0.5";
+  const disabledClasses = disabled ? "pointer-events-none opacity-50" : "";
 
   return (
     <div className={`flex flex-col gap-2 ${className}`}>
       <a
-        href={retail}
+        href={disabled ? undefined : retail}
         target="_blank"
         rel="noopener noreferrer"
-        className={retailClasses}
+        className={`${retailClasses} ${disabledClasses}`}
         onClick={onClick}
+        aria-disabled={disabled}
       >
         <ShoppingBag className={iconClass} aria-hidden />
         <span>Kiskereskedelmi áron darabra vásárolok és kérem</span>
       </a>
       <a
-        href={register}
+        href={disabled ? undefined : register}
         target="_blank"
         rel="noopener noreferrer"
-        className={registerClasses}
+        className={`${registerClasses} ${disabledClasses}`}
         onClick={onClick}
+        aria-disabled={disabled}
       >
         <UserPlus className={iconClass} aria-hidden />
-        <span>Közvetlen a gyártó cégtől vásárolok és regisztrálok</span>
+        <span>A gyártótól kartonra vásárolok — a karton (1#) ára 54.000 Ft</span>
       </a>
     </div>
   );
