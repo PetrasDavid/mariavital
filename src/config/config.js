@@ -75,11 +75,11 @@ export const siteConfig = {
 
   links: {
     /** Marcsi ajánlói / jutalék linkje — mindkét CTA ide vezet */
-    affiliateUrl: "https://www.healthwithflavon.com/M-486391",
+    affiliateUrl: "https://webshop.flavonmax.com/lang=&sponsor=M-486391",
     /** Kiskereskedelmi / darabos vásárlás */
-    retailUrl: "https://www.healthwithflavon.com/M-486391",
+    retailUrl: "https://webshop.flavonmax.com/lang=&sponsor=M-486391",
     /** Közvetlen gyártói vásárlás + regisztráció */
-    registerUrl: "https://www.healthwithflavon.com/M-486391",
+    registerUrl: "https://webshop.flavonmax.com/lang=&sponsor=M-486391",
     calendlyUrl: "#",
     ebookDownloadUrl: "#",
   },
