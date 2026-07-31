@@ -84,6 +84,15 @@ export const siteConfig = {
     ebookDownloadUrl: "#",
   },
 
+  /**
+   * On-site webshop foundation (cart /kosar, checkout /penztar).
+   * Full settings live in src/shop/shopConfig.js
+   */
+  shop: {
+    enabled: true,
+    checkoutEnabled: false,
+  },
+
   navigation: [
     { label: "Kezdőlap", to: "/" },
     { label: "Rólam", to: "/rolam" },

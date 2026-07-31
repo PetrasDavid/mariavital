@@ -239,3 +239,11 @@ export const formatProductPrice = (product) => {
     original: originalPrice ? formatPrice(originalPrice, currency) : null,
   };
 };
+
+export const getProductById = (id) => products.find((p) => p.id === id) ?? null;
+
+/** Products that can be added to the on-site cart foundation */
+export const canAddToCart = (product) =>
+  Boolean(product && !product.comingSoon && product.retailPrice != null);
+
+export const getShopProducts = () => products.filter(canAddToCart);

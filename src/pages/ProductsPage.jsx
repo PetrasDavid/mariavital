@@ -5,6 +5,7 @@ import { products, formatProductPrice } from "../config/productsData";
 import PageHero from "../components/ui/PageHero";
 import ProductCard from "../components/ui/ProductCard";
 import ProductPurchaseButtons from "../components/ui/ProductPurchaseButtons";
+import AddToCartButton from "../components/ui/AddToCartButton";
 
 function ProductModal({ product, onClose }) {
   if (!product) return null;
@@ -120,7 +121,8 @@ function ProductModal({ product, onClose }) {
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-gray-100">
+            <div className="mt-8 pt-6 border-t border-gray-100 space-y-3">
+              <AddToCartButton product={product} className="!py-3.5 !text-sm sm:!text-base" />
               <ProductPurchaseButtons
                 retailUrl={product.retailUrl || product.affiliateUrl}
                 registerUrl={product.registerUrl}

@@ -69,7 +69,7 @@ export default function AboutPage() {
                 <strong className="text-brand-700">−11 kg</strong>), miközben
                 energikusabbnak és kiegyensúlyozottabbnak érzem magam —{" "}
                 <strong className="text-gray-900">Hashimoto</strong> és a{" "}
-                <strong className="text-gray-900">változó életkor</strong> kihívásai
+                <strong className="text-gray-900">változókor</strong> kihívásai
                 mellett is.
               </p>
               <p>

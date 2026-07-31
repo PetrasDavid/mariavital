@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, LogIn, ChevronDown } from "lucide-react";
 import { siteConfig } from "../../config/config";
 import Button from "../ui/Button";
+import CartBadge from "../ui/CartBadge";
 
 const primaryNav = [
   { label: "Rólam", to: "/rolam" },
@@ -115,7 +116,8 @@ export default function Navbar() {
             </div>
           </div>
 
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-2">
+            <CartBadge />
             <Button to="/login" variant="ghost" size="sm" icon={LogIn} iconPosition="left">
               Belépés tagoknak
             </Button>
@@ -124,15 +126,18 @@ export default function Navbar() {
             </Button>
           </div>
 
-          <button
-            type="button"
-            className="xl:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label={isOpen ? "Menü bezárása" : "Menü megnyitása"}
-            aria-expanded={isOpen}
-          >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          <div className="flex items-center gap-1 xl:hidden">
+            <CartBadge />
+            <button
+              type="button"
+              className="p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? "Menü bezárása" : "Menü megnyitása"}
+              aria-expanded={isOpen}
+            >
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -163,6 +168,15 @@ export default function Navbar() {
                 </NavLink>
               ))}
               <div className="pt-4 space-y-3 px-4">
+                <Button
+                  to="/kosar"
+                  variant="outline"
+                  size="md"
+                  className="w-full"
+                  onClick={closeMenu}
+                >
+                  Kosár
+                </Button>
                 <Button
                   to="/login"
                   variant="outline"

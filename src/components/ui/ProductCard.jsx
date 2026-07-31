@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Leaf } from "lucide-react";
 import { formatProductPrice } from "../../config/productsData";
 import ProductPurchaseButtons from "./ProductPurchaseButtons";
+import AddToCartButton from "./AddToCartButton";
 
 export default function ProductCard({ product, index = 0 }) {
   const {
@@ -101,12 +102,15 @@ export default function ProductCard({ product, index = 0 }) {
             )}
           </div>
 
-          <ProductPurchaseButtons
-            retailUrl={retailUrl || affiliateUrl}
-            registerUrl={registerUrl}
-            disabled={comingSoon}
-            onClick={(e) => e.stopPropagation()}
-          />
+          <div className="space-y-2">
+            <AddToCartButton product={product} />
+            <ProductPurchaseButtons
+              retailUrl={retailUrl || affiliateUrl}
+              registerUrl={registerUrl}
+              disabled={comingSoon}
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
         </div>
       </div>
     </motion.article>
