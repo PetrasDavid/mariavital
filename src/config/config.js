@@ -7,7 +7,7 @@ export const siteConfig = {
     name: "Marcsivital.hu",
     shortName: "Marcsivital",
     slogan: "Egészség • Vitalitás • Közösség",
-    logo: "/marcsivital_logo.png",
+    logo: "/marcsivital_logo_uj.png",
     heroHeadline: "Az egészség a legjobb befektetés – önmagadba.",
     heroSubtitle:
       "Segítek abban, hogy több energiád legyen, jobban érezd magad a bőrödben, és megtaláld azokat a természetes megoldásokat, amelyek hosszú távon is támogatják az egészségedet.",
@@ -90,8 +90,11 @@ export const siteConfig = {
    */
   shop: {
     enabled: true,
-    checkoutEnabled: false,
+    checkoutEnabled: true,
   },
+
+  /** Optional Formspree / webhook URL for shop orders (JSON POST). If null → mailto. */
+  orderEndpoint: null,
 
   navigation: [
     { label: "Kezdőlap", to: "/" },
@@ -110,6 +113,24 @@ export const siteConfig = {
   },
 
   formEndpoint: null,
+
+  /**
+   * MailerLite newsletter — paste the Embedded form "action" URL when available.
+   * MailerLite → Forms → Embedded form → Overview → Embed → HTML → action="..."
+   * Example: https://assets.mailerlite.com/jsonp/XXXX/forms/YYYY/subscribe
+   */
+  newsletter: {
+    enabled: true,
+    formActionUrl: "",
+    title: "Iratkozz fel a hírlevélre",
+    subtitle:
+      "Tippek egészséghez, életmódhoz és Flavon termékekhez — közvetlenül Marcsitól.",
+    buttonLabel: "Feliratkozás",
+    successMessage: "Köszönjük! Sikeresen feliratkoztál a hírlevélre.",
+    pendingMessage:
+      "A hírlevél-feliratkozás hamarosan él. Addig írj nekünk e-mailben, ha szeretnél értesítést.",
+    privacyNote: "Az adataidat csak hírlevélküldésre használjuk. Bármikor leiratkozhatsz.",
+  },
 };
 
 export const productCategories = [

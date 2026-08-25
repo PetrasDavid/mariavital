@@ -5,7 +5,6 @@ import { products, formatProductPrice } from "../config/productsData";
 import PageHero from "../components/ui/PageHero";
 import ProductCard from "../components/ui/ProductCard";
 import ProductPurchaseButtons from "../components/ui/ProductPurchaseButtons";
-import AddToCartButton from "../components/ui/AddToCartButton";
 
 function ProductModal({ product, onClose }) {
   if (!product) return null;
@@ -84,7 +83,25 @@ function ProductModal({ product, onClose }) {
               )}
             </div>
 
+            {product.description && (
+              <p className="text-gray-600 text-sm leading-relaxed mb-6">{product.description}</p>
+            )}
+
             <div className="space-y-6">
+              {product.recommendedFor?.length > 0 && (
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-2">Kinek ajánlom?</h3>
+                  <ul className="space-y-1.5">
+                    {product.recommendedFor.map((item) => (
+                      <li key={item} className="text-gray-600 text-sm leading-relaxed flex gap-2">
+                        <span className="text-brand-600 shrink-0">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
               <div>
                 <h3 className="flex items-center gap-2 font-semibold text-gray-900 mb-2">
                   <List className="h-4 w-4 text-brand-600" />
@@ -95,6 +112,17 @@ function ProductModal({ product, onClose }) {
                     "Prémium növényi kivonatok, flavonoidok és természetes összetevők. A pontos összetétel a termék csomagolásán és a hivatalos webshopban található."}
                 </p>
               </div>
+
+              {product.ingredientDetails && (
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-2">
+                    Összetevők hatásai
+                  </h3>
+                  <div className="text-gray-600 text-sm leading-relaxed whitespace-pre-line">
+                    {product.ingredientDetails}
+                  </div>
+                </div>
+              )}
 
               <div>
                 <h3 className="flex items-center gap-2 font-semibold text-gray-900 mb-2">
@@ -121,9 +149,9 @@ function ProductModal({ product, onClose }) {
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-gray-100 space-y-3">
-              <AddToCartButton product={product} className="!py-3.5 !text-sm sm:!text-base" />
+            <div className="mt-8 pt-6 border-t border-gray-100">
               <ProductPurchaseButtons
+                product={product}
                 retailUrl={product.retailUrl || product.affiliateUrl}
                 registerUrl={product.registerUrl}
                 size="modal"
@@ -145,7 +173,7 @@ export default function ProductsPage() {
       <PageHero
         eyebrow="Termékek"
         title="Prémium Flavon termékcsalád"
-        subtitle="Kattints egy termékre a részletekért — összetevők, fogyasztási útmutató és vásárlási link."
+        subtitle="Válassz terméket a kosárba, vagy nyisd meg a Termékinformációt a részletekért."
         compact
       />
 
@@ -153,16 +181,12 @@ export default function ProductsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {products.map((product, index) => (
-              <div
+              <ProductCard
                 key={product.id}
-                role="button"
-                tabIndex={0}
-                onClick={() => setSelectedProduct(product)}
-                onKeyDown={(e) => e.key === "Enter" && setSelectedProduct(product)}
-                className="cursor-pointer h-full"
-              >
-                <ProductCard product={product} index={index} />
-              </div>
+                product={product}
+                index={index}
+                onInfoClick={() => setSelectedProduct(product)}
+              />
             ))}
           </div>
         </div>

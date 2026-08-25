@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Minus, Plus, ShoppingBag, Trash2, ArrowRight } from "lucide-react";
+import { Minus, Plus, ShoppingBag, Trash2, ArrowRight, Truck } from "lucide-react";
 import { useCart } from "../context/CartContext";
 import { formatPrice } from "../config/productsData";
 import { shopConfig } from "../shop/shopConfig";
@@ -11,11 +11,14 @@ export default function CartPage() {
     items,
     itemCount,
     subtotal,
+    shipping,
+    total,
+    amountToFreeShipping,
+    freeShippingFrom,
     currency,
     setQuantity,
     removeItem,
     clearCart,
-    checkoutEnabled,
   } = useCart();
 
   return (
@@ -23,7 +26,7 @@ export default function CartPage() {
       <PageHero
         eyebrow="Webshop"
         title="Kosár"
-        subtitle="A saját webshop alapjai — a kosár mentve marad a böngésződben. A fizetés hamarosan érkezik."
+        subtitle="A kosár mentve marad a böngésződben. A pénztárnál megadhatod a szállítási adatokat."
         compact
       />
 
@@ -59,6 +62,7 @@ export default function CartPage() {
                       <h3 className="font-bold text-gray-900">{line.product.name}</h3>
                       <p className="text-sm text-brand-700 font-semibold mt-1">
                         {formatPrice(line.unitPrice, currency)}
+                        {line.product.unit ? ` ${line.product.unit}` : ""}
                       </p>
                       <div className="flex flex-wrap items-center gap-3 mt-4">
                         <div className="inline-flex items-center rounded-full border border-gray-200">
@@ -106,45 +110,60 @@ export default function CartPage() {
                 </button>
               </div>
 
-              <aside className="rounded-3xl border border-gray-100 bg-brand-50/60 p-6 h-fit lg:sticky lg:top-28">
-                <h2 className="text-lg font-bold text-gray-900 mb-4">Összesítő</h2>
-                <div className="flex justify-between text-sm text-gray-600 mb-2">
-                  <span>Tételek</span>
-                  <span>{itemCount} db</span>
-                </div>
-                <div className="flex justify-between text-lg font-bold text-gray-900 mb-6">
-                  <span>Részösszeg</span>
-                  <span>{formatPrice(subtotal, currency)}</span>
-                </div>
-                <p className="text-xs text-gray-500 leading-relaxed mb-6">
-                  {shopConfig.shippingNote}
-                </p>
-                {checkoutEnabled ? (
-                  <Button to="/penztar" variant="secondary" size="lg" className="w-full" icon={ArrowRight}>
-                    Tovább a pénztárhoz
-                  </Button>
-                ) : (
-                  <div className="space-y-3">
-                    <Button
-                      to="/penztar"
-                      variant="secondary"
-                      size="lg"
-                      className="w-full"
-                      icon={ArrowRight}
-                    >
-                      Pénztár megtekintése
-                    </Button>
-                    <Button to="/termekek" variant="outline" size="md" className="w-full">
-                      Vásárlás folytatása
-                    </Button>
+              <aside className="rounded-3xl border border-gray-100 bg-brand-50/60 p-6 h-fit lg:sticky lg:top-28 space-y-4">
+                <h2 className="text-lg font-bold text-gray-900">Összesítő</h2>
+
+                {amountToFreeShipping > 0 && (
+                  <div className="flex gap-2 p-3 rounded-xl bg-white border border-brand-100 text-sm text-brand-800">
+                    <Truck className="h-4 w-4 shrink-0 mt-0.5" />
+                    <p>
+                      Még{" "}
+                      <strong>{formatPrice(amountToFreeShipping, currency)}</strong> a
+                      ingyenes szállításhoz
+                      {freeShippingFrom
+                        ? ` (${formatPrice(freeShippingFrom, currency)}-tól)`
+                        : ""}
+                      .
+                    </p>
                   </div>
                 )}
-                <p className="text-xs text-center text-gray-500 mt-4">
-                  Addig is:{" "}
-                  <Link to="/termekek" className="text-brand-700 font-medium hover:underline">
-                    Flavon webshop linkek a termékeknél
-                  </Link>
-                </p>
+
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between text-gray-600">
+                    <span>Tételek</span>
+                    <span>{itemCount} db</span>
+                  </div>
+                  <div className="flex justify-between text-gray-600">
+                    <span>Részösszeg</span>
+                    <span>{formatPrice(subtotal, currency)}</span>
+                  </div>
+                  <div className="flex justify-between text-gray-600">
+                    <span>Szállítás (becsült)</span>
+                    <span>
+                      {shipping === 0 ? "Ingyenes" : formatPrice(shipping, currency)}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex justify-between text-lg font-bold text-gray-900 pt-2 border-t border-brand-100">
+                  <span>Végösszeg</span>
+                  <span>{formatPrice(total, currency)}</span>
+                </div>
+
+                <p className="text-xs text-gray-500 leading-relaxed">{shopConfig.shippingNote}</p>
+
+                <Button
+                  to="/penztar"
+                  variant="secondary"
+                  size="lg"
+                  className="w-full"
+                  icon={ArrowRight}
+                >
+                  Tovább a pénztárhoz
+                </Button>
+                <Button to="/termekek" variant="outline" size="md" className="w-full">
+                  Vásárlás folytatása
+                </Button>
               </aside>
             </div>
           )}

@@ -1,2 +1,10 @@
-/** Webshop foundation barrel — expand as payment/shipping modules land. */
-export { shopConfig } from "./shopConfig";
+/** Webshop foundation barrel */
+export { shopConfig, calcShipping } from "./shopConfig";
+export {
+  createOrderId,
+  buildOrderPayload,
+  submitOrder,
+  saveLastOrder,
+  loadLastOrder,
+  formatOrderEmailBody,
+} from "./orderService";

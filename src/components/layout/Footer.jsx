@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Phone, Mail } from "lucide-react";
 import { siteConfig } from "../../config/config";
 import { getSocialLinks, SocialIcon } from "../ui/SocialIcons";
+import NewsletterForm from "../ui/NewsletterForm";
 
 export default function Footer() {
   const { brand, distributor, contact, legal } = siteConfig;
@@ -24,7 +25,7 @@ export default function Footer() {
               {distributor.fullName} független Flavon distributor weboldala.{" "}
               {brand.promise}
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 mb-8">
               {socialLinks
                 .filter((link) => !link.placeholder)
                 .map((link) => (
@@ -40,6 +41,7 @@ export default function Footer() {
                   </a>
                 ))}
             </div>
+            <NewsletterForm variant="dark" className="max-w-md" />
           </div>
 
           <div>

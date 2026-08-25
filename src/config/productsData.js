@@ -10,17 +10,57 @@ const shop = siteConfig.links.affiliateUrl;
 export const products = [
   {
     id: "flavon-green",
-    name: "Flavon Green",
+    name: "GREEN zöldség koncentrátum",
     description:
-      "Zöldségalapú koncentrátum a mindennapi vitalitásért — antioxidánsok és növényi tápanyagok.",
-    benefits: ["Zöldség koncentrátum", "Antioxidáns", "Napi rutin"],
+      "A tömény zöldség, az egészséges fogyás alapja! De ki tud naponta 1,5–2 kg-ot megenni? Annyi baj van vele: megvenni, megpucolni, sütni, főzni, nyersen… Macerás. A Green zöldség-koncentrátum az igazi kalóriadeficit támogatója — az üvegben ellenőrzött minőségben és mennyiségben tömény zöldség található, tudományosan igazolt vizsgálatok alapján összekeverve, olyan arányban, ahogyan számunkra a leghasznosabb. Feltölt, így nem leszel éhes, de az energiaszinted megmarad. Ez nem étvágycsökkentő, hanem sejt feltöltő élelmiszer, melynek egy adagja csak 16 kcal!",
+    benefits: ["Zöldség koncentrátum", "16 kcal/adag", "Kalóriadeficit", "Prebiotikus"],
     retailPrice: 16200,
     currency: "Ft",
     unit: "/üveg",
     image: "/products/flavon_green.jpg",
-    imageAlt: "Flavon Green",
+    imageAlt: "Flavon Green zöldség koncentrátum",
     accentColor: "from-emerald-400 to-green-600",
     affiliateUrl: shop,
+    ingredients:
+      "Brokkoli, zeller, spenót, fokhagyma, spirulina alga, homoktövis, zöld tea, sárgarépa, búzafű, petrezselyem, grapefruit.",
+    recommendedFor: [
+      "Fogyó- és tisztítókúrában",
+      "Lúgosításban, méregtelenítésben",
+      "Emésztési zavaroknál, puffadásnál",
+      "Csontritkulás, ásványi anyag pótlás",
+      "Keringési zavaroknál, szív- és érrendszeri támogatás",
+      "Kismamáknak (fólsav — nyers spenót)",
+      "Gyulladások, fertőzések, fekélyek esetén",
+      "Látás javításánál (magas béta-karotin)",
+      "Vizelethajtásnál, vérnyomás szabályozásnál",
+      "Cukorbetegeknek kifejezetten ajánlott",
+      "Koleszterin csökkentésnél",
+      "Mindenkinek, aki nem fogyaszt naponta 1–1,5 kg nyers zöldséget",
+    ],
+    ingredientDetails: `Brokkoli — A zöldségek királynője: A-, C-, E-vitamin, vas, folsav, kálium, glükozinolátok, inulin, rost és fehérje. Gazdag klorofill forrás.
+
+Zeller — Ca, P, Mg, Fe, nyomelemek, karotin, illóolaj, A-, B-, C-vitamin. Vizelethajtó, vágykeltő, emésztési zavaroknál, erősen lúgosít.
+
+Spenót — A-, B2-, B6-, C-, E-, K-vitamin, mangán, folsav, kalcium, kálium, réz, foszfor, cink. Daganatokban, keringési zavarokban, látás, lúgosítás. Kiváló rost- és Omega-3 forrás.
+
+Fokhagyma — Flavonoidok, allinin és allicin enzimek, A-, B1-, B2-, C- és E-vitamin. Természetes antibiotikum, gombaellenes, emésztést és májműködést elősegítő, inulin, vérnyomáscsökkentő.
+
+Spirulina alga — A WHO a tökéletes tápláléknak nevezi. Teljes B-vitamin sor, C- és E-vitamin, ásványi anyagok. ~60% tiszta fehérje — teljes értékű fehérjeforrás vegánoknak is. Fokozza a jóllakottság érzését.
+
+Homoktövis — Magas béta-karotin, kiemelkedő C- és E-vitamin. Immunrendszer, bőr, gyomor-nyombél, máj, hajhullás.
+
+Zöld tea — B2-, C-, D-, K-vitamin, ásványi anyagok. Nagyon magas polifenol- és antioxidáns tartalom. Hasi zsír csökkentés, egészséges testsúlykontroll, csontsűrűség, prebiotikus hatás.
+
+Sárgarépa — Kalcium, kálium, nátrium, foszfor, vas, magnézium, króm, A-, B-, C-, E-, K-vitamin. Magas béta-karotin és karotin tartalom.
+
+Búzafű — Ásványi anyagok, nyomelemek, vitaminok, enzimek, klorofill. Gyulladások, fertőzések, fekélyek ellen, emésztés javítás, intenzíven lúgosít, immunerősítő.
+
+Petrezselyem — C-, B-, K-vitamin, flavonoidok, ásványi anyagok. Vizelethajtó, vesetisztító, gyulladáscsökkentő, gyomorerősítő.
+
+Grapefruit — Magas B-, C-, E-, K-vitamin, pektin, bioflavonoid. Szív-érrendszer, vírus- és daganatellenes hatás, májtisztító, lúgosító.`,
+    consumption:
+      "Az első 2–3 hónapban emelt szintű adagolását ajánlom — a meglévő egészségi állapotot nem megőrizni, hanem emelni szeretnénk. Egy üveg kb. 30–40 napra elegendő zöldség-koncentrátumot tartalmaz, adagolása a csomagolásban levő kanállal. Ajánlott étkezés előtt 10 perccel, reggel, délben és este — igyál rá egy nagy pohár vizet!",
+    faq: "A GREEN hatásai az összetevők erejében rejlik. Kiskereskedelmi áron darabra rendelhető ezen az oldalon, gyártói kartonos vásárlás esetén az 1# karton ára 54 000 Ft.",
   },
   {
     id: "flavon-protect",
@@ -164,19 +204,25 @@ export const products = [
   },
   {
     id: "flavon-green-plus",
-    name: "Green+",
+    name: "FLAVON Green+ NEW zöldség koncentrátum",
     description:
-      "Flavon Green+ — hamarosan érkezik 2026 augusztusában.",
-    benefits: ["Green+", "Hamarosan", "2026. augusztus"],
-    retailPrice: 21600,
+      "A tömény zöldség, az egészséges fogyás alapja! De ki tud naponta 1,5–2 kg-ot megenni? Annyi baj van vele: megvenni, megpucolni, sütni, főzni, nyersen… Macerás. A Green+ zöldség-koncentrátum az igazi kalóriadeficit támogatója — az üvegben ellenőrzött minőségben és mennyiségben tömény zöldség található, tudományosan igazolt vizsgálatok alapján összekeverve, olyan arányban, ahogyan számunkra a leghasznosabb. Feltölt, így nem leszel éhes, de az energiaszinted megmarad. Ez nem étvágycsökkentő, hanem sejt feltöltő élelmiszer, melynek egy adagja csak 16 kcal!",
+    benefits: ["Green+", "Zöldség koncentrátum", "16 kcal/adag", "Kalóriadeficit"],
+    retailPrice: 21500,
     currency: "Ft",
     unit: "/üveg",
-    comingSoon: true,
-    comingSoonLabel: "Hamarosan — 2026. augusztus",
-    image: null,
-    imageAlt: "Flavon Green+",
+    cartonUnits: 3,
+    cartonNote: "1 karton = 3 db (nem 4)",
+    cartonPrice: 54000,
+    image: "/products/flavon_green_plus.jpg",
+    imageAlt: "FLAVON Green+ NEW zöldség koncentrátum",
     accentColor: "from-emerald-500 to-lime-600",
     affiliateUrl: shop,
+    ingredients:
+      "Tömény zöldségkoncentrátum — ellenőrzött minőségű és mennyiségű zöldségek tudományosan igazolt arányban.",
+    consumption:
+      "A csomagoláson feltüntetett adagolás szerint. Egy adag mindössze 16 kcal — feltölt, miközben támogatja a kalóriadeficitet.",
+    faq: "Ez a darabár. A Green+ karton 3 üveget tartalmaz (nem 4-et, mint egyes más termékeknél). Gyártói 1# kartonár: 54 000 Ft.",
   },
   {
     id: "belrendszer-2havi",

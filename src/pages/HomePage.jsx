@@ -13,6 +13,7 @@ import { faqItems } from "../config/faqData";
 import Button from "../components/ui/Button";
 import FAQAccordion from "../components/ui/FAQAccordion";
 import SectionHeading from "../components/ui/SectionHeading";
+import NewsletterForm from "../components/ui/NewsletterForm";
 
 export default function HomePage() {
   const { brand, distributor } = siteConfig;
@@ -290,6 +291,20 @@ export default function HomePage() {
                 </Button>
               </div>
             </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Newsletter */}
+      <section className="py-16 md:py-20 bg-brand-50">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-3xl bg-white border border-brand-100 shadow-sm p-6 md:p-10"
+          >
+            <NewsletterForm variant="light" />
           </motion.div>
         </div>
       </section>

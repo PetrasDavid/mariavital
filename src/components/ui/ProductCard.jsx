@@ -2,9 +2,8 @@ import { motion } from "framer-motion";
 import { Leaf } from "lucide-react";
 import { formatProductPrice } from "../../config/productsData";
 import ProductPurchaseButtons from "./ProductPurchaseButtons";
-import AddToCartButton from "./AddToCartButton";
 
-export default function ProductCard({ product, index = 0 }) {
+export default function ProductCard({ product, index = 0, onInfoClick }) {
   const {
     name,
     description,
@@ -100,17 +99,25 @@ export default function ProductCard({ product, index = 0 }) {
             {comingSoon && comingSoonLabel && (
               <p className="text-sm text-brand-700 font-medium mt-1">{comingSoonLabel}</p>
             )}
+            {product.cartonNote && (
+              <p className="text-xs text-gray-500 mt-1">
+                Darabár · {product.cartonNote}
+                {product.cartonPrice
+                  ? ` · karton ${product.cartonPrice.toLocaleString("hu-HU")} Ft`
+                  : ""}
+              </p>
+            )}
           </div>
 
-          <div className="space-y-2">
-            <AddToCartButton product={product} />
-            <ProductPurchaseButtons
-              retailUrl={retailUrl || affiliateUrl}
-              registerUrl={registerUrl}
-              disabled={comingSoon}
-              onClick={(e) => e.stopPropagation()}
-            />
-          </div>
+          <ProductPurchaseButtons
+            product={product}
+            retailUrl={retailUrl || affiliateUrl}
+            registerUrl={registerUrl}
+            disabled={comingSoon}
+            showInfoButton={Boolean(onInfoClick)}
+            onInfoClick={onInfoClick}
+            onClick={(e) => e.stopPropagation()}
+          />
         </div>
       </div>
     </motion.article>

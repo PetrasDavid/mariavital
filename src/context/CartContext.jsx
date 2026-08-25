@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useReducer } from "react";
-import { shopConfig } from "../shop/shopConfig";
+import { shopConfig, calcShipping } from "../shop/shopConfig";
 import { getProductById, canAddToCart } from "../config/productsData";
 
 const CartContext = createContext(null);
@@ -79,14 +79,26 @@ export function CartProvider({ children }) {
 
     const itemCount = lines.reduce((sum, l) => sum + l.quantity, 0);
     const subtotal = lines.reduce((sum, l) => sum + l.lineTotal, 0);
+    const shipping = calcShipping(subtotal);
+    const total = subtotal + shipping;
+    const freeShippingFrom = shopConfig.freeShippingFrom;
+    const amountToFreeShipping =
+      freeShippingFrom != null && subtotal < freeShippingFrom
+        ? freeShippingFrom - subtotal
+        : 0;
 
     return {
       items: lines,
       itemCount,
       subtotal,
+      shipping,
+      total,
+      amountToFreeShipping,
+      freeShippingFrom,
       currency: shopConfig.currency,
       enabled: shopConfig.enabled,
       checkoutEnabled: shopConfig.checkoutEnabled,
+      orderRequestEnabled: shopConfig.orderRequestEnabled,
       addItem: (productId, quantity = 1) => {
         const product = getProductById(productId);
         if (!product || !canAddToCart(product)) return false;
