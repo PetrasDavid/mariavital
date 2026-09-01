@@ -164,8 +164,8 @@ A fiatal középkorúak és az idősebbek szervezete már sok megpróbáltatáso
     id: "peak-boost",
     name: "Peak Boost",
     description:
-      "Flavon Peak Boost gyümölcs koncentrátum — energia és vitalitás pezsgő, gyümölcsös formulával.",
-    benefits: ["Peak Boost", "Energia", "Gyümölcs"],
+      "A Peak koncepció legújabb terméke, a Boost — magyarul „lendület” — az értékes, magas hatóanyagtartalmú gyümölcsök és az elnyújtott stimuláló hatást biztosító koffein-forrás, a guarana magával ragadó szinergizmusa, amely egyszerre élénkít és nyújt erős antioxidáns hatást. Hogy mentálisan és fizikailag is a csúcson legyünk! Napi kiszerelése révén elfér bármely zsebben; bárhol, bármikor fogyasztható.",
+    benefits: ["Peak Boost", "Guarana", "Energia", "Antioxidáns"],
     retailPrice: 32400,
     currency: "Ft",
     unit: "/doboz",
