@@ -64,17 +64,59 @@ Grapefruit — Magas B-, C-, E-, K-vitamin, pektin, bioflavonoid. Szív-érrends
   },
   {
     id: "flavon-protect",
-    name: "Flavon Protect",
+    name: "FLAVON Protect gyümölcskoncentrátum",
     description:
-      "Sötét bogyós gyümölcsökön alapuló koncentrátum a sejtvédelem és az antioxidáns támogatás jegyében.",
-    benefits: ["Protect", "Antioxidáns", "Gyümölcs"],
+      "A FLAVON Protect hatásai az összetevői erejében rejlik. A gyümölcskoncentrátum összetevői egymás hatását felerősítve járulnak hozzá a test egyensúlyban levő működéséhez — mindegyik a megfelelő helyen fejti ki jótékony hatását. Tartósítószert és egyéb adalékanyagot (víz, sűrítő, állagjavító, színezék, ízfokozó) nem tartalmaz!",
+    benefits: ["Protect", "Gyümölcs", "Immun", "Antioxidáns"],
     retailPrice: 16200,
     currency: "Ft",
     unit: "/üveg",
     image: "/products/flavon_protect.jpg",
-    imageAlt: "Flavon Protect",
+    imageAlt: "Flavon Protect gyümölcskoncentrátum",
     accentColor: "from-purple-500 to-violet-800",
     affiliateUrl: shop,
+    ingredients:
+      "Tőzegáfonya, fekete bodza, szőlőmag, sütőtök, meggy, csipkebogyó, fekete berkenye (arónia), fekete ribizli.",
+    recommendedFor: [
+      "Bélgyulladásoknál",
+      "Zsíranyagcsere fokozásánál",
+      "Menstruációs fájdalmaknál és zavaroknál",
+      "Felfázásnál, húgyúti és veseproblémáknál",
+      "Gyomor- és bélproblémáknál",
+      "Ízületi problémáknál",
+      "Ekcémánál, pikkelysömörnél, bőrproblémáknál",
+      "Allergiánál",
+      "Cukorbetegeknél",
+      "Lágyszervi gyulladásoknál",
+      "Csontritkulás megelőzésénél",
+      "Immun-modulálásnál",
+      "Stressz elleni káros hatásoknál",
+      "Erős dohányosoknál",
+      "Kemo- és sugárterápiák után",
+      "Prosztata problémáknál",
+    ],
+    ingredientDetails: `Tőzegáfonya — Húgyúti probléma, vesebetegek, immunerősítő, szív- és érrendszer, látás, magas vérnyomás, cukorbetegek, bőrbetegség, memória.
+
+Fekete bodza — Vértisztító, izzadásgátló, immunerősítő, reuma.
+
+Szőlőmag — Méregtelenít, csökkenti a vérnyomást és a koleszterinszintet, gyulladások, aranyeres panaszok, fogyókúra.
+
+Sütőtök — Gyulladás, megfázás, allergia és asztma, bőrprobléma (pattanás), máj, szív és koszorúér, prosztata.
+
+Meggy — Vírusok, gyulladáscsökkentő, idegrendszer, alvászavar, emésztés, máj- és veseműködés.
+
+Csipkebogyó — C-vitamin, immunerősítő, influenza, meghűlés, vese- és hólyagbántalmak, bélhurut és hörghurut.
+
+Fekete berkenye (arónia) — Alzheimer-kór, magas vérnyomás, diabétesz (vércukorszint, hajszálerek), rákos daganatok.
+
+Fekete ribizli — Daganat, köszvény, ízületi gyulladás, méregtelenítő, vízhajtó, egészséges bélflóra, hólyag, vese, prosztata.`,
+    consumption:
+      "Az első 2–3 hónapban emelt szintű adagolását ajánlom — a meglévő egészségi állapotot nem megőrizni, hanem emelni szeretnénk. Egy üveg kb. 1 havi adagnyi gyümölcskoncentrátumot tartalmaz, adagolása a csomagolásban levő kanállal. Ajánlott étkezés előtt 10 perccel, reggel és délben.",
+    faq: `Kiskereskedelmi áron darabra rendelhető ezen az oldalon. Gyártói kartonos vásárlásnál (4 db) az 1# karton ára 54 000 Ft — a gyártótól vásárolva kedvezményes darabár érhető el.
+
+A helyes étrend minden korosztály számára fontos — különösen azoknak, akik korábban nem táplálkoztak megfelelően. Főként számukra ajánljuk a Flavon Protectet, mely összetevőinek köszönhetően segít változatosabbá tenni táplálkozásukat.
+
+A fiatal középkorúak és az idősebbek szervezete már sok megpróbáltatáson ment keresztül. Fontos figyelni a jelzésekre, és tenni az egészséges, káros hatásoktól védett életért — ennek hatékony része lehet a Flavon Protect.`,
   },
   {
     id: "flavon-max",

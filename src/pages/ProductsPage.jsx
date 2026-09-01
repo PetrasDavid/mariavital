@@ -142,7 +142,7 @@ function ProductModal({ product, onClose }) {
 
               <div>
                 <h3 className="font-semibold text-gray-900 mb-2">GYIK</h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-gray-600 text-sm whitespace-pre-line leading-relaxed">
                   {product.faq ||
                     "A vásárlás a Flavon hivatalos webshopján keresztül történik. A szállítást és számlázást a Flavon végzi."}
                 </p>
