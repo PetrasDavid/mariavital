@@ -17,9 +17,9 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="💗 Az én történetem"
+        eyebrow="Az én történetem"
         title="Bemutatkozás"
-        subtitle={`${distributor.fullName} — Flavon distributor és Elit Team vezető.`}
+        subtitle={`${distributor.fullName} — ${distributor.title}.`}
       />
 
       <section className="pb-20 md:pb-28">
@@ -59,7 +59,7 @@ export default function AboutPage() {
                 Szia, {distributor.fullName} vagyok!
               </p>
               <p>
-                Több éve a Flavon termékek elkötelezett ajánlója vagyok. A saját
+                Több éve a Flavon termékek elkötelezett fogyasztója vagyok. A saját
                 életemben is megtapasztaltam, milyen sokat számít a tudatos életmód
                 és a minőségi táplálkozás.
               </p>

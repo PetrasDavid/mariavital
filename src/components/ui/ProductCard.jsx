@@ -52,6 +52,15 @@ export default function ProductCard({ product, index = 0, onInfoClick }) {
             Akció!
           </span>
         )}
+        {product.premium && (
+          <span
+            className={`absolute z-10 rounded-full bg-brand-900 text-white text-xs font-bold px-3 py-1.5 shadow ${
+              onSale ? "top-3 left-3" : "top-3 right-3"
+            }`}
+          >
+            Prémium
+          </span>
+        )}
         {comingSoon && (
           <span className="absolute top-3 left-3 z-10 rounded-full bg-white text-brand-800 text-xs font-bold px-3 py-1.5 shadow">
             Hamarosan

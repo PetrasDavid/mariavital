@@ -9,6 +9,35 @@ const shop = siteConfig.links.affiliateUrl;
  */
 export const products = [
   {
+    id: "flavon-green-plus",
+    name: "Green+New",
+    description:
+      "Prémium zöldség koncentrátum — a Green család új, prémium kategóriás változata. Polifenolokat tartalmazó étrend-kiegészítő: tömény zöldségek és gyümölcsök ellenőrzött minőségben. Feltölt, támogatja a kalóriadeficitet, egy adag mindössze ~15 kcal.",
+    benefits: ["Green+New", "Prémium", "Zöldség koncentrátum", "1 karton = 3 üveg"],
+    retailPrice: 21500,
+    currency: "Ft",
+    unit: "/üveg",
+    premium: true,
+    cartonUnits: 3,
+    cartonNote: "1 karton = 3 üveg",
+    cartonPrice: 54000,
+    image: "/products/flavon_green_plus.jpg",
+    imageAlt: "FLAVON Green+New prémium zöldség koncentrátum",
+    accentColor: "from-emerald-500 to-lime-600",
+    affiliateUrl: shop,
+    ingredients:
+      "Többek között narancs, homoktövis, brokkoli, spenót, kurkuma — polifenolokat tartalmazó prémium zöldség koncentrátum.",
+    recommendedFor: [
+      "Akik prémium kategóriás zöldségkoncentrátumot keresnek",
+      "Fogyó- és tisztítókúrában",
+      "Immunrendszer és antioxidáns támogatás",
+      "Kalóriadeficit mellett is teljes értékű feltöltés",
+    ],
+    consumption:
+      "A csomagoláson feltüntetett adagolás szerint (1 adag = 6 g / 1 adagolókanál). Egy adag kb. 15 kcal — feltölt, miközben támogatja a kalóriadeficitet. Egy üveg kb. 40 adag.",
+    faq: "Prémium kategóriás termék. Kiskereskedelmi áron darabra rendelhető. Gyártói karton: 1 karton = 3 üveg, ára 54 000 Ft.",
+  },
+  {
     id: "flavon-green",
     name: "GREEN zöldség koncentrátum",
     description:
@@ -122,8 +151,8 @@ A fiatal középkorúak és az idősebbek szervezete már sok megpróbáltatáso
     id: "flavon-max",
     name: "Flavon Max",
     description:
-      "Koncentrátum a mindennapi teljesítményhez és vitalitáshoz.",
-    benefits: ["Max", "Vitalitás", "Napi rutin"],
+      "Ajánljuk minden egészségtudatos felnőttnek és azoknak, akik nem fogyasztanak elegendő mennyiségű gyümölcsöt és zöldséget.",
+    benefits: ["Max", "Antioxidáns", "Vitalitás", "Ginzeng"],
     retailPrice: 16200,
     currency: "Ft",
     unit: "/üveg",
@@ -131,6 +160,28 @@ A fiatal középkorúak és az idősebbek szervezete már sok megpróbáltatáso
     imageAlt: "Flavon Max",
     accentColor: "from-teal-400 to-cyan-700",
     affiliateUrl: shop,
+    ingredients:
+      "Fekete áfonya, homoktövis, fekete bodza, kékszőlő, fekete ribizli, cékla, ginzeng (Panax ginseng). Lékoncentrátumok (feketeribizli, fekete áfonya, fekete bodzabogyó, kékszőlő, cékla, homoktövis), fruktóz, aszkorbinsav (C-vitamin), D,L-alfa-tokoferol (E-vitamin), homoktövis gyümölcshús-, mag- és héj őrlemény, Panax ginseng gyökér őrlemény, sűrítőanyag (almapektin).",
+    recommendedFor: [
+      "Minden egészségtudatos felnőttnek",
+      "Akik nem fogyasztanak elegendő mennyiségű gyümölcsöt és zöldséget",
+    ],
+    ingredientDetails: `Fekete áfonya — Antioxidáns hatás, látás és érrendszer támogatása.
+
+Homoktövis — Magas C- és E-vitamin, immunrendszer, bőr.
+
+Fekete bodza — Immunerősítés, antioxidáns polifenolok.
+
+Kékszőlő — Flavonoidok, sejtvédelem oxidatív stressz ellen.
+
+Fekete ribizli — C-vitamin, immun- és érrendszer támogatás.
+
+Cékla — Ásványi anyagok, keringés, természetes nitrátok.
+
+Ginzeng (Panax ginseng) — Testi és szellemi állóképesség, adaptogén hatás. A ginseng miatt 6 hét után szünet javasolt; magas vérnyomás, terhesség és szoptatás esetén a fogyasztás nem ajánlott.`,
+    consumption:
+      "Ajánlott fogyasztási mennyiség: naponta egy kávéskanál (kb. 6 g – 4,5 ml) étkezés után.",
+    faq: "Kiskereskedelmi áron darabra rendelhető ezen az oldalon. Gyártói kartonos vásárlásnál az 1# karton ára 54 000 Ft.",
   },
   {
     id: "collagen",
@@ -243,28 +294,6 @@ A fiatal középkorúak és az idősebbek szervezete már sok megpróbáltatáso
     imageAlt: "Flavon Max+",
     accentColor: "from-cyan-500 to-teal-800",
     affiliateUrl: shop,
-  },
-  {
-    id: "flavon-green-plus",
-    name: "FLAVON Green+ NEW zöldség koncentrátum",
-    description:
-      "A tömény zöldség, az egészséges fogyás alapja! De ki tud naponta 1,5–2 kg-ot megenni? Annyi baj van vele: megvenni, megpucolni, sütni, főzni, nyersen… Macerás. A Green+ zöldség-koncentrátum az igazi kalóriadeficit támogatója — az üvegben ellenőrzött minőségben és mennyiségben tömény zöldség található, tudományosan igazolt vizsgálatok alapján összekeverve, olyan arányban, ahogyan számunkra a leghasznosabb. Feltölt, így nem leszel éhes, de az energiaszinted megmarad. Ez nem étvágycsökkentő, hanem sejt feltöltő élelmiszer, melynek egy adagja csak 16 kcal!",
-    benefits: ["Green+", "Zöldség koncentrátum", "16 kcal/adag", "Kalóriadeficit"],
-    retailPrice: 21500,
-    currency: "Ft",
-    unit: "/üveg",
-    cartonUnits: 3,
-    cartonNote: "1 karton = 3 db (nem 4)",
-    cartonPrice: 54000,
-    image: "/products/flavon_green_plus.jpg",
-    imageAlt: "FLAVON Green+ NEW zöldség koncentrátum",
-    accentColor: "from-emerald-500 to-lime-600",
-    affiliateUrl: shop,
-    ingredients:
-      "Tömény zöldségkoncentrátum — ellenőrzött minőségű és mennyiségű zöldségek tudományosan igazolt arányban.",
-    consumption:
-      "A csomagoláson feltüntetett adagolás szerint. Egy adag mindössze 16 kcal — feltölt, miközben támogatja a kalóriadeficitet.",
-    faq: "Ez a darabár. A Green+ karton 3 üveget tartalmaz (nem 4-et, mint egyes más termékeknél). Gyártói 1# kartonár: 54 000 Ft.",
   },
   {
     id: "belrendszer-2havi",

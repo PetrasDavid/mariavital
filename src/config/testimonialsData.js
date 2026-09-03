@@ -58,6 +58,15 @@ export const weightLossStories = [
   },
 ];
 
+/** Videós sikertörténetek (YouTube) */
+export const successVideos = [
+  {
+    id: "helena",
+    title: "Heléna története",
+    youtubeId: "xlACGyTi7OI",
+  },
+];
+
 /** @deprecated use weightLossStories */
 export const beforeAfterStories = weightLossStories.map((s) => ({
   id: s.id,

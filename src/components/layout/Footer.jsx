@@ -21,6 +21,10 @@ export default function Footer() {
                 className="h-16 w-auto object-contain rounded-full bg-white"
               />
             </div>
+            <p className="text-gray-400 leading-relaxed max-w-md mb-2">
+              {brand.slogan}
+            </p>
+            <p className="text-gray-500 text-sm mb-4">{brand.identityLine}</p>
             <p className="text-gray-400 leading-relaxed max-w-md mb-6">
               {distributor.fullName} független Flavon distributor weboldala.{" "}
               {brand.promise}

@@ -65,7 +65,7 @@ export default function Navbar() {
             <img
               src={brand.logo}
               alt={brand.name}
-              className="h-11 md:h-14 w-auto object-contain"
+              className="h-12 md:h-16 w-auto object-contain"
             />
           </Link>
 

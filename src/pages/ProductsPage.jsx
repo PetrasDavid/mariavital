@@ -41,6 +41,11 @@ function ProductModal({ product, onClose }) {
                 Akció!
               </span>
             )}
+            {product.premium && (
+              <span className="absolute top-4 left-4 rounded-full bg-brand-900 text-white text-xs font-bold px-3 py-1.5 z-10">
+                Prémium
+              </span>
+            )}
             {product.comingSoon && (
               <span className="absolute top-4 left-4 rounded-full bg-white text-brand-800 text-xs font-bold px-3 py-1.5 z-10">
                 Hamarosan

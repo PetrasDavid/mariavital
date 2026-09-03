@@ -37,26 +37,23 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="max-w-2xl"
           >
-            <p className="text-sm font-semibold uppercase tracking-widest text-brand-700 mb-4">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-[0.04em] text-brand-900 leading-none mb-4">
+              {brand.displayName}
+            </h1>
+            <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-800 tracking-tight mb-3">
               {brand.slogan}
             </p>
-            <h1 className="text-4xl sm:text-5xl lg:text-[3.1rem] font-extrabold text-gray-900 leading-[1.15] tracking-tight mb-6">
-              „{brand.heroHeadline}”
-            </h1>
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
-              {brand.heroSubtitle}
+            <p className="text-base sm:text-lg text-brand-700/90 font-medium mb-8">
+              {brand.identityLine}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Button to="/termekek" variant="secondary" size="lg" icon={ArrowRight}>
-                🌿 Termékek megtekintése
+                Termékek megtekintése
               </Button>
               <Button to="/rolam" variant="outline" size="lg">
-                ❤️ Az én történetem
+                Az én történetem
               </Button>
             </div>
-            <p className="text-brand-800 font-medium italic border-l-4 border-brand-400 pl-4">
-              {brand.promise}
-            </p>
           </motion.div>
         </div>
       </section>

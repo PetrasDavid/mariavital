@@ -6,8 +6,10 @@ export const siteConfig = {
   brand: {
     name: "Marcsivital.hu",
     shortName: "Marcsivital",
-    slogan: "Egészség • Vitalitás • Közösség",
-    logo: "/marcsivital_logo_uj.png",
+    displayName: "MARCSIVITAL",
+    slogan: "Egészség. Energia. Életminőség.",
+    identityLine: "Miskolci Marcsi | Életmód tanácsadó",
+    logo: "/marcsivital_logo.jpg",
     heroHeadline: "Az egészség a legjobb befektetés – önmagadba.",
     heroSubtitle:
       "Segítek abban, hogy több energiád legyen, jobban érezd magad a bőrödben, és megtaláld azokat a természetes megoldásokat, amelyek hosszú távon is támogatják az egészségedet.",
@@ -21,7 +23,7 @@ export const siteConfig = {
     name: "Marcsi",
     fullName: "Miskolci Marcsi",
     formalName: "Miskolci Mária",
-    title: "Flavon független distributor · Elit Team vezető",
+    title: "Életmód tanácsadó · Flavon független distributor",
     teamName: "Platinum Team",
     rank: "Elit Team vezető",
     profileImage: "/profilkep.jpg",
@@ -271,7 +273,7 @@ export const packages = [
   {
     id: "vegyes-karton",
     emoji: "📦",
-    name: "Vegyes karton (1#)",
+    name: "Vitality Pack",
     description:
       "Flavon Green + Protect + Peak Fruit — gyártói karton, 1# ár: 54 000 Ft.",
     products: ["Flavon Green", "Flavon Protect", "Peak Fruit"],

@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { Quote, Play, MessageSquare } from "lucide-react";
 import { siteConfig, storyQuote } from "../config/config";
-import { testimonials, weightLossStories } from "../config/testimonialsData";
+import {
+  testimonials,
+  weightLossStories,
+  successVideos,
+} from "../config/testimonialsData";
 import PageHero from "../components/ui/PageHero";
 import SectionHeading from "../components/ui/SectionHeading";
 import Button from "../components/ui/Button";
@@ -84,13 +88,22 @@ export default function SuccessStoriesPage() {
 
           <SectionHeading title="Videók" subtitle="Interjúk és személyes beszámolók." />
           <div className="grid sm:grid-cols-2 gap-6 mb-16">
-            {[1, 2].map((n) => (
-              <div
-                key={n}
-                className="aspect-video rounded-2xl bg-gray-200 flex flex-col items-center justify-center text-gray-500"
-              >
-                <Play className="h-12 w-12 mb-2 opacity-50" />
-                <span className="text-sm">Videó helye #{n}</span>
+            {successVideos.map((video) => (
+              <div key={video.id} className="space-y-3">
+                <div className="aspect-video rounded-2xl overflow-hidden bg-gray-900 shadow-sm">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${video.youtubeId}`}
+                    title={video.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    loading="lazy"
+                    className="w-full h-full border-0"
+                  />
+                </div>
+                <p className="text-sm font-semibold text-gray-900 flex items-center gap-2">
+                  <Play className="h-4 w-4 text-brand-600" />
+                  {video.title}
+                </p>
               </div>
             ))}
           </div>
