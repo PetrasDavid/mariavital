@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import { siteConfig } from "../config/config";
+import { pageSeo } from "../config/seoData";
 import PageHero from "../components/ui/PageHero";
+import SeoHead from "../components/ui/SeoHead";
 
 export default function PrivacyPage() {
   const { brand, contact, distributor, legal } = siteConfig;
 
   return (
     <>
+      <SeoHead {...pageSeo.privacy} />
       <PageHero
         eyebrow="Jogi információ"
         title="Adatvédelmi tájékoztató"
@@ -77,6 +80,10 @@ export default function PrivacyPage() {
           </p>
 
           <p className="text-gray-700 leading-relaxed mt-10">
+            <Link to="/aszf" className="text-brand-700 font-medium underline">
+              ÁSZF
+            </Link>
+            {" · "}
             <Link to="/impresszum" className="text-brand-700 font-medium underline">
               Impresszum
             </Link>

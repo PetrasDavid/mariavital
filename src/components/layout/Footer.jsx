@@ -72,6 +72,14 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  to="/aszf"
+                  className="text-gray-400 hover:text-brand-400 transition-colors text-sm"
+                >
+                  ÁSZF
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/impresszum"
                   className="text-gray-400 hover:text-brand-400 transition-colors text-sm"
                 >

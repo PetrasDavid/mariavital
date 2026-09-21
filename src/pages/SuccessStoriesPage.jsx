@@ -9,12 +9,15 @@ import {
 import PageHero from "../components/ui/PageHero";
 import SectionHeading from "../components/ui/SectionHeading";
 import Button from "../components/ui/Button";
+import SeoHead from "../components/ui/SeoHead";
+import { pageSeo } from "../config/seoData";
 
 export default function SuccessStoriesPage() {
   const { distributor } = siteConfig;
 
   return (
     <>
+      <SeoHead {...pageSeo.stories} />
       <PageHero
         eyebrow="Sikertörténetek"
         title="Valódi emberek, valódi eredmények"
@@ -112,7 +115,7 @@ export default function SuccessStoriesPage() {
             title="Vásárlói vélemények"
             subtitle="Csapattagjaink és ügyfeleink szavai."
           />
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {testimonials.map((item, i) => (
               <motion.blockquote
                 key={item.id}
@@ -130,7 +133,9 @@ export default function SuccessStoriesPage() {
                   <MessageSquare className="h-4 w-4 text-brand-600" />
                   <div>
                     <cite className="not-italic font-bold text-gray-900">{item.name}</cite>
-                    <p className="text-xs text-gray-500">{item.role}</p>
+                    {item.role ? (
+                      <p className="text-xs text-gray-500">{item.role}</p>
+                    ) : null}
                   </div>
                 </footer>
               </motion.blockquote>

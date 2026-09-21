@@ -5,6 +5,8 @@ import { products, formatProductPrice } from "../config/productsData";
 import PageHero from "../components/ui/PageHero";
 import ProductCard from "../components/ui/ProductCard";
 import ProductPurchaseButtons from "../components/ui/ProductPurchaseButtons";
+import SeoHead from "../components/ui/SeoHead";
+import { pageSeo } from "../config/seoData";
 
 function ProductModal({ product, onClose }) {
   if (!product) return null;
@@ -175,6 +177,7 @@ export default function ProductsPage() {
 
   return (
     <>
+      <SeoHead {...pageSeo.products} />
       <PageHero
         eyebrow="Termékek"
         title="Prémium Flavon termékcsalád"

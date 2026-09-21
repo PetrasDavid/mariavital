@@ -4,6 +4,7 @@ import { productCategories, siteConfig } from "../config/config";
 import PageHero from "../components/ui/PageHero";
 import Button from "../components/ui/Button";
 import ProductPurchaseButtons from "../components/ui/ProductPurchaseButtons";
+import SeoHead from "../components/ui/SeoHead";
 
 export default function CategoryPage() {
   const { slug } = useParams();
@@ -13,21 +14,34 @@ export default function CategoryPage() {
 
   if (!category) {
     return (
-      <PageHero
-        title="Kategória nem található"
-        subtitle="Ez a kategória nem létezik — nézd meg az összes terméket."
-      >
-        <div className="mt-8">
-          <Button to="/termekek" variant="secondary">
-            Termékek
-          </Button>
-        </div>
-      </PageHero>
+      <>
+        <SeoHead
+          title="Kategória nem található"
+          description="Ez a kategória nem létezik."
+          path={`/kategoria/${slug || ""}`}
+          noIndex
+        />
+        <PageHero
+          title="Kategória nem található"
+          subtitle="Ez a kategória nem létezik — nézd meg az összes terméket."
+        >
+          <div className="mt-8">
+            <Button to="/termekek" variant="secondary">
+              Termékek
+            </Button>
+          </div>
+        </PageHero>
+      </>
     );
   }
 
   return (
     <>
+      <SeoHead
+        title={category.title}
+        description={category.description}
+        path={`/kategoria/${category.id}`}
+      />
       <PageHero
         eyebrow="Termékek"
         title={`${category.emoji} ${category.title}`}

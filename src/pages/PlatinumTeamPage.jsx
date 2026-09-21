@@ -5,6 +5,8 @@ import PageHero from "../components/ui/PageHero";
 import SectionHeading from "../components/ui/SectionHeading";
 import Button from "../components/ui/Button";
 import ContactForm from "../components/ui/ContactForm";
+import SeoHead from "../components/ui/SeoHead";
+import { pageSeo } from "../config/seoData";
 
 const benefits = [
   { icon: Users, title: "Személyes mentorálás", description: "Marcsi vezetésével, kezdőktől haladókig." },
@@ -39,6 +41,7 @@ export default function PlatinumTeamPage() {
 
   return (
     <>
+      <SeoHead {...pageSeo.platinum} />
       <PageHero
         eyebrow="Platinum Team"
         title={platinumPitch.headline}

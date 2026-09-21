@@ -14,12 +14,15 @@ import Button from "../components/ui/Button";
 import FAQAccordion from "../components/ui/FAQAccordion";
 import SectionHeading from "../components/ui/SectionHeading";
 import NewsletterForm from "../components/ui/NewsletterForm";
+import SeoHead from "../components/ui/SeoHead";
+import { pageSeo } from "../config/seoData";
 
 export default function HomePage() {
   const { brand, distributor } = siteConfig;
 
   return (
     <>
+      <SeoHead {...pageSeo.home} />
       {/* Hero */}
       <section className="relative min-h-[92vh] flex items-center pt-20 overflow-hidden">
         <div

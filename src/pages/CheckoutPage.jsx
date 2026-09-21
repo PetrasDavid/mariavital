@@ -12,6 +12,8 @@ import {
 } from "../shop/orderService";
 import PageHero from "../components/ui/PageHero";
 import Button from "../components/ui/Button";
+import SeoHead from "../components/ui/SeoHead";
+import { pageSeo } from "../config/seoData";
 
 const emptyForm = {
   name: "",
@@ -79,6 +81,7 @@ export default function CheckoutPage() {
 
   return (
     <>
+      <SeoHead {...pageSeo.checkout} />
       <PageHero
         eyebrow="Webshop"
         title="Pénztár"

@@ -1,10 +1,13 @@
 import { LogIn, Lock } from "lucide-react";
 import PageHero from "../components/ui/PageHero";
 import Button from "../components/ui/Button";
+import SeoHead from "../components/ui/SeoHead";
+import { pageSeo } from "../config/seoData";
 
 export default function LoginPage() {
   return (
     <>
+      <SeoHead {...pageSeo.login} />
       <PageHero
         eyebrow="Tagoknak"
         title="Belépés tagoknak"

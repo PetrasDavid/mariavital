@@ -16,6 +16,7 @@ import CheckoutPage from "./pages/CheckoutPage";
 import OrderSuccessPage from "./pages/OrderSuccessPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import ImpressumPage from "./pages/ImpressumPage";
+import TermsPage from "./pages/TermsPage";
 
 export default function App() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
               <Route path="kapcsolat" element={<ContactPage />} />
               <Route path="adatvedelem" element={<PrivacyPage />} />
               <Route path="impresszum" element={<ImpressumPage />} />
+              <Route path="aszf" element={<TermsPage />} />
               <Route path="login" element={<LoginPage />} />
               <Route path="kategoria/:slug" element={<CategoryPage />} />
               <Route path="kosar" element={<CartPage />} />

@@ -28,7 +28,9 @@ export default function Testimonials() {
               <footer className="flex items-center justify-between gap-4">
                 <div>
                   <cite className="not-italic font-bold text-gray-900">{item.name}</cite>
-                  <p className="text-sm text-gray-500">{item.role}</p>
+                  {item.role ? (
+                    <p className="text-sm text-gray-500">{item.role}</p>
+                  ) : null}
                 </div>
                 <span className="shrink-0 text-xs font-semibold px-3 py-1.5 rounded-full bg-brand-100 text-brand-700">
                   {item.highlight}

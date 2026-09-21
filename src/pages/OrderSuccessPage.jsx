@@ -6,6 +6,8 @@ import { formatPrice } from "../config/productsData";
 import { siteConfig } from "../config/config";
 import PageHero from "../components/ui/PageHero";
 import Button from "../components/ui/Button";
+import SeoHead from "../components/ui/SeoHead";
+import { pageSeo } from "../config/seoData";
 
 export default function OrderSuccessPage() {
   const location = useLocation();
@@ -20,6 +22,7 @@ export default function OrderSuccessPage() {
 
   return (
     <>
+      <SeoHead {...pageSeo.orderSuccess} />
       <PageHero
         eyebrow="Webshop"
         title="Köszönjük a rendelést!"

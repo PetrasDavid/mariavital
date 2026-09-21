@@ -1,29 +1,38 @@
 export const testimonials = [
   {
-    id: 1,
-    name: "Anna T.",
-    role: "Platinum Team tag",
+    id: "regina",
+    name: "Regina",
+    role: "",
     quote:
-      "A Flavon Green után érezhetően több energiám van, és 6 hónap alatt 8 kg-ot adtam le anélkül, hogy koplaltam volna. Marcsi támogatása végig mellettem volt.",
-    highlight: "−8 kg · 6 hónap",
+      "A termékek szuperek tényleg 😊 A Green nagyon jót tesz az emésztésemnek úgy érzem, kevésbé puffadok. A Komplexre nagyon kíváncsi voltam, nehezen hittem el, hogy tényleg ki lehet vele váltani egy egész étkezést, de basszus tényleg így van 😊 Még ebédnél is működött, kipróbáltam. A Boost után valóban éreztem, hogy jobban felpörögtem, de én csak 1-2 óráig éreztem a hatását, de ez is jól jött akkor — szóval szuper minden 😊",
+    highlight: "Green · Komplex · Boost",
     type: "quote",
   },
   {
-    id: 2,
-    name: "Péter K.",
-    role: "Üzleti partner",
+    id: "klari",
+    name: "Klári",
+    role: "",
     quote:
-      "Nem csak termékeket kaptam, hanem egy valódi közösséget és rendszert. A Platinum Team képzései profi szintűek.",
-    highlight: "2 év a csapatban",
+      "Az én tapasztalatom az, hogy a Green–Protect–Veggie együttes fogyasztásával tünetmentes lett a laktózérzékenységem. Most már ehetek bárhol, bármikor, bármit. 😀 Kitartást mindenkinek, hisz mindenhez idő kell.",
+    highlight: "Green · Protect · Veggie",
     type: "quote",
   },
   {
-    id: 3,
-    name: "Eszter M.",
-    role: "Vásárló",
+    id: "helena",
+    name: "Heléna",
+    role: "",
     quote:
-      "A Protect termék után ritkábban betegeskedem, és az egész család használja a Flavon termékeket. Megbízható minőség.",
-    highlight: "Egész család",
+      "Én a Boostot és a Greent eszem. Neki amiben jó: a Greentől nem puffadok, laposabb a hasam, fogytam ismét 2 kg tőle — szuper, nagyon szeretem. Nem kell a sok zöldséget vennem és ennem, mert ebben minden is van, ami hasznos. A Boostot Ringa előtt eszem 10 perccel: növeli a sportteljesítményt, segít a kalóriaégetésben, és amióta eszem, a térdfájdalmam elmúlt. Szuper, nagyon szeretem — az édesség utáni sóvárgásban és a kalóriadeficit betartásában is segít. ❤️🙏❤️",
+    highlight: "Green · Boost · −2 kg",
+    type: "quote",
+  },
+  {
+    id: "andrea",
+    name: "Andrea",
+    role: "",
+    quote:
+      "🌸 Tapasztalataim: Komolyan mondom, a Flavon Green és a Protect már majdnem családtag lett nálam 😄 Reggel nem kávéval indulok, hanem velük — és láss csodát: se puffadás, se reflux, mintha szabadságra mentek volna! A „banyakor” meg próbálkozik ugyan, de ezek ketten úgy leszerelik a kellemetlen tüneteket, mint egy profi kommandós csapat.",
+    highlight: "Green · Protect",
     type: "quote",
   },
 ];

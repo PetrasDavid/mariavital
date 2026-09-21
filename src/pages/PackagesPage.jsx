@@ -4,10 +4,13 @@ import { packages } from "../config/config";
 import { getProductById } from "../config/productsData";
 import PageHero from "../components/ui/PageHero";
 import ProductPurchaseButtons from "../components/ui/ProductPurchaseButtons";
+import SeoHead from "../components/ui/SeoHead";
+import { pageSeo } from "../config/seoData";
 
 export default function PackagesPage() {
   return (
     <>
+      <SeoHead {...pageSeo.packages} />
       <PageHero
         eyebrow="Csomagok"
         title="Egyedi termékcsomagok"
@@ -57,7 +60,10 @@ export default function PackagesPage() {
                         </span>
                       ))}
                     </div>
-                    <ProductPurchaseButtons product={product} />
+                    <ProductPurchaseButtons
+                      product={product}
+                      retailLabel="Csomagot a kosárba"
+                    />
                   </div>
                 </motion.article>
               );

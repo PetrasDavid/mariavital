@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import { Heart, TrendingDown, Users, Sparkles, Check } from "lucide-react";
 import { siteConfig, whyChooseMe, storyQuote } from "../config/config";
+import { pageSeo } from "../config/seoData";
 import PageHero from "../components/ui/PageHero";
 import Button from "../components/ui/Button";
+import SeoHead from "../components/ui/SeoHead";
 
 const milestones = [
   { icon: Heart, value: "2+ év", label: "Egészséges életmód fenntartva" },
@@ -16,6 +18,7 @@ export default function AboutPage() {
 
   return (
     <>
+      <SeoHead {...pageSeo.about} />
       <PageHero
         eyebrow="Az én történetem"
         title="Bemutatkozás"

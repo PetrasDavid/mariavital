@@ -26,3 +26,11 @@ dist-ssr
 # Test
 test-results
 playwright-report
+
+# Working copies of assets (site uses /public)
+/*.jpg
+/*.jpeg
+/*.png
+/vitality pack.jpg
+/green+.jpg
+

@@ -15,6 +15,7 @@ export default function ProductPurchaseButtons({
   product,
   retailUrl,
   registerUrl,
+  retailLabel,
   className = "",
   size = "card",
   onClick,
@@ -35,6 +36,9 @@ export default function ProductPurchaseButtons({
     product &&
     canAddToCart(product) &&
     !disabled;
+
+  const retailText =
+    retailLabel || "Kiskereskedelmi áron darabra vásárolok és kérem";
 
   const isModal = size === "modal";
   const base =
@@ -96,7 +100,7 @@ export default function ProductPurchaseButtons({
           disabled={disabled}
         >
           <ShoppingBag className={iconClass} aria-hidden />
-          <span>Kiskereskedelmi áron darabra vásárolok és kérem</span>
+          <span>{retailText}</span>
         </button>
       ) : (
         <a
@@ -108,7 +112,7 @@ export default function ProductPurchaseButtons({
           aria-disabled={disabled}
         >
           <ShoppingBag className={iconClass} aria-hidden />
-          <span>Kiskereskedelmi áron darabra vásárolok és kérem</span>
+          <span>{retailText}</span>
         </a>
       )}
 

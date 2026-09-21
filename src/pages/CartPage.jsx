@@ -5,6 +5,8 @@ import { formatPrice } from "../config/productsData";
 import { shopConfig } from "../shop/shopConfig";
 import PageHero from "../components/ui/PageHero";
 import Button from "../components/ui/Button";
+import SeoHead from "../components/ui/SeoHead";
+import { pageSeo } from "../config/seoData";
 
 export default function CartPage() {
   const {
@@ -23,6 +25,7 @@ export default function CartPage() {
 
   return (
     <>
+      <SeoHead {...pageSeo.cart} />
       <PageHero
         eyebrow="Webshop"
         title="Kosár"

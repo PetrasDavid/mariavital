@@ -8,12 +8,15 @@ import Button from "../components/ui/Button";
 import ContactForm from "../components/ui/ContactForm";
 import FAQAccordion from "../components/ui/FAQAccordion";
 import { SocialLinkList } from "../components/ui/SocialIcons";
+import SeoHead from "../components/ui/SeoHead";
+import { pageSeo } from "../config/seoData";
 
 export default function ContactPage() {
   const { contact, social, links, distributor } = siteConfig;
 
   return (
     <>
+      <SeoHead {...pageSeo.contact} />
       <PageHero
         eyebrow="Kapcsolat"
         title="Lépj kapcsolatba velünk"

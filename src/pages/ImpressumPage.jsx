@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import { siteConfig } from "../config/config";
+import { pageSeo } from "../config/seoData";
 import PageHero from "../components/ui/PageHero";
+import SeoHead from "../components/ui/SeoHead";
 
 export default function ImpressumPage() {
   const { brand, contact, distributor, legal } = siteConfig;
 
   return (
     <>
+      <SeoHead {...pageSeo.impressum} />
       <PageHero
         eyebrow="Jogi információ"
         title="Impresszum"
@@ -77,6 +80,10 @@ export default function ImpressumPage() {
           <p className="mt-10 text-sm text-gray-600">
             <Link to="/adatvedelem" className="text-brand-700 font-medium underline">
               Adatvédelmi tájékoztató
+            </Link>
+            {" · "}
+            <Link to="/aszf" className="text-brand-700 font-medium underline">
+              ÁSZF
             </Link>
             {" · "}
             <Link to="/kapcsolat" className="text-brand-700 font-medium underline">
