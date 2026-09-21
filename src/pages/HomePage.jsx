@@ -244,20 +244,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Blog teaser */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <SectionHeading
-            eyebrow="Blog"
-            title="Heti cikkek"
-            subtitle="Életmód, Hashimoto, autoimmun és tartós fogyás — gyakorlati tippekkel."
-          />
-          <Button to="/blog" variant="outline" icon={BookOpen} iconPosition="left">
-            Blog megnyitása
-          </Button>
-        </div>
-      </section>
-
       {/* E-book */}
       <section className="py-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

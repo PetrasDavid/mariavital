@@ -3,13 +3,13 @@ export const faqItems = [
     id: "order",
     question: "Hogyan rendelhetek?",
     answer:
-      "A „Megvásárolom” gombra kattintva a Flavon hivatalos webshopjába kerülsz át, ahol biztonságosan leadhatod a rendelésed. A fizetés és szállítás közvetlenül a Flavon rendszerén keresztül történik.",
+      "Rendelhetsz a Flavon hivatalos webshopján keresztül (affiliate link), vagy itt az oldalon kosárba teszed a termékeket, és rendelésigényt küldesz e-mailben. A gyártói szállítás és számlázás a Flavon rendszerén keresztül történik.",
   },
   {
     id: "shipping",
     question: "Ki szállítja és számlázza a termékeket?",
     answer:
-      "A szállítást és számlázást kizárólag a Flavon hivatalos webshopja végzi. Ez az oldal csak tájékoztató jellegű — nem kezelünk fizetést, készletet vagy szállítást.",
+      "A szállítást és számlázást a Flavon hivatalos webshopja / gyártói rendszer végzi. Ez az oldal tájékoztat, kosarat és rendelésigényt kezel — bankkártyás fizetés egyelőre a Flavon oldalán történik.",
   },
   {
     id: "safety",

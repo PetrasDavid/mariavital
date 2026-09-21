@@ -326,6 +326,33 @@ Ginzeng (Panax ginseng) — Testi és szellemi állóképesség, adaptogén hat�
     affiliateUrl: shop,
   },
   {
+    id: "vitality-pack",
+    name: "Vitality Pack",
+    description:
+      "Flavon Green + Protect + Peak Fruit — gyártói karton, 1# ár: 54 000 Ft.",
+    benefits: ["Green", "Protect", "Peak Fruit", "1# karton"],
+    retailPrice: 54000,
+    currency: "Ft",
+    cartonPrice: 54000,
+    image: "/products/vitality_pack.jpg",
+    imageAlt: "Vitality Pack termékcsomag",
+    accentColor: "from-blue-400 to-indigo-600",
+    affiliateUrl: shop,
+  },
+  {
+    id: "izulet-csomag",
+    name: "Ízület támogató csomag",
+    description:
+      "Glucosamine & Chondroitin + Collagen — mozgás és regeneráció.",
+    benefits: ["Glükózamin", "Kollagén", "Ízületek"],
+    retailPrice: 32400,
+    currency: "Ft",
+    image: null,
+    imageAlt: "Ízület támogató csomag",
+    accentColor: "from-sky-400 to-blue-600",
+    affiliateUrl: shop,
+  },
+  {
     id: "complex-pack",
     name: "Complex Pack – Fehérje-szénhidrát-Inulin-vitaminok",
     description:

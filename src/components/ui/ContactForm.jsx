@@ -39,11 +39,14 @@ export default function ContactForm({
       return;
     }
 
+    const recipients = [siteConfig.contact.email, siteConfig.contact.emailSecondary]
+      .filter(Boolean)
+      .join(",");
     const subject = encodeURIComponent("Platinum Team jelentkezés");
     const body = encodeURIComponent(
       `Név: ${form.name}\nEmail: ${form.email}\nTelefon: ${form.phone}\n\nÜzenet:\n${form.message}`,
     );
-    window.location.href = `mailto:${siteConfig.contact.email}?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${recipients}?subject=${subject}&body=${body}`;
     setStatus("success");
     setForm(initialFormState);
   };

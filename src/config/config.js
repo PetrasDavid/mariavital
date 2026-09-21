@@ -1,12 +1,13 @@
 /**
- * Marcsivital.hu — central configuration
+ * marcsivital — central configuration
  * Update affiliate URLs, contact info, and social links here.
  */
 export const siteConfig = {
   brand: {
-    name: "Marcsivital.hu",
-    shortName: "Marcsivital",
+    name: "marcsivital",
+    shortName: "marcsivital",
     displayName: "MARCSIVITAL",
+    domain: "www.marcsivital.hu",
     slogan: "Egészség. Energia. Életminőség.",
     identityLine: "Miskolci Marcsi | Életmód tanácsadó",
     logo: "/marcsivital_logo.jpg",
@@ -36,6 +37,7 @@ export const siteConfig = {
 
   contact: {
     email: "marcsiflavon@gmail.com",
+    emailSecondary: "marcsimiskolci@gmail.com",
     phone: "+36 30 405 0618",
     phoneHref: "+36304050618",
   },
@@ -105,33 +107,37 @@ export const siteConfig = {
     { label: "Csomagok", to: "/csomagok" },
     { label: "Sikertörténetek", to: "/sikertortenetek" },
     { label: "Platinum Team", to: "/platinum-team" },
-    { label: "Blog", to: "/blog" },
     { label: "Kapcsolat", to: "/kapcsolat" },
   ],
 
   legal: {
     disclaimer:
-      "Ez a Marcsivital.hu egy független Flavon distributor személyes weboldala. Nem a Flavon hivatalos vállalati oldala. A vásárlás, szállítás és számlázás a Flavon hivatalos webshopján keresztül történik.",
+      "A marcsivital (www.marcsivital.hu) egy független Flavon distributor személyes weboldala. Nem a Flavon hivatalos vállalati oldala. A vásárlás, szállítás és számlázás a Flavon hivatalos webshopján keresztül történik.",
+    operatorName: "Miskolci Mária",
+    operatorDisplayName: "Miskolci Marcsi",
   },
 
   formEndpoint: null,
 
   /**
-   * MailerLite newsletter — paste the Embedded form "action" URL when available.
-   * MailerLite → Forms → Embedded form → Overview → Embed → HTML → action="..."
-   * Example: https://assets.mailerlite.com/jsonp/XXXX/forms/YYYY/subscribe
+   * Newsletter — free mailto mode (no paid MailerLite needed).
+   * Optional: set formActionUrl later if a free form service is connected.
    */
   newsletter: {
     enabled: true,
+    /** "mailto" = opens email to Marcsi; "mailerlite" if formActionUrl is set */
+    mode: "mailto",
     formActionUrl: "",
     title: "Iratkozz fel a hírlevélre",
     subtitle:
       "Tippek egészséghez, életmódhoz és Flavon termékekhez — közvetlenül Marcsitól.",
     buttonLabel: "Feliratkozás",
-    successMessage: "Köszönjük! Sikeresen feliratkoztál a hírlevélre.",
+    successMessage:
+      "Köszönjük! Megnyílt az e-mail ablak — küldd el az üzenetet a feliratkozás befejezéséhez.",
     pendingMessage:
-      "A hírlevél-feliratkozás hamarosan él. Addig írj nekünk e-mailben, ha szeretnél értesítést.",
-    privacyNote: "Az adataidat csak hírlevélküldésre használjuk. Bármikor leiratkozhatsz.",
+      "A feliratkozáshoz írj nekünk e-mailben a megadott címeddel.",
+    privacyNote:
+      "Az adataidat csak hírlevélküldésre használjuk. Bármikor leiratkozhatsz. Részletek: Adatvédelem.",
   },
 };
 
@@ -256,6 +262,7 @@ export const blogPosts = [
 export const packages = [
   {
     id: "belrendszer",
+    productId: "belrendszer-2havi",
     emoji: "🌿",
     name: "Bélrendszer karbantartás – 2 havi",
     description: "2× Green + 2× Protect — akciós csomag 54 000 Ft-ért (eredeti 65 000 Ft).",
@@ -264,6 +271,7 @@ export const packages = [
   },
   {
     id: "turbo",
+    productId: "turbo-fogyas",
     emoji: "🔥",
     name: "Turbó fogyás hatás csomag",
     description: "2 havi Green + 1 havi Boost a kihíváshoz — akciósan 54 000 Ft.",
@@ -272,15 +280,19 @@ export const packages = [
   },
   {
     id: "vegyes-karton",
+    productId: "vitality-pack",
     emoji: "📦",
     name: "Vitality Pack",
     description:
       "Flavon Green + Protect + Peak Fruit — gyártói karton, 1# ár: 54 000 Ft.",
     products: ["Flavon Green", "Flavon Protect", "Peak Fruit"],
     accentColor: "from-blue-400 to-indigo-600",
+    image: "/products/vitality_pack.jpg",
+    imageAlt: "Vitality Pack termékcsomag",
   },
   {
     id: "izulet",
+    productId: "izulet-csomag",
     emoji: "🦴",
     name: "Ízület támogató csomag",
     description: "Glucosamine & Chondroitin + Collagen — mozgás és regeneráció.",

@@ -10,11 +10,10 @@ const primaryNav = [
   { label: "Rólam", to: "/rolam" },
   { label: "Termékek", to: "/termekek" },
   { label: "Csomagok", to: "/csomagok" },
-  { label: "Blog", to: "/blog" },
+  { label: "Sikertörténetek", to: "/sikertortenetek" },
 ];
 
 const moreNav = [
-  { label: "Sikertörténetek", to: "/sikertortenetek" },
   { label: "Platinum Team", to: "/platinum-team" },
   { label: "Kapcsolat", to: "/kapcsolat" },
 ];

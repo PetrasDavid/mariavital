@@ -8,13 +8,14 @@ import ProductsPage from "./pages/ProductsPage";
 import PackagesPage from "./pages/PackagesPage";
 import SuccessStoriesPage from "./pages/SuccessStoriesPage";
 import PlatinumTeamPage from "./pages/PlatinumTeamPage";
-import BlogPage from "./pages/BlogPage";
 import ContactPage from "./pages/ContactPage";
 import LoginPage from "./pages/LoginPage";
 import CategoryPage from "./pages/CategoryPage";
 import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import OrderSuccessPage from "./pages/OrderSuccessPage";
+import PrivacyPage from "./pages/PrivacyPage";
+import ImpressumPage from "./pages/ImpressumPage";
 
 export default function App() {
   return (
@@ -29,8 +30,9 @@ export default function App() {
               <Route path="csomagok" element={<PackagesPage />} />
               <Route path="sikertortenetek" element={<SuccessStoriesPage />} />
               <Route path="platinum-team" element={<PlatinumTeamPage />} />
-              <Route path="blog" element={<BlogPage />} />
               <Route path="kapcsolat" element={<ContactPage />} />
+              <Route path="adatvedelem" element={<PrivacyPage />} />
+              <Route path="impresszum" element={<ImpressumPage />} />
               <Route path="login" element={<LoginPage />} />
               <Route path="kategoria/:slug" element={<CategoryPage />} />
               <Route path="kosar" element={<CartPage />} />

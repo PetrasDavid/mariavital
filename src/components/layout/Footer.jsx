@@ -8,6 +8,7 @@ export default function Footer() {
   const { brand, distributor, contact, legal } = siteConfig;
   const year = new Date().getFullYear();
   const socialLinks = getSocialLinks(siteConfig.social);
+  const emails = [contact.email, contact.emailSecondary].filter(Boolean);
 
   return (
     <footer className="bg-gray-900 text-gray-300">
@@ -61,6 +62,22 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  to="/adatvedelem"
+                  className="text-gray-400 hover:text-brand-400 transition-colors text-sm"
+                >
+                  Adatvédelem
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/impresszum"
+                  className="text-gray-400 hover:text-brand-400 transition-colors text-sm"
+                >
+                  Impresszum
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -76,15 +93,17 @@ export default function Footer() {
                   {contact.phone}
                 </a>
               </li>
-              <li>
-                <a
-                  href={`mailto:${contact.email}`}
-                  className="flex items-center gap-2 text-gray-400 hover:text-brand-400 transition-colors text-sm"
-                >
-                  <Mail className="h-4 w-4 shrink-0" />
-                  {contact.email}
-                </a>
-              </li>
+              {emails.map((addr) => (
+                <li key={addr}>
+                  <a
+                    href={`mailto:${addr}`}
+                    className="flex items-center gap-2 text-gray-400 hover:text-brand-400 transition-colors text-sm"
+                  >
+                    <Mail className="h-4 w-4 shrink-0" />
+                    {addr}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

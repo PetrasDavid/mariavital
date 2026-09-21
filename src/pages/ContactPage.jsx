@@ -59,6 +59,23 @@ export default function ContactPage() {
                   </div>
                 </a>
 
+                {contact.emailSecondary && (
+                  <a
+                    href={`mailto:${contact.emailSecondary}`}
+                    className="flex items-center gap-4 p-5 rounded-2xl bg-rose-50/70 border border-rose-100 hover:border-rose-200 hover:shadow-md transition-all group"
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-rose-400 text-white flex items-center justify-center group-hover:scale-105 transition-transform">
+                      <Mail className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-500">Email</p>
+                      <p className="text-lg font-bold text-gray-900 break-all">
+                        {contact.emailSecondary}
+                      </p>
+                    </div>
+                  </a>
+                )}
+
                 <div className="flex items-center gap-4 p-5 rounded-2xl bg-gray-50 border border-gray-100">
                   <div className="w-12 h-12 rounded-xl bg-gray-200 text-gray-600 flex items-center justify-center">
                     <MapPin className="h-5 w-5" />

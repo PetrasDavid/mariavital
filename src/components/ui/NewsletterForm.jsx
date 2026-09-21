@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Mail, CheckCircle, Loader2 } from "lucide-react";
 import { siteConfig } from "../../config/config";
 
 /**
- * MailerLite-ready newsletter signup.
- * Set siteConfig.newsletter.formActionUrl to the form action from MailerLite HTML embed.
+ * Newsletter signup — mailto by default (no paid MailerLite).
+ * Optional MailerLite if newsletter.formActionUrl is set and mode is "mailerlite".
  */
 export default function NewsletterForm({
   variant = "light",
@@ -13,13 +14,18 @@ export default function NewsletterForm({
 }) {
   const { newsletter, contact } = siteConfig;
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState("idle"); // idle | submitting | success | error | pending
+  const [status, setStatus] = useState("idle"); // idle | submitting | success | error
   const [error, setError] = useState("");
 
   if (!newsletter?.enabled) return null;
 
   const isDark = variant === "dark";
-  const connected = Boolean(newsletter.formActionUrl?.trim());
+  const useMailerLite =
+    newsletter.mode === "mailerlite" && Boolean(newsletter.formActionUrl?.trim());
+
+  const newsletterRecipients = [contact.email, contact.emailSecondary]
+    .filter(Boolean)
+    .join(",");
 
   const submitToMailerLite = async (actionUrl, subscriberEmail) => {
     const body = new URLSearchParams();
@@ -27,7 +33,6 @@ export default function NewsletterForm({
     body.set("ml-submit", "1");
     body.set("anticsrf", "true");
 
-    // Prefer no-cors form POST via hidden iframe for broad MailerLite compatibility
     return new Promise((resolve, reject) => {
       const iframeName = `ml-frame-${Date.now()}`;
       let iframe = document.createElement("iframe");
@@ -65,7 +70,6 @@ export default function NewsletterForm({
 
       try {
         form.submit();
-        // Some browsers never fire onload for opaque responses — treat as success after short wait
         window.setTimeout(() => {
           if (iframe) {
             cleanup();
@@ -79,6 +83,14 @@ export default function NewsletterForm({
     });
   };
 
+  const submitViaMailto = (subscriberEmail) => {
+    const subject = encodeURIComponent("Hírlevél feliratkozás — marcsivital");
+    const body = encodeURIComponent(
+      `Szeretnék feliratkozni a marcsivital hírlevélre.\n\nE-mail címem: ${subscriberEmail}`
+    );
+    window.location.href = `mailto:${newsletterRecipients}?subject=${subject}&body=${body}`;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -88,8 +100,10 @@ export default function NewsletterForm({
       return;
     }
 
-    if (!connected) {
-      setStatus("pending");
+    if (!useMailerLite) {
+      submitViaMailto(email.trim());
+      setStatus("success");
+      setEmail("");
       return;
     }
 
@@ -106,29 +120,19 @@ export default function NewsletterForm({
 
   if (status === "success") {
     return (
-      <div className={`rounded-2xl p-5 ${isDark ? "bg-white/10" : "bg-brand-50 border border-brand-100"} ${className}`}>
+      <div
+        className={`rounded-2xl p-5 ${
+          isDark ? "bg-white/10" : "bg-brand-50 border border-brand-100"
+        } ${className}`}
+      >
         <div className="flex items-start gap-3">
-          <CheckCircle className={`h-6 w-6 shrink-0 ${isDark ? "text-brand-200" : "text-brand-600"}`} />
+          <CheckCircle
+            className={`h-6 w-6 shrink-0 ${isDark ? "text-brand-200" : "text-brand-600"}`}
+          />
           <p className={`text-sm leading-relaxed ${isDark ? "text-brand-50" : "text-brand-900"}`}>
             {newsletter.successMessage}
           </p>
         </div>
-      </div>
-    );
-  }
-
-  if (status === "pending") {
-    return (
-      <div className={`rounded-2xl p-5 ${isDark ? "bg-white/10" : "bg-amber-50 border border-amber-100"} ${className}`}>
-        <p className={`text-sm leading-relaxed mb-3 ${isDark ? "text-brand-50" : "text-amber-950"}`}>
-          {newsletter.pendingMessage}
-        </p>
-        <a
-          href={`mailto:${contact.email}?subject=${encodeURIComponent("Hírlevél feliratkozás")}&body=${encodeURIComponent(`Szeretnék feliratkozni a hírlevélre.\nE-mail: ${email}`)}`}
-          className={`text-sm font-semibold underline ${isDark ? "text-white" : "text-brand-700"}`}
-        >
-          E-mail küldése: {contact.email}
-        </a>
       </div>
     );
   }
@@ -195,12 +199,13 @@ export default function NewsletterForm({
       )}
 
       <p className={`text-xs mt-3 leading-relaxed ${isDark ? "text-gray-500" : "text-gray-500"}`}>
-        {newsletter.privacyNote}
-        {!connected && (
-          <span className="block mt-1 opacity-80">
-            (MailerLite kapcsolat beállítása folyamatban.)
-          </span>
-        )}
+        Az adataidat csak hírlevélküldésre használjuk. Bármikor leiratkozhatsz.{" "}
+        <Link
+          to="/adatvedelem"
+          className={`underline ${isDark ? "text-brand-300 hover:text-brand-200" : "text-brand-700 hover:text-brand-800"}`}
+        >
+          Adatvédelem
+        </Link>
       </p>
     </div>
   );
