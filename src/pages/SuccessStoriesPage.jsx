@@ -66,19 +66,19 @@ export default function SuccessStoriesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className="grid lg:grid-cols-2 gap-0 items-stretch rounded-3xl border border-gray-100 bg-white overflow-hidden shadow-sm"
+                className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-start rounded-3xl border border-gray-100 bg-white p-4 sm:p-5 shadow-sm"
               >
-                <div className="relative bg-gray-100">
+                <div className="relative rounded-2xl overflow-hidden bg-gray-50">
                   <img
                     src={story.image}
                     alt={story.imageAlt}
-                    className="w-full h-full max-h-[520px] object-cover object-top"
+                    className="w-full h-auto block"
                   />
-                  <span className="absolute top-4 left-4 rounded-full bg-brand-600 text-white text-sm font-bold px-4 py-1.5 shadow">
+                  <span className="absolute top-4 left-4 z-10 rounded-full bg-brand-600 text-white text-sm font-bold px-4 py-1.5 shadow">
                     {story.highlight}
                   </span>
                 </div>
-                <div className="p-6 md:p-8 lg:p-10 space-y-4 self-center">
+                <div className="px-1 sm:px-2 lg:py-2 space-y-4">
                   {story.paragraphs.map((p) => (
                     <p key={p.slice(0, 48)} className="text-gray-700 leading-relaxed">
                       {p}

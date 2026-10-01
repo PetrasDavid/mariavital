@@ -148,6 +148,7 @@ export const productCategories = [
     title: "Immunrendszer",
     description: "Természetes támogatás a mindennapi ellenállóképességhez.",
     to: "/kategoria/immunrendszer",
+    productIds: ["flavon-protect", "flavon-green", "flavon-green-plus", "flavon-max"],
   },
   {
     id: "sziv",
@@ -155,6 +156,7 @@ export const productCategories = [
     title: "Szív- és érrendszer",
     description: "Vitalitás és keringés – a hosszú távú egészségért.",
     to: "/kategoria/sziv",
+    productIds: ["flavon-protect", "flavon-max", "peak-fruit", "flavon-green"],
   },
   {
     id: "energia",
@@ -162,6 +164,7 @@ export const productCategories = [
     title: "Energia",
     description: "Több lendület a napjaidhoz – természetes összetevőkkel.",
     to: "/kategoria/energia",
+    productIds: ["peak-boost", "flavon-max", "future", "flavon-green-plus"],
   },
   {
     id: "emesztes",
@@ -169,6 +172,7 @@ export const productCategories = [
     title: "Emésztés",
     description: "Bélrendszer-támogatás és kiegyensúlyozott közérzet.",
     to: "/kategoria/emesztes",
+    productIds: ["flavon-green", "flavon-green-plus", "flavon-protect", "veggie", "belrendszer-2havi"],
   },
   {
     id: "aktiv",
@@ -176,6 +180,7 @@ export const productCategories = [
     title: "Aktív életmód",
     description: "Mozgás, regeneráció és tartós energia.",
     to: "/kategoria/aktiv",
+    productIds: ["peak-boost", "collagen", "glucosamine", "izulet-csomag", "complex-pack"],
   },
   {
     id: "noi",
@@ -183,6 +188,7 @@ export const productCategories = [
     title: "Női egészség",
     description: "Támogatás a változó életkorban és a női vitalitásban.",
     to: "/kategoria/noi",
+    productIds: ["flavon-joy", "flavon-protect", "collagen", "flavon-green", "vitality-pack"],
   },
 ];
 
