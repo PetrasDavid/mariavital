@@ -16,9 +16,11 @@ import SectionHeading from "../components/ui/SectionHeading";
 import NewsletterForm from "../components/ui/NewsletterForm";
 import SeoHead from "../components/ui/SeoHead";
 import { pageSeo } from "../config/seoData";
+import { isLiveUrl } from "../utils/links";
 
 export default function HomePage() {
   const { brand, distributor } = siteConfig;
+  const ebookLive = isLiveUrl(ebookOffer.downloadUrl);
 
   return (
     <>
@@ -51,10 +53,10 @@ export default function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button to="/termekek" variant="secondary" size="lg" icon={ArrowRight}>
-                Termékek megtekintése
+                Flavon termékek
               </Button>
               <Button to="/rolam" variant="outline" size="lg">
-                Az én történetem
+                Ismerj meg
               </Button>
             </div>
           </motion.div>
@@ -247,7 +249,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* E-book */}
+      {/* E-book — only when a real download URL is set */}
+      {ebookLive && (
       <section className="py-20 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -268,6 +271,7 @@ export default function HomePage() {
               <div className="md:text-right">
                 <Button
                   href={ebookOffer.downloadUrl}
+                  external
                   size="lg"
                   icon={Download}
                   iconPosition="left"
@@ -280,6 +284,7 @@ export default function HomePage() {
           </motion.div>
         </div>
       </section>
+      )}
 
       {/* Newsletter */}
       <section className="py-16 md:py-20 bg-brand-50">

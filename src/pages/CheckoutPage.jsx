@@ -85,7 +85,7 @@ export default function CheckoutPage() {
       <PageHero
         eyebrow="Webshop"
         title="Pénztár"
-        subtitle="Add meg az adataidat — Marcsi egyezteti veled a fizetést és a szállítást."
+        subtitle="Add meg az adataidat — ez egy rendelésigény. A fizetést és szállítást Marcsi egyezteti veled."
         compact
       />
 
@@ -93,14 +93,36 @@ export default function CheckoutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {items.length === 0 ? (
             <div className="max-w-xl mx-auto text-center py-12 rounded-3xl border border-dashed border-gray-200 bg-gray-50">
-              <p className="text-gray-600 mb-6">Nincs tétel a kosárban.</p>
-              <Button to="/termekek" variant="secondary">
-                Termékekhez
-              </Button>
+              <p className="text-gray-600 mb-6">Nincs tétel a kosárban a rendeléshez.</p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <Button to="/termekek" variant="secondary">
+                  Termékekhez
+                </Button>
+                <Button to="/kosar" variant="outline">
+                  Kosár
+                </Button>
+              </div>
             </div>
           ) : (
+            <>
+              <ol className="flex flex-wrap items-center gap-2 text-sm mb-8 text-gray-500">
+                <li>
+                  <Link to="/kosar" className="hover:text-brand-700 font-medium">
+                    1. Kosár
+                  </Link>
+                </li>
+                <li aria-hidden className="text-gray-300">→</li>
+                <li className="font-semibold text-brand-800">2. Adatok</li>
+                <li aria-hidden className="text-gray-300">→</li>
+                <li>3. Elküldve</li>
+              </ol>
+
             <div className="grid lg:grid-cols-5 gap-10">
               <form onSubmit={handleSubmit} className="lg:col-span-3 space-y-6">
+                <div className="rounded-2xl border border-amber-100 bg-amber-50/80 px-4 py-3 text-sm text-amber-950 leading-relaxed">
+                  Online bankkártyás fizetés még nincs. A gomb megnyitja / elküldi a
+                  rendelésigényt — Marcsi visszaigazol.
+                </div>
                 <div className="rounded-3xl border border-gray-100 bg-white p-6 md:p-8 shadow-sm space-y-5">
                   <h2 className="text-lg font-bold text-gray-900">Kapcsolattartás</h2>
                   <div className="grid sm:grid-cols-2 gap-4">
@@ -234,7 +256,7 @@ export default function CheckoutPage() {
                     ) : (
                       <>
                         <Send className="h-4 w-4" />
-                        Rendelés leadása
+                        Rendelésigény küldése
                       </>
                     )}
                   </button>
@@ -293,6 +315,7 @@ export default function CheckoutPage() {
                 </div>
               </aside>
             </div>
+            </>
           )}
         </div>
       </section>

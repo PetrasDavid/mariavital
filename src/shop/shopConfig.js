@@ -19,7 +19,7 @@ export const shopConfig = {
   /** Free shipping from this subtotal (Ft); null = never */
   freeShippingFrom: 50000,
   shippingNote:
-    "A rendelést Marcsi személyesen egyezteti veled (fizetés és szállítás). Online bankkártyás fizetés hamarosan érkezik.",
+    "Ez rendelésigény, nem azonnali bankkártyás fizetés. Marcsi e-mailben / telefonon egyezteti veled a fizetést és a szállítást.",
   minOrderNote: "Minimum 1 termék szükséges a rendeléshez.",
 };
 

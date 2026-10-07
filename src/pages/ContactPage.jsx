@@ -10,9 +10,11 @@ import FAQAccordion from "../components/ui/FAQAccordion";
 import { SocialLinkList } from "../components/ui/SocialIcons";
 import SeoHead from "../components/ui/SeoHead";
 import { pageSeo } from "../config/seoData";
+import { isLiveUrl } from "../utils/links";
 
 export default function ContactPage() {
   const { contact, social, links, distributor } = siteConfig;
+  const calendlyLive = isLiveUrl(links.calendlyUrl);
 
   return (
     <>
@@ -92,6 +94,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
+              {calendlyLive ? (
               <div className="p-6 rounded-2xl bg-gradient-to-br from-brand-700 to-emerald-800 text-white mb-10">
                 <Calendar className="h-8 w-8 text-brand-200 mb-3" />
                 <h3 className="text-xl font-bold mb-2">Online időpontfoglalás tanácsadásra</h3>
@@ -101,6 +104,7 @@ export default function ContactPage() {
                 </p>
                 <Button
                   href={links.calendlyUrl}
+                  external
                   variant="primary"
                   size="md"
                   icon={Calendar}
@@ -110,6 +114,25 @@ export default function ContactPage() {
                   Online időpontfoglalás tanácsadásra
                 </Button>
               </div>
+              ) : (
+              <div className="p-6 rounded-2xl bg-gradient-to-br from-brand-700 to-emerald-800 text-white mb-10">
+                <Calendar className="h-8 w-8 text-brand-200 mb-3" />
+                <h3 className="text-xl font-bold mb-2">Ingyenes konzultáció</h3>
+                <p className="text-brand-100 text-sm mb-5 leading-relaxed">
+                  Az online időpontfoglaló hamarosan elérhető. Addig írj Messengerben
+                  vagy töltsd ki az űrlapot — szívesen segítek!
+                </p>
+                <Button
+                  href={social.messenger.href}
+                  external
+                  variant="primary"
+                  size="md"
+                  className="!bg-white !text-brand-800 hover:!bg-brand-50"
+                >
+                  Írj Messengerben
+                </Button>
+              </div>
+              )}
 
               <h3 className="text-xl font-bold text-gray-900 mb-5">Közösségi média</h3>
               <SocialLinkList social={social} variant="card" />

@@ -31,6 +31,7 @@ function setCanonical(href) {
 export default function SeoHead({
   title,
   description,
+  keywords,
   path = "/",
   image = DEFAULT_IMAGE,
   type = "website",
@@ -43,13 +44,18 @@ export default function SeoHead({
   const desc =
     description ||
     brand.description ||
-    "Prémium Flavon termékek és egészséges életmód Marcsi vezetésével.";
+    "Flavon, fogyás, egészség és életmód — Miskolci Mária, marcsivital.";
   const url = `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
   const imageUrl = image.startsWith("http") ? image : `${SITE_URL}${image}`;
+  const kw =
+    keywords ||
+    "Flavon, fogyás, egészség, életmód, Miskolci Mária, Miskolci Marcsi, marcsivital";
 
   useEffect(() => {
     document.title = fullTitle;
     setMeta("name", "description", desc);
+    setMeta("name", "keywords", kw);
+    setMeta("name", "author", "Miskolci Mária");
     setMeta("name", "robots", noIndex ? "noindex,nofollow" : "index,follow");
 
     setMeta("property", "og:title", fullTitle);
@@ -66,7 +72,7 @@ export default function SeoHead({
     setMeta("name", "twitter:image", imageUrl);
 
     setCanonical(url);
-  }, [fullTitle, desc, url, imageUrl, type, noIndex, brand.name]);
+  }, [fullTitle, desc, kw, url, imageUrl, type, noIndex, brand.name]);
 
   return null;
 }

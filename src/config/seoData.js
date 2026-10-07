@@ -1,83 +1,93 @@
-/** Per-route SEO copy for marcsivital */
+/** Per-route SEO — természetes magyar szövegek, kulcsszavakkal (Flavon, fogyás, egészség, életmód, Miskolci Mária) */
+
 export const pageSeo = {
   home: {
-    title: "Egészség. Energia. Életminőség.",
+    title: "Flavon termékek, fogyás és életmód | Miskolci Mária",
     description:
-      "marcsivital — Miskolci Marcsi életmód tanácsadó. Flavon termékek, csomagok, sikertörténetek és Platinum Team.",
+      "marcsivital.hu — Miskolci Mária életmód tanácsadó. Flavon koncentrátumok, természetes fogyás, egészség és energia. Személyes ajánlás Miskolcról.",
+    keywords:
+      "Flavon, fogyás, egészség, életmód, életmód tanácsadó, Miskolci Mária, Miskolci Marcsi, marcsivital",
     path: "/",
     image: "/marcsivital_logo.jpg",
   },
   about: {
-    title: "Rólam",
+    title: "Miskolci Mária — életmód tanácsadó és Flavon",
     description:
-      "Miskolci Marcsi története: életmódváltás, Flavon, Platinum Team és több mint 2 év stabil eredmény.",
+      "Ismerd meg Miskolci Máriát (Marcsi): életmódváltás, Flavon, tartós fogyás és egészség. Több mint 2 év stabil eredmény a marcsivital közösségben.",
+    keywords: "Miskolci Mária, Miskolci Marcsi, életmód tanácsadó, Flavon, fogyás, egészség",
     path: "/rolam",
     image: "/profilkep.jpg",
   },
   products: {
-    title: "Termékek",
+    title: "Flavon termékek: Green, Protect, Max, Peak",
     description:
-      "Flavon termékcsalád: Green+New, GREEN, Protect, Max, Peak és további koncentrátumok — árakkal és részletes infóval.",
+      "Flavon Green, Protect, Max, Peak Boost és további termékek — egészség, fogyás és életmód támogatása. Darabár kosárba, gyártói karton a Flavon webshopban.",
+    keywords:
+      "Flavon termékek, Flavon Green, Flavon Protect, Flavon Max, Peak Boost, fogyás, egészség",
     path: "/termekek",
   },
   packages: {
-    title: "Csomagok",
+    title: "Flavon csomagok fogyáshoz és vitalitáshoz",
     description:
-      "Összeállított Flavon csomagok: Bélrendszer, Turbó fogyás, Vitality Pack és ízület támogató csomag.",
+      "Turbó fogyás, Bélrendszer, Vitality Pack és ízület támogató Flavon csomagok. Egészség és életmód — Miskolci Mária ajánlásával.",
+    keywords: "Flavon csomag, Turbó fogyás, Vitality Pack, fogyás, egészség, életmód",
     path: "/csomagok",
     image: "/products/vitality_pack.jpg",
   },
   stories: {
-    title: "Sikertörténetek",
+    title: "Fogyás sikertörténetek és Flavon tapasztalatok",
     description:
-      "Valódi fogyástörténetek, videós beszámolók és vásárlói vélemények a marcsivital közösségéből.",
+      "Valódi fogyástörténetek, videók és vásárlói vélemények. Flavon, egészség és életmódváltás — a marcsivital / Miskolci Mária közösségéből.",
+    keywords: "fogyás, sikertörténet, Flavon tapasztalat, életmódváltás, egészség",
     path: "/sikertortenetek",
   },
   platinum: {
-    title: "Platinum Team",
+    title: "Platinum Team — Flavon üzleti lehetőség",
     description:
-      "Csatlakozz Marcsi Platinum Teamjéhez — mentorálás, képzések és támogató közösség.",
+      "Csatlakozz Miskolci Mária Platinum Teamjéhez: Flavon mentorálás, képzések, közösség. Egészség és életmód mellett üzleti növekedés.",
+    keywords: "Platinum Team, Flavon, Miskolci Mária, életmód, egészség, csatlakozás",
     path: "/platinum-team",
     image: "/csapatkep.jpg",
   },
   contact: {
-    title: "Kapcsolat",
+    title: "Kapcsolat — Miskolci Mária életmód tanácsadó",
     description:
-      "Írj vagy hívj: termékek, életmód vagy csatlakozás. E-mail és telefon a marcsivital oldalon.",
+      "Írj Miskolci Máriának: Flavon termékek, fogyás, egészség, életmód tanácsadás. Telefon, e-mail és Messenger — marcsivital.hu.",
+    keywords: "Miskolci Mária, kapcsolat, Flavon, életmód tanácsadó, egészség, Miskolc",
     path: "/kapcsolat",
   },
   cart: {
-    title: "Kosár",
-    description: "A kosarad a marcsivital oldalon — rendelésigény e-mailben.",
+    title: "Kosár — Flavon rendelésigény",
+    description: "Kosár a marcsivital oldalon. Flavon termékek rendelésigénye e-mailben.",
     path: "/kosar",
     noIndex: true,
   },
   checkout: {
-    title: "Pénztár",
-    description: "Rendelésigény leadása — szállítási adatok megadása.",
+    title: "Pénztár — rendelésigény leadása",
+    description: "Add meg a szállítási adatokat — Miskolci Mária egyezteti a Flavon rendelést.",
     path: "/penztar",
     noIndex: true,
   },
   orderSuccess: {
-    title: "Rendelés elküldve",
-    description: "Köszönjük a rendelésigényt — hamarosan felvesszük veled a kapcsolatot.",
+    title: "Rendelésigény elküldve",
+    description: "Köszönjük — hamarosan felvesszük veled a kapcsolatot a Flavon rendelésről.",
     path: "/rendeles-sikeres",
     noIndex: true,
   },
   privacy: {
-    title: "Adatvédelem",
-    description: "Adatvédelmi tájékoztató a marcsivital weboldalhoz.",
+    title: "Adatvédelem — marcsivital / Miskolci Mária",
+    description: "Adatvédelmi tájékoztató a marcsivital.hu oldalhoz — Miskolci Mária.",
     path: "/adatvedelem",
   },
   impressum: {
-    title: "Impresszum",
-    description: "A marcsivital weboldal üzemeltetőjének adatai.",
+    title: "Impresszum — Miskolci Mária",
+    description: "Impresszum: Miskolci Mária életmód tanácsadó, Flavon distributor — marcsivital.hu.",
     path: "/impresszum",
   },
   terms: {
-    title: "ÁSZF",
+    title: "ÁSZF — marcsivital Flavon rendelés",
     description:
-      "Általános szerződési feltételek — tájékoztatás, kosár és rendelésigény a marcsivital oldalon.",
+      "Általános szerződési feltételek: Flavon tájékoztatás, kosár és rendelésigény a marcsivital oldalon.",
     path: "/aszf",
   },
   login: {
@@ -87,3 +97,21 @@ export const pageSeo = {
     noIndex: true,
   },
 };
+
+/** SEO helper for category pages */
+export function categorySeo(category) {
+  if (!category) {
+    return {
+      title: "Kategória nem található",
+      description: "Ez a Flavon kategória nem létezik.",
+      path: "/kategoria",
+      noIndex: true,
+    };
+  }
+  return {
+    title: `${category.title} — Flavon termékek | Miskolci Mária`,
+    description: `${category.description} Flavon ajánlások egészséghez, fogyáshoz és életmódhoz — marcsivital, Miskolci Mária.`,
+    keywords: `${category.title}, Flavon, egészség, fogyás, életmód, Miskolci Mária`,
+    path: `/kategoria/${category.id}`,
+  };
+}

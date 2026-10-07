@@ -22,7 +22,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="Az én történetem"
         title="Bemutatkozás"
-        subtitle={`${distributor.fullName} — ${distributor.title}.`}
+        subtitle={`${distributor.formalName} (${distributor.fullName}) — ${distributor.title}. Flavon, egészség, életmód és tartós fogyás.`}
       />
 
       <section className="pb-20 md:pb-28">

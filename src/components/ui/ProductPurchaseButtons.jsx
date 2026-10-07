@@ -1,4 +1,4 @@
-import { ShoppingBag, UserPlus, Info } from "lucide-react";
+import { ShoppingBag, ExternalLink, Info } from "lucide-react";
 import { siteConfig } from "../../config/config";
 import { canAddToCart } from "../../config/productsData";
 import { useCart } from "../../context/CartContext";
@@ -37,12 +37,11 @@ export default function ProductPurchaseButtons({
     canAddToCart(product) &&
     !disabled;
 
-  const retailText =
-    retailLabel || "Kiskereskedelmi áron darabra vásárolok és kérem";
+  const retailText = retailLabel || (useCartForRetail ? "Kosárba teszem" : "Megnézem a webshopban");
 
   const isModal = size === "modal";
   const base =
-    "inline-flex items-start justify-center gap-2 w-full font-medium text-center transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 rounded-xl whitespace-normal leading-snug";
+    "inline-flex items-center justify-center gap-2 w-full font-semibold text-center transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 rounded-xl whitespace-normal leading-snug";
 
   const retailClasses = isModal
     ? `${base} px-5 py-3.5 text-sm sm:text-base bg-brand-600 text-white hover:bg-brand-700 shadow-lg shadow-brand-600/20`
@@ -53,10 +52,10 @@ export default function ProductPurchaseButtons({
     : `${base} px-3 py-2.5 text-xs sm:text-sm border-2 border-brand-600 text-brand-800 bg-white hover:bg-brand-50`;
 
   const infoClasses = isModal
-    ? `${base} px-5 py-3.5 text-sm sm:text-base border border-gray-200 text-gray-700 bg-gray-50 hover:bg-gray-100`
-    : `${base} px-3 py-2.5 text-xs sm:text-sm border border-gray-200 text-gray-700 bg-gray-50 hover:bg-gray-100`;
+    ? `${base} px-5 py-3.5 text-sm sm:text-base border border-gray-200 text-gray-700 bg-gray-50 hover:bg-gray-100 font-medium`
+    : `${base} px-3 py-2.5 text-xs sm:text-sm border border-gray-200 text-gray-700 bg-gray-50 hover:bg-gray-100 font-medium`;
 
-  const iconClass = isModal ? "h-5 w-5 shrink-0 mt-0.5" : "h-4 w-4 shrink-0 mt-0.5";
+  const iconClass = isModal ? "h-5 w-5 shrink-0" : "h-4 w-4 shrink-0";
   const disabledClasses = disabled ? "pointer-events-none opacity-50" : "";
 
   const handleRetailClick = (e) => {
@@ -85,10 +84,10 @@ export default function ProductPurchaseButtons({
   const cartonPrice = product?.cartonPrice ?? 54000;
   const cartonUnits = product?.cartonUnits;
   const cartonLabel = product?.cartonNote
-    ? `A gyártótól kartonra vásárolok — ${product.cartonNote}, ${cartonPrice.toLocaleString("hu-HU")} Ft`
+    ? `Gyártói karton — ${product.cartonNote} · ${cartonPrice.toLocaleString("hu-HU")} Ft`
     : cartonUnits
-      ? `A gyártótól kartonra vásárolok — 1 karton = ${cartonUnits} db, ${cartonPrice.toLocaleString("hu-HU")} Ft`
-      : `A gyártótól kartonra vásárolok — a karton (1#) ára ${cartonPrice.toLocaleString("hu-HU")} Ft`;
+      ? `Gyártói karton — ${cartonUnits} db · ${cartonPrice.toLocaleString("hu-HU")} Ft`
+      : `Gyártói karton — ${cartonPrice.toLocaleString("hu-HU")} Ft`;
 
   return (
     <div className={`flex flex-col gap-2 ${className}`}>
@@ -124,14 +123,14 @@ export default function ProductPurchaseButtons({
         onClick={onClick}
         aria-disabled={disabled}
       >
-        <UserPlus className={iconClass} aria-hidden />
+        <ExternalLink className={iconClass} aria-hidden />
         <span>{cartonLabel}</span>
       </a>
 
       {showInfoButton && onInfoClick && (
         <button type="button" className={infoClasses} onClick={handleInfoClick}>
           <Info className={iconClass} aria-hidden />
-          <span>Termékinformáció</span>
+          <span>Részletek</span>
         </button>
       )}
     </div>

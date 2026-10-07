@@ -181,7 +181,7 @@ export default function ProductsPage() {
       <PageHero
         eyebrow="Termékek"
         title="Prémium Flavon termékcsalád"
-        subtitle="Válassz terméket a kosárba, vagy nyisd meg a Termékinformációt a részletekért."
+        subtitle="Tedd kosárba a terméket, vagy nyisd meg a Részleteket. A gyártói karton a Flavon webshopra visz."
         compact
       />
 

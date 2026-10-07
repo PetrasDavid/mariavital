@@ -17,6 +17,7 @@ import OrderSuccessPage from "./pages/OrderSuccessPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import ImpressumPage from "./pages/ImpressumPage";
 import TermsPage from "./pages/TermsPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 export default function App() {
   return (
@@ -40,6 +41,7 @@ export default function App() {
               <Route path="kosar" element={<CartPage />} />
               <Route path="penztar" element={<CheckoutPage />} />
               <Route path="rendeles-sikeres" element={<OrderSuccessPage />} />
+              <Route path="*" element={<NotFoundPage />} />
             </Route>
           </Routes>
         </CartProvider>

@@ -7,6 +7,7 @@ import Button from "../components/ui/Button";
 import ContactForm from "../components/ui/ContactForm";
 import SeoHead from "../components/ui/SeoHead";
 import { pageSeo } from "../config/seoData";
+import { isLiveUrl } from "../utils/links";
 
 const benefits = [
   { icon: Users, title: "Személyes mentorálás", description: "Marcsi vezetésével, kezdőktől haladókig." },
@@ -37,7 +38,8 @@ const podcasts = [
 ];
 
 export default function PlatinumTeamPage() {
-  const { distributor, links } = siteConfig;
+  const { distributor, links, social } = siteConfig;
+  const calendlyLive = isLiveUrl(links.calendlyUrl);
 
   return (
     <>
@@ -163,20 +165,37 @@ export default function PlatinumTeamPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div className="p-8 rounded-3xl bg-gradient-to-br from-brand-700 to-emerald-800 text-white">
               <Calendar className="h-8 w-8 text-brand-200 mb-4" />
-              <h2 className="text-2xl font-bold mb-3">Online időpontfoglalás tanácsadásra</h2>
+              <h2 className="text-2xl font-bold mb-3">
+                {calendlyLive ? "Online időpontfoglalás tanácsadásra" : "Beszéljünk személyesen"}
+              </h2>
               <p className="text-brand-100 mb-6 leading-relaxed">
-                Beszéljünk személyesen az üzleti lehetőségről — foglalj időpontot!
+                {calendlyLive
+                  ? "Beszéljünk személyesen az üzleti lehetőségről — foglalj időpontot!"
+                  : "Az online időpontfoglaló hamarosan elérhető. Addig írj Messengerben vagy töltsd ki a jelentkezési űrlapot."}
               </p>
-              <Button
-                href={links.calendlyUrl}
-                variant="primary"
-                size="lg"
-                icon={Calendar}
-                iconPosition="left"
-                className="!bg-white !text-brand-800 hover:!bg-brand-50"
-              >
-                Online időpontfoglalás tanácsadásra
-              </Button>
+              {calendlyLive ? (
+                <Button
+                  href={links.calendlyUrl}
+                  external
+                  variant="primary"
+                  size="lg"
+                  icon={Calendar}
+                  iconPosition="left"
+                  className="!bg-white !text-brand-800 hover:!bg-brand-50"
+                >
+                  Online időpontfoglalás tanácsadásra
+                </Button>
+              ) : (
+                <Button
+                  href={social.messenger.href}
+                  external
+                  variant="primary"
+                  size="lg"
+                  className="!bg-white !text-brand-800 hover:!bg-brand-50"
+                >
+                  Írj Messengerben
+                </Button>
+              )}
             </div>
             <div className="bg-white rounded-3xl border border-gray-100 shadow-xl p-6 md:p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-2">Jelentkezés</h2>

@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# No SEO value — keep crawl budget on content pages
+Disallow: /kosar
+Disallow: /penztar
+Disallow: /rendeles-sikeres
+Disallow: /login
+
+Sitemap: https://www.marcsivital.hu/sitemap.xml

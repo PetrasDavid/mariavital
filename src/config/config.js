@@ -17,7 +17,7 @@ export const siteConfig = {
     promise:
       "Nem csodát ígérek. Egy utat mutatok egy energikusabb, egészségesebb élet felé.",
     description:
-      "Prémium Flavon táplálkozás, egészséges életmód és támogató közösség Marcsi vezetésével.",
+      "Flavon termékek, fogyás, egészség és életmód — Miskolci Mária (Miskolci Marcsi) életmód tanácsadó oldala: marcsivital.",
   },
 
   distributor: {
