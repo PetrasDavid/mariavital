@@ -31,13 +31,13 @@ export default function ProductCard({ product, index = 0, onInfoClick }) {
       className="group flex flex-col h-full bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:border-brand-200 transition-all duration-300 overflow-hidden"
     >
       <div
-        className={`relative h-48 bg-gradient-to-br ${accentColor} flex items-center justify-center overflow-hidden`}
+        className={`relative aspect-[4/3] bg-gradient-to-br ${accentColor} flex items-center justify-center overflow-hidden`}
       >
         {image ? (
           <img
             src={image}
             alt={imageAlt || name}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            className="max-w-full max-h-full w-auto h-auto object-contain p-3 group-hover:scale-[1.03] transition-transform duration-500"
           />
         ) : (
           <div className="flex flex-col items-center gap-2 text-white/90 px-4 text-center">
@@ -66,7 +66,6 @@ export default function ProductCard({ product, index = 0, onInfoClick }) {
             Hamarosan
           </span>
         )}
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300" />
       </div>
 
       <div className="flex flex-col flex-1 p-6">

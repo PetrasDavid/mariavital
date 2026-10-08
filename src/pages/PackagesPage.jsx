@@ -33,13 +33,13 @@ export default function PackagesPage() {
                   className="flex flex-col rounded-2xl border border-gray-100 bg-white overflow-hidden hover:shadow-xl transition-all duration-300"
                 >
                   <div
-                    className={`h-48 bg-gradient-to-br ${pkg.accentColor} flex items-center justify-center overflow-hidden`}
+                    className={`aspect-[4/3] bg-gradient-to-br ${pkg.accentColor} flex items-center justify-center overflow-hidden`}
                   >
                     {pkg.image ? (
                       <img
                         src={pkg.image}
                         alt={pkg.imageAlt || pkg.name}
-                        className="w-full h-full object-cover"
+                        className="max-w-full max-h-full w-auto h-auto object-contain p-3"
                       />
                     ) : (
                       <span className="text-5xl">{pkg.emoji}</span>

@@ -151,8 +151,8 @@ A fiatal középkorúak és az idősebbek szervezete már sok megpróbáltatáso
     id: "flavon-max",
     name: "Flavon Max",
     description:
-      "Ajánljuk minden egészségtudatos felnőttnek és azoknak, akik nem fogyasztanak elegendő mennyiségű gyümölcsöt és zöldséget.",
-    benefits: ["Max", "Antioxidáns", "Vitalitás", "Ginzeng"],
+      "Ajánljuk minden egészségtudatos felnőttnek és azoknak, akik nem fogyasztanak elegendő mennyiségű gyümölcsöt és zöldséget. Immunrendszer, vitamin- és ásványianyag-háztartás, vitalitás támogatása.",
+    benefits: ["Max", "Immun", "Vitalitás", "Antioxidáns"],
     retailPrice: 16200,
     currency: "Ft",
     unit: "/üveg",
@@ -163,8 +163,17 @@ A fiatal középkorúak és az idősebbek szervezete már sok megpróbáltatáso
     ingredients:
       "Fekete áfonya, homoktövis, fekete bodza, kékszőlő, fekete ribizli, cékla, ginzeng (Panax ginseng). Lékoncentrátumok (feketeribizli, fekete áfonya, fekete bodzabogyó, kékszőlő, cékla, homoktövis), fruktóz, aszkorbinsav (C-vitamin), D,L-alfa-tokoferol (E-vitamin), homoktövis gyümölcshús-, mag- és héj őrlemény, Panax ginseng gyökér őrlemény, sűrítőanyag (almapektin).",
     recommendedFor: [
-      "Minden egészségtudatos felnőttnek",
-      "Akik nem fogyasztanak elegendő mennyiségű gyümölcsöt és zöldséget",
+      "Egészséges felnőtteknek egy jó immunrendszer fenntartásában",
+      "Gyerekeknek 14 éves kor vagy 50 kg testsúly felett",
+      "A megfelelő ásványi anyag-, vitamin- és aminosav-háztartás szinten tartásában / megőrzésében",
+      "Vashiány, vérszegénység",
+      "Hiánybetegségek elkerülésében",
+      "Étvágytalanság és legyengült szervezet esetén",
+      "Vérszegénység, fáradtság, levertség esetén",
+      "Krónikus tüdőproblémák esetén (COPD)",
+      "Ízületi problémák, köszvény megelőzésében / a kialakult köszvény tüneteinek csillapításában",
+      "Alvászavarok, ismétlődő fejfájás esetén, migrén",
+      "Nehézfémeket, elektroszmogot segít kivezetni a szervezetből",
     ],
     ingredientDetails: `Fekete áfonya — Antioxidáns hatás, látás és érrendszer támogatása.
 
@@ -187,15 +196,35 @@ Ginzeng (Panax ginseng) — Testi és szellemi állóképesség, adaptogén hat�
     id: "collagen",
     name: "Kollagén by Flavon",
     description:
-      "Hidrolizált kollagén peptidek — bőr, haj, körmök és kötőszövet támogatása.",
-    benefits: ["Kollagén", "Regeneráció", "Por"],
+      "100% kollagén — testünk ragasztója! Hidrolizált marha kollagén, mely minden területen kifejti a hatását: bőr, csontok, inak, szalagok, köröm és haj szerkezet, porc és szem, máj, tüdő, artériák, vese, méhlepény és a belső szervek.",
+    benefits: ["100% kollagén", "Bőr & ízületek", "Regeneráció"],
     retailPrice: 16200,
     currency: "Ft",
     unit: "/doboz",
-    image: null,
+    image: "/products/flavon_kollagen.jpg",
     imageAlt: "Collagen by Flavon",
     accentColor: "from-amber-300 to-stone-500",
     affiliateUrl: shop,
+    ingredients:
+      "Hidrolizált marha kollagén — 100% kollagén.",
+    recommendedFor: [
+      "Fogyókúrában",
+      "Szétnyílt hasizom esetén a bőr regenerálása miatt",
+      "Kötényhas formálásánál a bőr regenerálása miatt",
+      "Ízületek további sejtkárosodásának megakadályozása miatt",
+      "Kismamáknak szülés után",
+      "Narancsbőr eltüntetésének beindítása",
+      "Bőrfeszesítésnél",
+      "Izomlazításnál",
+    ],
+    ingredientDetails: `Hidrolizált marha kollagén — minden területen kifejti a hatását:
+
+Bőr, csontok, inak, szalagok
+Köröm, haj szerkezet
+Porc és szem szerkezet
+Máj, tüdő, artériák
+Vese, méhlepény és a belső szervek`,
+    faq: "Kiskereskedelmi áron darabra rendelhető ezen az oldalon.",
   },
   {
     id: "glucosamine",
@@ -206,7 +235,7 @@ Ginzeng (Panax ginseng) — Testi és szellemi állóképesség, adaptogén hat�
     retailPrice: 16200,
     currency: "Ft",
     unit: "/doboz",
-    image: null,
+    image: "/products/flavon_glukozamin.jpg",
     imageAlt: "Glucosamine & Chondroitin by Flavon",
     accentColor: "from-sky-300 to-blue-500",
     affiliateUrl: shop,
@@ -215,8 +244,8 @@ Ginzeng (Panax ginseng) — Testi és szellemi állóképesség, adaptogén hat�
     id: "peak-boost",
     name: "Peak Boost",
     description:
-      "A Peak koncepció legújabb terméke, a Boost — magyarul „lendület” — az értékes, magas hatóanyagtartalmú gyümölcsök és az elnyújtott stimuláló hatást biztosító koffein-forrás, a guarana magával ragadó szinergizmusa, amely egyszerre élénkít és nyújt erős antioxidáns hatást. Hogy mentálisan és fizikailag is a csúcson legyünk! Napi kiszerelése révén elfér bármely zsebben; bárhol, bármikor fogyasztható.",
-    benefits: ["Peak Boost", "Guarana", "Energia", "Antioxidáns"],
+      "BOOST gyümölcs-koncentrátum — a Peak koncepció lendülete: értékes gyümölcsök és a guarana elnyújtott stimuláló hatása, amely egyszerre élénkít és erős antioxidáns támogatást nyújt. Mentálisan és fizikailag is a csúcson! Napi kiszerelés — elfér bármely zsebben. Tartósítószert és egyéb adalékanyagot (víz, sűrítő, állagjavító, színezék, ízfokozó) nem tartalmaz!",
+    benefits: ["Peak Boost", "Guarana", "Energia", "98% gyümölcs"],
     retailPrice: 32400,
     currency: "Ft",
     unit: "/doboz",
@@ -224,12 +253,29 @@ Ginzeng (Panax ginseng) — Testi és szellemi állóképesség, adaptogén hat�
     imageAlt: "Flavon Peak Boost",
     accentColor: "from-rose-500 to-red-600",
     affiliateUrl: shop,
+    ingredients:
+      "Gyümölcslé-koncentrátumok (ananász, alma, arónia, kaktuszfüge), noni gyümölcspulver (Morinda citrifolia), guarana (Paullinia cupana) por, C-vitamin (L-aszkorbinsav), koffein. Gyümölcstartalom: 98%.",
+    recommendedFor: [
+      "Hatékonyabb fogyáshoz",
+      "Gyakran depressziós vagy kedvetlen állapotnál",
+      "Intenzívebb zsírégetéshez",
+      "Gyorsabb anyagcseréhez",
+      "Több energiához",
+      "Sportteljesítmény fokozásához",
+      "Emésztőrendszeri problémáknál (pl. puffadás)",
+      "Klimax időszakában",
+      "Rendellenes menstruációnál",
+      "Mikroelem-pótláshoz (A-, C-, E-, K-, H-vitamin, teljes B-vitamin család, magnézium, vas, szelén, kálium, nátrium stb.)",
+    ],
+    consumption:
+      "Napi adag: 1–2 tasak délután 14 óráig, vagy sport előtt 10–15 perccel.",
+    faq: "Tartósítószert és egyéb adalékanyagot (víz, sűrítő, állagjavító, színezék, ízfokozó) nem tartalmaz. Kiskereskedelmi áron darabra rendelhető ezen az oldalon.",
   },
   {
     id: "peak-fruit",
     name: "Peak Fruit",
     description:
-      "Flavon Peak Fruit gyümölcs-olaj koncentrátum Omega-3, -6 és -9 zsírsavakkal.",
+      "Flavon Peak Fruit gyümölcs-olaj koncentrátum Omega-3, -6 és -9 zsírsavakkal — széles körű támogatás a mindennapi vitalitáshoz.",
     benefits: ["Omega 3-6-9", "Peak Fruit", "Olaj koncentrátum"],
     retailPrice: 32400,
     currency: "Ft",
@@ -238,6 +284,22 @@ Ginzeng (Panax ginseng) — Testi és szellemi állóképesség, adaptogén hat�
     imageAlt: "Flavon Peak Fruit",
     accentColor: "from-blue-400 to-indigo-600",
     affiliateUrl: shop,
+    recommendedFor: [
+      "Felső légúti problémáknál",
+      "Kismamáknak terhesség alatt, szoptatáskor",
+      "A saját kollagéntermelés felgyorsításához",
+      "Immunrendszeri betegeknek",
+      "Autoimmun betegeknek",
+      "Daganatos betegeknek",
+      "Szív-érrendszeri betegeknek (magas vérnyomás)",
+      "Vesebetegeknek",
+      "Mozgásszervi betegeknek",
+      "Bélbetegség esetén",
+      "Migrénnél",
+      "Bőrproblémák, sömör, sérülések esetén",
+      "Bőrszárazságnál",
+    ],
+    faq: "Kiskereskedelmi áron darabra rendelhető ezen az oldalon. Gyártói kartonos vásárlásnál az 1# karton ára 54 000 Ft.",
   },
   {
     id: "veggie",
@@ -290,7 +352,7 @@ Ginzeng (Panax ginseng) — Testi és szellemi állóképesség, adaptogén hat�
     retailPrice: 21600,
     currency: "Ft",
     unit: "/üveg",
-    image: null,
+    image: "/products/flavon_max_plus.png",
     imageAlt: "Flavon Max+",
     accentColor: "from-cyan-500 to-teal-800",
     affiliateUrl: shop,
@@ -354,10 +416,10 @@ Ginzeng (Panax ginseng) — Testi és szellemi állóképesség, adaptogén hat�
   },
   {
     id: "complex-pack",
-    name: "Complex Pack – Fehérje-szénhidrát-Inulin-vitaminok",
+    name: "Complex Pack – Vegán fehérje-szénhidrát",
     description:
-      "Vegán fehérje + szénhidrát mátrix, inulinnal és vitaminokkal — több kiszerelés választható.",
-    benefits: ["Fehérje", "Inulin", "Több opció"],
+      "Vegán fehérje + komplex szénhidrát mátrix (maltodextrin és izomaltulóz), inulinnal, vitaminokkal és ásványi anyagokkal. Növényi eredetű proteinkeverék — vegetáriánusok és vegánok is fogyaszthatják. Glutén- és szójamentes, alacsony zsírtartalom. Egy adag ~14 g fehérje; csokoládé-banán íz.",
+    benefits: ["Vegán fehérje", "Carb mátrix", "Inulin", "Csipkebogyó"],
     retailPrice: 16200,
     priceTo: 48700,
     hasOptions: true,
@@ -366,6 +428,30 @@ Ginzeng (Panax ginseng) — Testi és szellemi állóképesség, adaptogén hat�
     imageAlt: "Complex Pack by Flavon",
     accentColor: "from-gray-700 to-stone-900",
     affiliateUrl: shop,
+    ingredients:
+      "Borsófehérje, rizsfehérje; komplex szénhidrát mátrix (maltodextrin, izomaltulóz); prebiotikus növényi rostok, inulin; magas csipkebogyó (C-vitamin) tartalom; D- és E-vitamin; B-vitamin család (B1, B2, B3, B5, B6, B9); ásványi anyagok (Zn, Ca, Cu); esszenciális aminosavak (L-arginin, L-lizin, L-metionin, L-karnitin).",
+    recommendedFor: [
+      "Vegetáriánusoknak és vegánoknak",
+      "Akik növényi fehérjét és komplex szénhidrátot keresnek együtt",
+      "Magas növényi rostbevitelhez",
+      "Glutén- és szójamentes étrendet követőknek",
+    ],
+    ingredientDetails: `Borsófehérje, rizsfehérje — növényi eredetű proteinkeverék; vegetáriánusok és vegánok is fogyaszthatják. Az állati és növényi eredetű proteinek között lényeges egészségi különbségek vannak.
+
+Komplex szénhidrát mátrix — maltodextrin és izomaltulóz. Az izomaltulóz lassan felszívódó szénhidrát.
+
+Magas növényi rost — prebiotikus hatású növényi rostokat is tartalmaz; inulin.
+
+Csipkebogyó — magas C-vitamin tartalom (adagonként 2000 mg csipkebogyó gyümölcspulver a csomagolás szerint).
+
+Vitaminok — D- és E-vitamin; a B-vitamincsalád több tagja (B1, B2, B3, B5, B6, B9).
+
+Ásványi anyagok — cink (Zn), kalcium (Ca), réz (Cu).
+
+Esszenciális aminosavak — L-arginin, L-lizin, L-metionin, L-karnitin.
+
+Glutén- és szójamentes, zsírtartalma alacsony. Íz: csokoládé-banán.`,
+    faq: "Több kiszerelés választható. Kiskereskedelmi áron rendelhető ezen az oldalon. Laktóz-, glutén- és szójamentes.",
   },
 ];
 

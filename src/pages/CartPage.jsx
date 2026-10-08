@@ -67,12 +67,12 @@ export default function CartPage() {
                     key={line.productId}
                     className="flex flex-col sm:flex-row gap-4 p-4 sm:p-5 rounded-2xl border border-gray-100 bg-white shadow-sm"
                   >
-                    <div className="w-full sm:w-28 h-36 sm:h-28 rounded-xl overflow-hidden bg-gray-100 shrink-0">
+                    <div className="w-full sm:w-28 h-36 sm:h-28 rounded-xl overflow-hidden bg-gray-50 border border-gray-100 shrink-0 flex items-center justify-center p-1.5">
                       {line.product.image ? (
                         <img
                           src={line.product.image}
                           alt={line.product.imageAlt || line.product.name}
-                          className="w-full h-full object-cover"
+                          className="max-w-full max-h-full w-auto h-auto object-contain"
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center text-gray-300">

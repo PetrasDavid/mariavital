@@ -30,12 +30,14 @@ function ProductModal({ product, onClose }) {
           onClick={(e) => e.stopPropagation()}
           className="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
         >
-          <div className={`h-40 sm:h-52 bg-gradient-to-br ${product.accentColor} relative overflow-hidden`}>
+          <div
+            className={`aspect-[16/10] sm:aspect-[2/1] bg-gradient-to-br ${product.accentColor} relative overflow-hidden flex items-center justify-center`}
+          >
             {product.image && (
               <img
                 src={product.image}
                 alt={product.imageAlt || product.name}
-                className="absolute inset-0 w-full h-full object-cover"
+                className="max-w-full max-h-full w-auto h-auto object-contain p-4"
               />
             )}
             {product.onSale && (
