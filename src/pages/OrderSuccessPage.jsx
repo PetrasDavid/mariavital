@@ -43,13 +43,13 @@ export default function OrderSuccessPage() {
               </p>
             )}
             <p className="text-gray-600 leading-relaxed mb-8">
-              Ellenőrizd az e-mail fiókodat, és ha a böngésző megnyitotta a leveleződet,
-              küldd el az előkészített üzenetet. Kérdés esetén írj ide:{" "}
+              A rendelésigény elküldve. A megadott e-mail címedre elküldtük a rendelés
+              másolatát is. Marcsi hamarosan felveszi veled a kapcsolatot. Kérdés esetén:{" "}
               <a
-                href={`mailto:${siteConfig.contact.email}`}
+                href={`mailto:${siteConfig.contact.orderEmail || siteConfig.contact.email}`}
                 className="text-brand-700 font-medium hover:underline"
               >
-                {siteConfig.contact.email}
+                {siteConfig.contact.orderEmail || siteConfig.contact.email}
               </a>
               .
             </p>

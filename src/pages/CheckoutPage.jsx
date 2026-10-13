@@ -68,10 +68,11 @@ export default function CheckoutPage() {
       saveLastOrder(order);
       clearCart();
       navigate("/rendeles-sikeres", { state: { orderId } });
-    } catch {
+    } catch (err) {
       setStatus("idle");
       setError(
-        "Nem sikerült elküldeni a rendelést. Próbáld újra, vagy írj e-mailt közvetlenül.",
+        err?.message ||
+          "Nem sikerült elküldeni a rendelést. Próbáld újra, vagy írj e-mailt közvetlenül.",
       );
     }
   };

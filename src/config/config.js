@@ -38,6 +38,13 @@ export const siteConfig = {
   contact: {
     email: "marcsiflavon@gmail.com",
     emailSecondary: "marcsimiskolci@gmail.com",
+    /** Rendelésigények (kosár / pénztár) erre a címre mennek */
+    orderEmail: "marcsiflavon@gmail.com",
+    /**
+     * FormSubmit rejtett hash (opcionális). Üresen az orderEmail-t használja.
+     * Éles domainen az első rendelésnél FormSubmit aktiváló e-mailt küld Marcsi címére.
+     */
+    formSubmitHash: "",
     phone: "+36 30 405 0618",
     phoneHref: "+36304050618",
   },
@@ -97,8 +104,15 @@ export const siteConfig = {
     checkoutEnabled: true,
   },
 
-  /** Optional Formspree / webhook URL for shop orders (JSON POST). If null → mailto. */
+  /** Optional Formspree / webhook URL for shop orders (JSON POST). */
   orderEndpoint: null,
+
+  /**
+   * How to deliver order requests:
+   * - "formsubmit" → server-side email to contact.orderEmail (no Outlook)
+   * - "mailto" → opens the visitor's mail app (legacy)
+   */
+  orderSubmitMode: "formsubmit",
 
   navigation: [
     { label: "Kezdőlap", to: "/" },

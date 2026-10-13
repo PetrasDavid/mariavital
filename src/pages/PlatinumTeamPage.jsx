@@ -13,7 +13,7 @@ const benefits = [
   { icon: Users, title: "Személyes mentorálás", description: "Marcsi vezetésével, kezdőktől haladókig." },
   { icon: GraduationCap, title: "Professzionális képzések", description: "Online és offline tréningek rendszeresen." },
   { icon: Calendar, title: "Események", description: "Csapatépítők, workshopok, közös programok." },
-  { icon: Mic, title: "Podcast & tartalmak", description: "Inspiráló beszélgetések és oktatóanyagok." },
+  { icon: Mic, title: "Podcast & tartalmak", description: "Hamarosan..." },
 ];
 
 const leaders = [
@@ -29,12 +29,6 @@ const events = [
     location: "Budapest, Tél utca 3. (IV. kerület)",
     type: "Offline",
   },
-];
-
-const podcasts = [
-  { title: "Hogyan kezdj MLM-ben?", duration: "32 perc" },
-  { title: "Flavon és az immunrendszer", duration: "28 perc" },
-  { title: "Egészséges rutin mindennap", duration: "24 perc" },
 ];
 
 export default function PlatinumTeamPage() {
@@ -119,21 +113,11 @@ export default function PlatinumTeamPage() {
 
             <div>
               <SectionHeading title="Podcast & tartalmak" align="left" />
-              <div className="space-y-3">
-                {podcasts.map((pod) => (
-                  <div
-                    key={pod.title}
-                    className="flex items-center gap-4 p-4 rounded-xl bg-white border border-gray-100"
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center shrink-0">
-                      <Mic className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">{pod.title}</p>
-                      <p className="text-sm text-gray-500">{pod.duration}</p>
-                    </div>
-                  </div>
-                ))}
+              <div className="flex items-center gap-4 p-4 rounded-xl bg-white border border-gray-100">
+                <div className="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center shrink-0">
+                  <Mic className="h-5 w-5" />
+                </div>
+                <p className="font-semibold text-gray-900">Hamarosan...</p>
               </div>
             </div>
           </div>

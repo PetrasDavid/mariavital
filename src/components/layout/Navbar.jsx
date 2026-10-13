@@ -126,7 +126,7 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-1 xl:hidden">
-            <CartBadge />
+            <CartBadge className="lg:hidden" />
             <button
               type="button"
               className="p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors"
