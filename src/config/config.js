@@ -215,7 +215,7 @@ export const whyChooseMe = [
 ];
 
 export const storyQuote =
-  "Nem csupán lefogytam – új életet kezdtem. Az eredményemet pedig több mint két éve sikerült megtartanom. Ez adott hitet ahhoz, hogy másoknak is segítsek elindulni.";
+  "Nem csupán lefogytam. Új életet kezdtem. Az eredményemet pedig több mint két éve sikerült megtartanom. Ez adott hitet ahhoz, hogy másoknak is segítsek elindulni.";
 
 export const platinumPitch = {
   headline: "Egyedül nehéz. Egy jó csapatban viszont sokkal könnyebb fejlődni.",

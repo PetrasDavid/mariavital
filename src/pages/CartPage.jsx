@@ -34,7 +34,7 @@ export default function CartPage() {
       <PageHero
         eyebrow="Webshop"
         title="Kosár"
-        subtitle="A tételek mentve maradnak a böngésződben. A következő lépés egy rendelésigény — a fizetést Marcsi egyezteti."
+        subtitle="Nézd át a kiválasztott termékeket, majd add le a rendelésigényt. A fizetést Marcsi egyezteti veled."
         compact
       />
 

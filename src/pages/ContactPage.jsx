@@ -22,7 +22,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Kapcsolat"
         title="Lépj kapcsolatba velünk"
-        subtitle="Kérdésed van a termékekről vagy a csatlakozásról? Írj vagy hívj bátran — szívesen segítek!"
+        subtitle="Kérdésed van a termékekről vagy a csatlakozásról? Írj vagy hívj bátran. Szívesen segítek!"
         compact
       />
 

@@ -121,7 +121,7 @@ export default function HomePage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             title="Miért engem válassz?"
-            subtitle="Hiszem, hogy minden ember megérdemli, hogy jól érezze magát a testében — és ehhez szeretnék segítséget nyújtani."
+            subtitle="Hiszem, hogy minden ember megérdemli, hogy jól érezze magát a testében. És ehhez szeretnék segítséget nyújtani."
           />
           <ul className="space-y-3">
             {whyChooseMe.map((item, i) => (

@@ -70,7 +70,7 @@ export default function AboutPage() {
                 A legnagyobb büszkeségem, hogy az elért fogyásomat több mint két
                 éve sikerült megtartanom (
                 <strong className="text-brand-700">−11 kg</strong>), miközben
-                energikusabbnak és kiegyensúlyozottabbnak érzem magam —{" "}
+                energikusabbnak és kiegyensúlyozottabbnak érzem magam.{" "}
                 <strong className="text-gray-900">Hashimoto</strong> és a{" "}
                 <strong className="text-gray-900">változókor</strong> kihívásai
                 mellett is.

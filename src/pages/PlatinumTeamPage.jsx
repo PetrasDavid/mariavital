@@ -41,7 +41,7 @@ export default function PlatinumTeamPage() {
       <PageHero
         eyebrow="Platinum Team"
         title={platinumPitch.headline}
-        subtitle={`A ${distributor.teamName} mentori támogatást, képzéseket és egy támogató közösséget kínál — kezdőknek és tapasztalt partnereknek egyaránt.`}
+        subtitle={`A ${distributor.teamName} mentori támogatást, képzéseket és egy támogató közösséget kínál. Kezdőknek és tapasztalt partnereknek egyaránt.`}
       />
 
       <section className="pb-12">

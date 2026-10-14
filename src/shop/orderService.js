@@ -69,9 +69,19 @@ function getOrderRecipient() {
   return siteConfig.contact.orderEmail || siteConfig.contact.email;
 }
 
+function formatOrderItemsForEmail(order) {
+  return order.lines
+    .map(
+      (l, i) =>
+        `${i + 1}. ${l.name}  × ${l.quantity}  —  ${formatPrice(l.lineTotal, order.currency)}`,
+    )
+    .join("\n");
+}
+
 /**
  * Send order via FormSubmit (no Outlook / mail app).
  * Uses formSubmitHash after activation (from the FormSubmit email).
+ * Field keys become the email labels — keep them short and Hungarian.
  */
 async function submitViaFormSubmit(order) {
   const hash = siteConfig.contact.formSubmitHash;
@@ -80,9 +90,10 @@ async function submitViaFormSubmit(order) {
   if (!target) throw new Error("Nincs beállítva rendelési e-mail cím.");
 
   const endpoint = `https://formsubmit.co/ajax/${encodeURIComponent(target)}`;
-  const bodyText = formatOrderEmailBody(order);
   const pageUrl =
     typeof window !== "undefined" ? window.location.href : "https://www.marcsivital.hu/penztar";
+  const c = order.customer;
+  const note = (c.note || "").trim();
 
   const response = await fetch(endpoint, {
     method: "POST",
@@ -91,33 +102,30 @@ async function submitViaFormSubmit(order) {
       Accept: "application/json",
     },
     body: JSON.stringify({
-      _subject: `Rendeléskérés — ${order.orderId} | marcsivital`,
-      _template: "table",
+      _subject: `Új rendelés — ${order.orderId} | marcsivital`,
+      _template: "box",
       _captcha: false,
-      _replyto: order.customer.email,
+      _replyto: c.email,
       // FormSubmit AJAX + kikapcsolt captcha mellett az _autoresponse NEM működik.
-      // A vevő a rendelés másolatát kapja (_cc), így látja a tételeket és az összeget.
-      _cc: order.customer.email,
+      // A vevő a rendelés másolatát kapja (_cc).
+      _cc: c.email,
       _url: pageUrl,
-      name: order.customer.name,
-      email: order.customer.email,
-      phone: order.customer.phone,
-      orderId: order.orderId,
-      shippingAddress: `${order.customer.zip} ${order.customer.city}, ${order.customer.address}`,
-      note: order.customer.note || "-",
-      items: order.lines
-        .map(
-          (l) =>
-            `${l.name} × ${l.quantity} = ${formatPrice(l.lineTotal, order.currency)}`,
-        )
-        .join(" | "),
-      subtotal: formatPrice(order.subtotal, order.currency),
-      shipping:
+      // `email` mező kell a FormSubmit reply / CC működéséhez
+      email: c.email,
+      "Rendelés azonosító": order.orderId,
+      Dátum: new Date(order.createdAt).toLocaleString("hu-HU"),
+      "Vásárló neve": c.name,
+      Telefon: c.phone,
+      "Szállítási cím": `${c.zip} ${c.city}, ${c.address}`,
+      ...(note ? { Megjegyzés: note } : {}),
+      Tételek: formatOrderItemsForEmail(order),
+      Részösszeg: formatPrice(order.subtotal, order.currency),
+      Szállítás:
         order.shipping === 0
           ? "Ingyenes"
           : formatPrice(order.shipping, order.currency),
-      total: formatPrice(order.total, order.currency),
-      message: bodyText,
+      Végösszeg: formatPrice(order.total, order.currency),
+      Infó: "Weboldali rendelésigény — a fizetés és szállítás egyeztetése következik.",
     }),
   });
 
