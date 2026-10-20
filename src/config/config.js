@@ -281,6 +281,18 @@ export const blogPosts = [
 
 export const packages = [
   {
+    id: "indulo-proba",
+    productId: "indulo-proba-csomag",
+    emoji: "🌱",
+    name: "Induló próba csomag",
+    description:
+      "10 db Peak Boost (kismamáknak Fruit) + 1 db Green — akciósan 26 800 Ft + futár. Csak Marcsitól kapható, a Flavontól nem.",
+    products: ["Peak Boost / Fruit", "Flavon Green", "Csak Marcsitól"],
+    accentColor: "from-lime-400 to-rose-500",
+    image: "/products/indulo_proba_csomag.jpg",
+    imageAlt: "Induló próba csomag — Green és Peak Boost",
+  },
+  {
     id: "belrendszer",
     productId: "belrendszer-2havi",
     emoji: "🌿",

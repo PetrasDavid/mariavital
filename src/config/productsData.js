@@ -358,6 +358,22 @@ Vese, méhlepény és a belső szervek`,
     affiliateUrl: shop,
   },
   {
+    id: "indulo-proba-csomag",
+    name: "Induló próba csomag",
+    description:
+      "Akciós induló csomag: 10 db Peak Boost (kismamáknak Fruit) + 1 db Green. Csak Marcsitól rendelhető, a Flavon webshopban nem elérhető.",
+    benefits: ["10× Peak Boost / Fruit", "1× Green", "Csak Marcsitól"],
+    retailPrice: 26800,
+    currency: "Ft",
+    image: "/products/indulo_proba_csomag.jpg",
+    imageAlt: "Induló próba csomag — Green és Peak Boost",
+    accentColor: "from-lime-400 to-rose-500",
+    exclusiveToDistributor: true,
+    consumption:
+      "Green: napi 3×1 mokkáskanál, étkezés előtt 10 perccel. Boost: napi 1 adag, legkésőbb 12:00-ig.",
+    faq: "Ez a csomag kizárólag Marcsitól rendelhető a marcsivital oldalon — a Flavon hivatalos webshopban nem kapható. Az árhoz futárdíj társulhat.",
+  },
+  {
     id: "belrendszer-2havi",
     name: "Bélrendszer karbantartás – 2 havi adag",
     description:

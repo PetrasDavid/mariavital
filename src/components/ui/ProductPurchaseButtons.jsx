@@ -81,6 +81,7 @@ export default function ProductPurchaseButtons({
     onInfoClick?.(e);
   };
 
+  const showManufacturerCarton = !product?.exclusiveToDistributor;
   const cartonPrice = product?.cartonPrice ?? 54000;
   const cartonUnits = product?.cartonUnits;
   const cartonLabel = product?.cartonNote
@@ -115,17 +116,19 @@ export default function ProductPurchaseButtons({
         </a>
       )}
 
-      <a
-        href={disabled ? undefined : register}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`${registerClasses} ${disabledClasses}`}
-        onClick={onClick}
-        aria-disabled={disabled}
-      >
-        <ExternalLink className={iconClass} aria-hidden />
-        <span>{cartonLabel}</span>
-      </a>
+      {showManufacturerCarton && (
+        <a
+          href={disabled ? undefined : register}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${registerClasses} ${disabledClasses}`}
+          onClick={onClick}
+          aria-disabled={disabled}
+        >
+          <ExternalLink className={iconClass} aria-hidden />
+          <span>{cartonLabel}</span>
+        </a>
+      )}
 
       {showInfoButton && onInfoClick && (
         <button type="button" className={infoClasses} onClick={handleInfoClick}>
