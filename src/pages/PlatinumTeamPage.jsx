@@ -24,10 +24,10 @@ const leaders = [
 
 const events = [
   {
-    date: "2026. aug. 1.",
-    title: "Platinum Team találkozó",
-    location: "Budapest, Tél utca 3. (IV. kerület)",
-    type: "Offline",
+    date: "2026. nov. 21–22.",
+    title: "Flavon 2 napos rendezvény",
+    location: "Siófok",
+    type: "Flavon országos esemény",
   },
 ];
 
@@ -87,7 +87,7 @@ export default function PlatinumTeamPage() {
 
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
-              <SectionHeading title="Platinum team eseménynaptár" align="left" />
+              <SectionHeading title="Eseménynaptár" align="left" />
               <div className="space-y-3">
                 {events.map((event) => (
                   <div

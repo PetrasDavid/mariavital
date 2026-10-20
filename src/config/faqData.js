@@ -15,7 +15,7 @@ export const faqItems = [
     id: "shipping",
     question: "Ki szállítja és számlázza a termékeket?",
     answer:
-      "A szállítást és számlázást a Flavon hivatalos / gyártói rendszere végzi. A marcsivital oldal tájékoztat, kosarat és rendelésigényt kezel. Szállítási díj: 1 990 Ft; 50 000 Ft felett a szállítást az oldalon ingyenesként jelezzük (a végleges feltételek a rendelés visszaigazolásakor tisztázódnak).",
+      "A szállítást és számlázást a Flavon hivatalos / gyártói rendszere végzi. A marcsivital oldal tájékoztat, kosarat és rendelésigényt kezel. A szállítási díj mindig 1 900 Ft. A Flavonnál nincs összeghatár feletti ingyenes szállítás.",
   },
   {
     id: "prices",

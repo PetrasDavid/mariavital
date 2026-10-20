@@ -15,9 +15,9 @@ export const shopConfig = {
   storageKey: "marcsivital_cart_v1",
   orderStorageKey: "marcsivital_last_order_v1",
   /** Flat shipping fee in Ft (0 = free / TBD) */
-  shippingFee: 1990,
-  /** Free shipping from this subtotal (Ft); null = never */
-  freeShippingFrom: 50000,
+  shippingFee: 1900,
+  /** Free shipping from this subtotal (Ft); null = never (Flavon: mindig fizetős) */
+  freeShippingFrom: null,
   shippingNote:
     "Ez rendelésigény, nem azonnali bankkártyás fizetés. Marcsi e-mailben / telefonon egyezteti veled a fizetést és a szállítást.",
   minOrderNote: "Minimum 1 termék szükséges a rendeléshez.",
