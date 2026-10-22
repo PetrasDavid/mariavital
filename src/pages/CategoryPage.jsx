@@ -54,7 +54,8 @@ export default function CategoryPage() {
               <p className="text-gray-700 leading-relaxed">
                 Ehhez a témához válogatott Flavon termékek —{" "}
                 <strong>Kosárba teszem</strong> a saját kosaradba kerül, a{" "}
-                <strong>Gyártói karton</strong> a Flavon hivatalos webshopjára visz.
+                <strong>Közvetlen a gyártótól rendelek</strong> a Flavon hivatalos
+                webshopjára visz.
               </p>
               <p className="text-sm text-brand-800 font-medium mt-2">
                 {categoryProducts.length} ajánlott termék ebben a kategóriában

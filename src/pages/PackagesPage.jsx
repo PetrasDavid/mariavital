@@ -112,7 +112,7 @@ export default function PackagesPage() {
 
           <p className="text-center text-sm text-gray-500 mt-12 flex items-center justify-center gap-2">
             <Package className="h-4 w-4" />
-            A kosárba gomb Marcsinak küldi a rendelésigényt. A gyártói karton (ahol van) a Flavon webshopra visz. Az Induló próba csomag csak Marcsitól kapható.
+            A kosárba gomb Marcsinak küldi a rendelésigényt. A „Közvetlen a gyártótól rendelek” (ahol van) a Flavon webshopra visz. Az Induló próba csomag csak Marcsitól kapható.
           </p>
         </div>
       </section>
