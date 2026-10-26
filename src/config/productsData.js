@@ -40,6 +40,8 @@ export const products = [
   {
     id: "flavon-green",
     name: "GREEN zöldség koncentrátum",
+    cartonUnits: 4,
+    cartonPrice: 54000,
     description:
       "A tömény zöldség, az egészséges fogyás alapja! De ki tud naponta 1,5–2 kg-ot megenni? Annyi baj van vele: megvenni, megpucolni, sütni, főzni, nyersen… Macerás. A Green zöldség-koncentrátum az igazi kalóriadeficit támogatója — az üvegben ellenőrzött minőségben és mennyiségben tömény zöldség található, tudományosan igazolt vizsgálatok alapján összekeverve, olyan arányban, ahogyan számunkra a leghasznosabb. Feltölt, így nem leszel éhes, de az energiaszinted megmarad. Ez nem étvágycsökkentő, hanem sejt feltöltő élelmiszer, melynek egy adagja csak 16 kcal!",
     benefits: ["Zöldség koncentrátum", "16 kcal/adag", "Kalóriadeficit", "Prebiotikus"],
@@ -94,6 +96,8 @@ Grapefruit — Magas B-, C-, E-, K-vitamin, pektin, bioflavonoid. Szív-érrends
   {
     id: "flavon-protect",
     name: "FLAVON Protect gyümölcskoncentrátum",
+    cartonUnits: 4,
+    cartonPrice: 54000,
     description:
       "A FLAVON Protect hatásai az összetevői erejében rejlik. A gyümölcskoncentrátum összetevői egymás hatását felerősítve járulnak hozzá a test egyensúlyban levő működéséhez — mindegyik a megfelelő helyen fejti ki jótékony hatását. Tartósítószert és egyéb adalékanyagot (víz, sűrítő, állagjavító, színezék, ízfokozó) nem tartalmaz!",
     benefits: ["Protect", "Gyümölcs", "Immun", "Antioxidáns"],
@@ -150,6 +154,8 @@ A fiatal középkorúak és az idősebbek szervezete már sok megpróbáltatáso
   {
     id: "flavon-max",
     name: "Flavon Max",
+    cartonUnits: 4,
+    cartonPrice: 54000,
     description:
       "Ajánljuk minden egészségtudatos felnőttnek és azoknak, akik nem fogyasztanak elegendő mennyiségű gyümölcsöt és zöldséget. Immunrendszer, vitamin- és ásványianyag-háztartás, vitalitás támogatása.",
     benefits: ["Max", "Immun", "Vitalitás", "Antioxidáns"],

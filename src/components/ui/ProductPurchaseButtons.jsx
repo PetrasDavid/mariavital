@@ -84,14 +84,11 @@ export default function ProductPurchaseButtons({
   const showManufacturerCarton = !product?.exclusiveToDistributor;
   const cartonPrice = product?.cartonPrice ?? 54000;
   const cartonPriceText = `${cartonPrice.toLocaleString("hu-HU")} Ft`;
-  const cartonUnits = product?.cartonUnits;
-  // Évi / Marcsi: minden terméknél ez a megfogalmazás (nem „Gyártói karton”)
-  const cartonDetail =
-    cartonUnits === 3 || /3 üveg/i.test(product?.cartonNote || "")
-      ? `1 karton=3ü ${cartonPriceText}`
-      : cartonUnits
-        ? `1 karton=${cartonUnits} db ${cartonPriceText}`
-        : cartonPriceText;
+  // Alap: 4 üveg / karton; Green+New: 3 üveg
+  const cartonUnits =
+    product?.cartonUnits ??
+    (/3 üveg/i.test(product?.cartonNote || "") ? 3 : 4);
+  const cartonDetail = `${cartonPriceText} · ${cartonUnits} ü. / 1 karton`;
   const cartonLabel = `Közvetlen a gyártótól rendelek · ${cartonDetail}`;
 
   return (
