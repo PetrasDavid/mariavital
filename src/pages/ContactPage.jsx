@@ -149,7 +149,11 @@ export default function ContactPage() {
               <p className="text-gray-600 text-sm mb-6">
                 Töltsd ki az űrlapot, és {distributor.name} hamarosan válaszol.
               </p>
-              <ContactForm />
+              <ContactForm
+                type="contact"
+                messagePlaceholder="Miben segíthetünk?"
+                submitLabel="Üzenet küldése"
+              />
             </motion.div>
           </div>
         </div>

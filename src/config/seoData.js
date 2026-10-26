@@ -4,7 +4,7 @@ export const pageSeo = {
   home: {
     title: "Flavon termékek, fogyás és életmód | Miskolci Mária",
     description:
-      "marcsivital.hu — Miskolci Mária életmód tanácsadó. Flavon koncentrátumok, természetes fogyás, egészség és energia. Személyes ajánlás Miskolcról.",
+      "marcsivital.eu — Miskolci Mária életmód tanácsadó. Flavon koncentrátumok, természetes fogyás, egészség és energia. Személyes ajánlás Miskolcról.",
     keywords:
       "Flavon, fogyás, egészség, életmód, életmód tanácsadó, Miskolci Mária, Miskolci Marcsi, marcsivital",
     path: "/",
@@ -52,7 +52,7 @@ export const pageSeo = {
   contact: {
     title: "Kapcsolat — Miskolci Mária életmód tanácsadó",
     description:
-      "Írj Miskolci Máriának: Flavon termékek, fogyás, egészség, életmód tanácsadás. Telefon, e-mail és Messenger — marcsivital.hu.",
+      "Írj Miskolci Máriának: Flavon termékek, fogyás, egészség, életmód tanácsadás. Telefon, e-mail és Messenger — marcsivital.eu.",
     keywords: "Miskolci Mária, kapcsolat, Flavon, életmód tanácsadó, egészség, Miskolc",
     path: "/kapcsolat",
   },
@@ -76,12 +76,12 @@ export const pageSeo = {
   },
   privacy: {
     title: "Adatvédelem — marcsivital / Miskolci Mária",
-    description: "Adatvédelmi tájékoztató a marcsivital.hu oldalhoz — Miskolci Mária.",
+    description: "Adatvédelmi tájékoztató a marcsivital.eu oldalhoz — Miskolci Mária.",
     path: "/adatvedelem",
   },
   impressum: {
     title: "Impresszum — Miskolci Mária",
-    description: "Impresszum: Miskolci Mária életmód tanácsadó, Flavon distributor — marcsivital.hu.",
+    description: "Impresszum: Miskolci Mária életmód tanácsadó, Flavon distributor — marcsivital.eu.",
     path: "/impresszum",
   },
   terms: {

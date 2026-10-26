@@ -2,16 +2,33 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Send, CheckCircle } from "lucide-react";
 import { siteConfig } from "../../config/config";
+import { submitContactMessage } from "../../utils/formSubmit";
 import Button from "./Button";
 
 const initialFormState = { name: "", email: "", phone: "", message: "" };
 
+/**
+ * @param {"contact" | "platinum"} type
+ */
 export default function ContactForm({
+  type = "platinum",
   messagePlaceholder = "Miért szeretnél csatlakozni a Platinum Teamhez?",
+  submitLabel,
+  successTitle = "Köszönjük!",
+  successMessage,
 }) {
   const [form, setForm] = useState(initialFormState);
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState("");
+
+  const isPlatinum = type === "platinum";
+  const buttonText =
+    submitLabel || (isPlatinum ? "Jelentkezés küldése" : "Üzenet küldése");
+  const successBody =
+    successMessage ||
+    (isPlatinum
+      ? "Megkaptuk a jelentkezésed. A megadott e-mailcímedre elküldtük a másolatot is. Marcsi hamarosan felveszi veled a kapcsolatot."
+      : "Megkaptuk az üzeneted. A megadott e-mailcímedre elküldtük a másolatot is. Marcsi hamarosan válaszol.");
 
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -27,28 +44,31 @@ export default function ContactForm({
         const response = await fetch(siteConfig.formEndpoint, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(form),
+          body: JSON.stringify({ type, ...form }),
         });
         if (!response.ok) throw new Error("Submission failed");
         setStatus("success");
         setForm(initialFormState);
       } catch {
         setStatus("error");
-        setError("Hiba történt az küldés során. Kérjük, próbáld újra vagy hívj minket.");
+        setError(
+          "Hiba történt a küldés során. Kérjük, próbáld újra vagy hívj minket.",
+        );
       }
       return;
     }
 
-    const recipients = [siteConfig.contact.email, siteConfig.contact.emailSecondary]
-      .filter(Boolean)
-      .join(",");
-    const subject = encodeURIComponent("Platinum Team jelentkezés");
-    const body = encodeURIComponent(
-      `Név: ${form.name}\nEmail: ${form.email}\nTelefon: ${form.phone}\n\nÜzenet:\n${form.message}`,
-    );
-    window.location.href = `mailto:${recipients}?subject=${subject}&body=${body}`;
-    setStatus("success");
-    setForm(initialFormState);
+    try {
+      await submitContactMessage({ type, ...form });
+      setStatus("success");
+      setForm(initialFormState);
+    } catch (err) {
+      setStatus("error");
+      setError(
+        err?.message ||
+          "Hiba történt a küldés során. Kérjük, próbáld újra vagy hívj minket.",
+      );
+    }
   };
 
   if (status === "success") {
@@ -59,10 +79,8 @@ export default function ContactForm({
         className="text-center py-12 px-6"
       >
         <CheckCircle className="h-16 w-16 text-brand-500 mx-auto mb-4" />
-        <h3 className="text-xl font-bold text-gray-900 mb-2">Köszönjük!</h3>
-        <p className="text-gray-600 mb-6">
-          Megkaptuk jelentkezésed. Marcsi hamarosan felveszi veled a kapcsolatot.
-        </p>
+        <h3 className="text-xl font-bold text-gray-900 mb-2">{successTitle}</h3>
+        <p className="text-gray-600 mb-6">{successBody}</p>
         <Button variant="outline" onClick={() => setStatus("idle")}>
           Új üzenet küldése
         </Button>
@@ -149,7 +167,7 @@ export default function ContactForm({
         className="w-full sm:w-auto"
         disabled={status === "submitting"}
       >
-        {status === "submitting" ? "Küldés..." : "Jelentkezés küldése"}
+        {status === "submitting" ? "Küldés..." : buttonText}
       </Button>
     </form>
   );

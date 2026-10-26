@@ -7,7 +7,7 @@ export const siteConfig = {
     name: "marcsivital",
     shortName: "marcsivital",
     displayName: "MARCSIVITAL",
-    domain: "www.marcsivital.hu",
+    domain: "www.marcsivital.eu",
     slogan: "Egészség. Energia. Életminőség.",
     identityLine: "Miskolci Marcsi | Életmód tanácsadó",
     logo: "/marcsivital_logo.jpg",
@@ -126,7 +126,7 @@ export const siteConfig = {
 
   legal: {
     disclaimer:
-      "A marcsivital (www.marcsivital.hu) egy független Flavon distributor személyes weboldala. Nem a Flavon hivatalos vállalati oldala. A vásárlás, szállítás és számlázás a Flavon hivatalos webshopján keresztül történik.",
+      "A marcsivital (www.marcsivital.eu) egy független Flavon distributor személyes weboldala. Nem a Flavon hivatalos vállalati oldala. A vásárlás, szállítás és számlázás a Flavon hivatalos webshopján keresztül történik.",
     operatorName: "Miskolci Mária",
     operatorDisplayName: "Miskolci Marcsi",
   },

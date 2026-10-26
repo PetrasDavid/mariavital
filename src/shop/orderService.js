@@ -91,7 +91,7 @@ async function submitViaFormSubmit(order) {
 
   const endpoint = `https://formsubmit.co/ajax/${encodeURIComponent(target)}`;
   const pageUrl =
-    typeof window !== "undefined" ? window.location.href : "https://www.marcsivital.hu/penztar";
+    typeof window !== "undefined" ? window.location.href : "https://www.marcsivital.eu/penztar";
   const c = order.customer;
   const note = (c.note || "").trim();
 

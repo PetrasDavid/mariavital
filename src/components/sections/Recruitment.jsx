@@ -90,7 +90,7 @@ export default function Recruitment() {
             <p className="text-gray-600 text-sm mb-6">
               Töltsd ki az űrlapot, és 24 órán belül felvesszük veled a kapcsolatot.
             </p>
-            <ContactForm />
+            <ContactForm type="platinum" />
           </motion.div>
         </div>
       </div>

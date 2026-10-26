@@ -7,4 +7,4 @@ Disallow: /penztar
 Disallow: /rendeles-sikeres
 Disallow: /login
 
-Sitemap: https://www.marcsivital.hu/sitemap.xml
+Sitemap: https://www.marcsivital.eu/sitemap.xml

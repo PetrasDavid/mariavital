@@ -186,7 +186,10 @@ export default function PlatinumTeamPage() {
               <p className="text-gray-600 text-sm mb-6">
                 Töltsd ki az űrlapot, és {distributor.name} felveszi veled a kapcsolatot.
               </p>
-              <ContactForm messagePlaceholder="Mire keresed a megoldást?" />
+              <ContactForm
+                type="platinum"
+                messagePlaceholder="Mire keresed a megoldást?"
+              />
             </div>
           </div>
         </div>
