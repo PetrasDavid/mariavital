@@ -1,5 +1,6 @@
 import { siteConfig } from "../config/config";
 import { formatPrice } from "../config/productsData";
+import { submitToFormSubmit } from "../utils/formSubmit";
 import { shopConfig } from "./shopConfig";
 
 export function createOrderId() {
@@ -79,38 +80,17 @@ function formatOrderItemsForEmail(order) {
 }
 
 /**
- * Send order via FormSubmit (no Outlook / mail app).
- * Uses formSubmitHash after activation (from the FormSubmit email).
- * Field keys become the email labels — keep them short and Hungarian.
+ * Send order via FormSubmit (no Outlook / mail app) — same path as contact forms.
  */
 async function submitViaFormSubmit(order) {
-  const hash = siteConfig.contact.formSubmitHash;
-  const to = getOrderRecipient();
-  const target = hash || to;
-  if (!target) throw new Error("Nincs beállítva rendelési e-mail cím.");
-
-  const endpoint = `https://formsubmit.co/ajax/${encodeURIComponent(target)}`;
-  const pageUrl =
-    typeof window !== "undefined" ? window.location.href : "https://www.marcsivital.eu/penztar";
   const c = order.customer;
   const note = (c.note || "").trim();
 
-  const response = await fetch(endpoint, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify({
-      _subject: `Új rendelés — ${order.orderId} | marcsivital`,
-      _template: "box",
-      _captcha: false,
-      _replyto: c.email,
-      // FormSubmit AJAX + kikapcsolt captcha mellett az _autoresponse NEM működik.
-      // A vevő a rendelés másolatát kapja (_cc).
-      _cc: c.email,
-      _url: pageUrl,
-      // `email` mező kell a FormSubmit reply / CC működéséhez
+  await submitToFormSubmit({
+    subject: `Új rendelés — ${order.orderId} | marcsivital`,
+    replyTo: c.email,
+    cc: [c.email],
+    fields: {
       email: c.email,
       "Rendelés azonosító": order.orderId,
       Dátum: new Date(order.createdAt).toLocaleString("hu-HU"),
@@ -126,20 +106,8 @@ async function submitViaFormSubmit(order) {
           : formatPrice(order.shipping, order.currency),
       Végösszeg: formatPrice(order.total, order.currency),
       Infó: "Weboldali rendelésigény — a fizetés és szállítás egyeztetése következik.",
-    }),
+    },
   });
-
-  const data = await response.json().catch(() => ({}));
-  const failed = !response.ok || data.success === "false" || data.success === false;
-  if (failed) {
-    const raw = String(data.message || "");
-    if (/activat/i.test(raw)) {
-      throw new Error(
-        "A FormSubmit űrlap még nincs aktiválva. Nyisd meg a FormSubmit e-mailt a Gmailben, és kattints az „ACTIVATE FORM” gombra, majd próbáld újra.",
-      );
-    }
-    throw new Error(raw || "Order submit failed");
-  }
   return { ok: true, method: "formsubmit" };
 }
 
