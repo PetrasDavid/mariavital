@@ -161,15 +161,7 @@ export async function submitOrder(order) {
   const endpoint = siteConfig.formEndpoint || siteConfig.orderEndpoint || null;
   if (endpoint) return submitViaEndpoint(endpoint, order);
 
-  const mode = siteConfig.orderSubmitMode || "formsubmit";
-  if (mode === "mailto") {
-    const orderTo = getOrderRecipient();
-    const subject = encodeURIComponent(`Rendeléskérés — ${order.orderId}`);
-    const body = encodeURIComponent(formatOrderEmailBody(order));
-    window.location.href = `mailto:${orderTo}?subject=${subject}&body=${body}`;
-    return { ok: true, method: "mailto" };
-  }
-
+  // Mindig FormSubmit — soha ne nyisson Outlookot / mailto-t.
   return submitViaFormSubmit(order);
 }
 

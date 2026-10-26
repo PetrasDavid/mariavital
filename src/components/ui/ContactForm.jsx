@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Send, CheckCircle, Loader2 } from "lucide-react";
 import { siteConfig } from "../../config/config";
-import { submitContactMessage } from "../../utils/formSubmit";
+import { getFormSubmitRecipient } from "../../utils/formSubmit";
 import Button from "./Button";
 
 const initialFormState = { name: "", email: "", phone: "", message: "" };
 
 /**
+ * Kapcsolat / Platinum űrlap — natív FormSubmit POST (nincs mailto, nincs Outlook).
  * @param {"contact" | "platinum"} type
  */
 export default function ContactForm({
@@ -17,11 +19,13 @@ export default function ContactForm({
   successTitle = "Köszönjük!",
   successMessage,
 }) {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [form, setForm] = useState(initialFormState);
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState("");
 
   const isPlatinum = type === "platinum";
+  const sentFlag = isPlatinum ? "platinum" : "kapcsolat";
   const buttonText =
     submitLabel || (isPlatinum ? "Jelentkezés küldése" : "Üzenet küldése");
   const successBody =
@@ -30,47 +34,56 @@ export default function ContactForm({
       ? "Megkaptuk a jelentkezésed. A megadott e-mailcímedre elküldtük a másolatot is. Marcsi hamarosan felveszi veled a kapcsolatot."
       : "Megkaptuk az üzeneted. A megadott e-mailcímedre elküldtük a másolatot is. Marcsi hamarosan válaszol.");
 
+  const actionUrl = useMemo(() => {
+    try {
+      return `https://formsubmit.co/${encodeURIComponent(getFormSubmitRecipient())}`;
+    } catch {
+      return null;
+    }
+  }, []);
+
+  const nextUrl = useMemo(() => {
+    if (typeof window === "undefined") return "";
+    const url = new URL(window.location.href);
+    url.searchParams.set("elkuldve", sentFlag);
+    url.hash = "";
+    return url.toString();
+  }, [sentFlag]);
+
+  const ccValue = useMemo(() => {
+    return [form.email, siteConfig.contact.emailSecondary]
+      .filter(Boolean)
+      .join(",");
+  }, [form.email]);
+
+  useEffect(() => {
+    if (searchParams.get("elkuldve") === sentFlag) {
+      setStatus("success");
+      setForm(initialFormState);
+      const next = new URLSearchParams(searchParams);
+      next.delete("elkuldve");
+      setSearchParams(next, { replace: true });
+    }
+  }, [searchParams, sentFlag, setSearchParams]);
+
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const handleSubmit = (e) => {
     setError("");
-    setStatus("submitting");
-
-    // Soha ne mailto / Outlook — csak FormSubmit vagy formEndpoint
-    if (siteConfig.formEndpoint) {
-      try {
-        const response = await fetch(siteConfig.formEndpoint, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ type, ...form }),
-        });
-        if (!response.ok) throw new Error("Submission failed");
-        setStatus("success");
-        setForm(initialFormState);
-      } catch {
-        setStatus("idle");
-        setError(
-          "Hiba történt a küldés során. Kérjük, próbáld újra vagy hívj minket.",
-        );
-      }
+    if (!actionUrl) {
+      e.preventDefault();
+      setError("Nincs beállítva fogadó e-mail cím.");
       return;
     }
-
-    try {
-      await submitContactMessage({ type, ...form });
-      setStatus("success");
-      setForm(initialFormState);
-    } catch (err) {
-      setStatus("idle");
-      setError(
-        err?.message ||
-          "Hiba történt a küldés során. Kérjük, próbáld újra vagy hívj minket.",
-      );
+    if (!form.name.trim() || !form.email.trim() || !form.phone.trim()) {
+      e.preventDefault();
+      setError("Kérjük, töltsd ki a kötelező mezőket.");
+      return;
     }
+    // Natív POST megy a FormSubmitre — ne akadályozzuk (különben újra JS fetch / mailto lehetne).
+    setStatus("submitting");
   };
 
   if (status === "success") {
@@ -94,7 +107,22 @@ export default function ContactForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5" noValidate={false}>
+    <form
+      action={actionUrl || undefined}
+      method="POST"
+      onSubmit={handleSubmit}
+      className="space-y-5"
+    >
+      <input type="hidden" name="_subject" value={isPlatinum ? "Platinum Team jelentkezés | marcsivital" : "Kapcsolatfelvétel | marcsivital"} />
+      <input type="hidden" name="_template" value="box" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value={nextUrl} />
+      <input type="hidden" name="_replyto" value={form.email} />
+      {ccValue ? <input type="hidden" name="_cc" value={ccValue} /> : null}
+      <input type="hidden" name="_url" value={typeof window !== "undefined" ? window.location.href : ""} />
+      <input type="hidden" name="Típus" value={isPlatinum ? "Platinum Team jelentkezés" : "Kapcsolatfelvétel"} />
+      <input type="text" name="_honey" value="" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
           <label htmlFor={`cf-name-${type}`} className="block text-sm font-medium text-gray-700 mb-1.5">
@@ -166,6 +194,11 @@ export default function ContactForm({
         />
       </div>
 
+      {/* FormSubmit mezőnevek magyarul is */}
+      <input type="hidden" name="Név" value={form.name} />
+      <input type="hidden" name="Telefon" value={form.phone} />
+      <input type="hidden" name="Üzenet" value={form.message || "-"} />
+
       {error && (
         <p className="text-sm text-red-600 bg-red-50 px-4 py-3 rounded-lg leading-relaxed">
           {error}
@@ -179,13 +212,13 @@ export default function ContactForm({
         icon={status === "submitting" ? Loader2 : Send}
         iconPosition="right"
         className={`w-full sm:w-auto ${status === "submitting" ? "[&_svg]:animate-spin" : ""}`}
-        disabled={status === "submitting"}
+        disabled={status === "submitting" || !actionUrl}
       >
         {status === "submitting" ? "Küldés folyamatban..." : buttonText}
       </Button>
       {status === "submitting" && (
         <p className="text-sm text-gray-500">
-          Kis türelmet — az üzenetet a szerveren keresztül küldjük, nem a leveleződdel.
+          Átirányítunk a biztonságos küldő oldalra — nem a leveleződ nyílik meg.
         </p>
       )}
     </form>
