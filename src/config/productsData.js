@@ -346,6 +346,9 @@ Vese, méhlepény és a belső szervek`,
   {
     id: "flavon-joy",
     name: "Joy",
+    cartonUnits: 3,
+    cartonNote: "1 karton = 3 üveg",
+    cartonPrice: 54000,
     description:
       "Prémium gyümölcskoncentrátum kakaóporral — intenzív íz, cukorbetegeknek is ajánlható.",
     benefits: ["Joy", "Kakaó", "Prémium"],
@@ -360,6 +363,9 @@ Vese, méhlepény és a belső szervek`,
   {
     id: "flavon-max-plus",
     name: "Max+",
+    cartonUnits: 3,
+    cartonNote: "1 karton = 3 üveg",
+    cartonPrice: 54000,
     description:
       "Flavon Max+ — a Max prémium változata, intenzívebb támogatással.",
     benefits: ["Max+", "Prémium", "Vitalitás"],
