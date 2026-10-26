@@ -79,33 +79,62 @@ function formatOrderItemsForEmail(order) {
     .join("\n");
 }
 
+function formatCustomerConfirmation(order) {
+  const shippingText =
+    order.shipping === 0
+      ? "Ingyenes"
+      : formatPrice(order.shipping, order.currency);
+  const items = formatOrderItemsForEmail(order);
+
+  return [
+    `Kedves ${order.customer.name || "Vásárló"}!`,
+    "",
+    "Köszönjük a rendelésigényedet. Sikeresen megkaptuk.",
+    "",
+    "A rendelésed:",
+    items,
+    "",
+    `Részösszeg: ${formatPrice(order.subtotal, order.currency)}`,
+    `Szállítás: ${shippingText}`,
+    `Végösszeg (minden költséggel): ${formatPrice(order.total, order.currency)}`,
+    "",
+    "Marcsi hamarosan felveszi veled a kapcsolatot a fizetés és a szállítás egyeztetése kapcsán.",
+    "",
+    `Rendelésazonosító: ${order.orderId}`,
+  ].join("\n");
+}
+
 /**
  * Send order via FormSubmit (no Outlook / mail app) — same path as contact forms.
+ * Buyer gets a CC with the same content (items, totals, next steps).
  */
 async function submitViaFormSubmit(order) {
   const c = order.customer;
   const note = (c.note || "").trim();
+  const shippingText =
+    order.shipping === 0
+      ? "Ingyenes"
+      : formatPrice(order.shipping, order.currency);
 
   await submitToFormSubmit({
-    subject: `Új rendelés — ${order.orderId} | marcsivital`,
+    subject: `Rendelés visszaigazolás — ${order.orderId} | marcsivital`,
     replyTo: c.email,
     cc: [c.email],
     fields: {
       email: c.email,
+      "Visszaigazolás a vásárlónak": formatCustomerConfirmation(order),
       "Rendelés azonosító": order.orderId,
       Dátum: new Date(order.createdAt).toLocaleString("hu-HU"),
       "Vásárló neve": c.name,
       Telefon: c.phone,
       "Szállítási cím": `${c.zip} ${c.city}, ${c.address}`,
       ...(note ? { Megjegyzés: note } : {}),
-      Tételek: formatOrderItemsForEmail(order),
+      "Rendelt termékek": formatOrderItemsForEmail(order),
       Részösszeg: formatPrice(order.subtotal, order.currency),
-      Szállítás:
-        order.shipping === 0
-          ? "Ingyenes"
-          : formatPrice(order.shipping, order.currency),
-      Végösszeg: formatPrice(order.total, order.currency),
-      Infó: "Weboldali rendelésigény — a fizetés és szállítás egyeztetése következik.",
+      Szállítás: shippingText,
+      "Végösszeg (összesen)": formatPrice(order.total, order.currency),
+      "Következő lépés":
+        "Marcsi hamarosan felveszi a kapcsolatot a fizetés és a szállítás egyeztetése kapcsán.",
     },
   });
   return { ok: true, method: "formsubmit" };

@@ -26,7 +26,7 @@ export default function OrderSuccessPage() {
       <PageHero
         eyebrow="Webshop"
         title="Köszönjük a rendelést!"
-        subtitle="A rendeléskérésed megérkezett — Marcsi hamarosan felveszi veled a kapcsolatot a fizetés és szállítás egyeztetéséhez."
+        subtitle="A rendelésigényed megérkezett. Marcsi hamarosan felveszi veled a kapcsolatot a fizetés és a szállítás egyeztetése kapcsán."
         compact
       />
 
@@ -42,9 +42,13 @@ export default function OrderSuccessPage() {
                 <span className="font-mono font-semibold text-gray-800">{orderId}</span>
               </p>
             )}
+            <p className="text-gray-600 leading-relaxed mb-4">
+              Sikeresen elküldtük a rendelésigényedet. A megadott e-mailcímedre
+              visszaigazolást is küldtünk a rendelt termékekkel és a végösszeggel.
+            </p>
             <p className="text-gray-600 leading-relaxed mb-8">
-              A rendelésigény elküldve. A megadott e-mail címedre elküldtük a rendelés
-              másolatát is. Marcsi hamarosan felveszi veled a kapcsolatot. Kérdés esetén:{" "}
+              Marcsi hamarosan felveszi veled a kapcsolatot a fizetés és a szállítás
+              egyeztetése kapcsán. Kérdés esetén:{" "}
               <a
                 href={`mailto:${siteConfig.contact.orderEmail || siteConfig.contact.email}`}
                 className="text-brand-700 font-medium hover:underline"
@@ -58,13 +62,14 @@ export default function OrderSuccessPage() {
               <div className="text-left rounded-2xl bg-gray-50 border border-gray-100 p-5 mb-8">
                 <h2 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
                   <Package className="h-4 w-4 text-brand-600" />
-                  Rendelés összefoglaló
+                  Amit rendeltél
                 </h2>
                 <ul className="space-y-2 text-sm text-gray-700 mb-3">
                   {order.lines.map((l) => (
                     <li key={l.productId} className="flex justify-between gap-3">
                       <span>
-                        {l.name} × {l.quantity}
+                        {l.name}{" "}
+                        <span className="text-gray-500">× {l.quantity} db</span>
                       </span>
                       <span className="font-medium shrink-0">
                         {formatPrice(l.lineTotal, order.currency)}
@@ -72,9 +77,23 @@ export default function OrderSuccessPage() {
                     </li>
                   ))}
                 </ul>
-                <div className="flex justify-between font-bold text-gray-900 pt-3 border-t border-gray-200">
-                  <span>Végösszeg</span>
-                  <span>{formatPrice(order.total, order.currency)}</span>
+                <div className="space-y-1.5 text-sm text-gray-600 pt-3 border-t border-gray-200">
+                  <div className="flex justify-between">
+                    <span>Részösszeg</span>
+                    <span>{formatPrice(order.subtotal, order.currency)}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Szállítás</span>
+                    <span>
+                      {order.shipping === 0
+                        ? "Ingyenes"
+                        : formatPrice(order.shipping, order.currency)}
+                    </span>
+                  </div>
+                  <div className="flex justify-between font-bold text-gray-900 text-base pt-1">
+                    <span>Végösszeg</span>
+                    <span>{formatPrice(order.total, order.currency)}</span>
+                  </div>
                 </div>
               </div>
             )}
