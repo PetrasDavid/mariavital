@@ -311,6 +311,8 @@ export const packages = [
     description: "2 havi Green + 1 havi Boost a kihíváshoz — akciósan 54 000 Ft.",
     products: ["Flavon Green", "Peak Boost"],
     accentColor: "from-orange-400 to-amber-500",
+    image: "/products/turbo_fogyas_hatas.jpg",
+    imageAlt: "Turbó fogyás hatás csomag",
   },
   {
     id: "vegyes-karton",
