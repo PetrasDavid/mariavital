@@ -318,7 +318,7 @@ export const packages = [
     emoji: "📦",
     name: "Vitality Pack",
     description:
-      "Flavon Green + Protect + Peak Fruit — gyártói karton, 1# ár: 54 000 Ft.",
+      "Flavon Green + Protect + Peak Fruit. Kiskereskedelmi ár: 65 000 Ft, gyártói karton: 54 000 Ft.",
     products: ["Flavon Green", "Flavon Protect", "Peak Fruit"],
     accentColor: "from-blue-400 to-indigo-600",
     image: "/products/vitality_pack.jpg",
