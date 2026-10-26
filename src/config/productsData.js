@@ -201,6 +201,8 @@ Ginzeng (Panax ginseng) — Testi és szellemi állóképesség, adaptogén hat�
   {
     id: "collagen",
     name: "Kollagén by Flavon",
+    cartonUnits: 4,
+    cartonPrice: 54000,
     description:
       "100% kollagén — testünk ragasztója! Hidrolizált marha kollagén, mely minden területen kifejti a hatását: bőr, csontok, inak, szalagok, köröm és haj szerkezet, porc és szem, máj, tüdő, artériák, vese, méhlepény és a belső szervek.",
     benefits: ["100% kollagén", "Bőr & ízületek", "Regeneráció"],
@@ -235,6 +237,8 @@ Vese, méhlepény és a belső szervek`,
   {
     id: "glucosamine",
     name: "Glükózamin by Flavon",
+    cartonUnits: 4,
+    cartonPrice: 54000,
     description:
       "Glükózamin és kondroitin komplex — ízületek mindennapi támogatására.",
     benefits: ["Ízületek", "Glükózamin", "Komplex"],
@@ -440,6 +444,9 @@ Vese, méhlepény és a belső szervek`,
   {
     id: "izulet-csomag",
     name: "Ízület támogató csomag",
+    cartonUnits: 4,
+    cartonUnitShort: "doboz",
+    cartonPrice: 54000,
     description:
       "Glucosamine & Chondroitin + Collagen — mozgás és regeneráció.",
     benefits: ["Glükózamin", "Kollagén", "Ízületek"],
