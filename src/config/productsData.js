@@ -249,6 +249,8 @@ Vese, méhlepény és a belső szervek`,
   {
     id: "peak-boost",
     name: "Peak Boost",
+    cartonUnits: 2,
+    cartonPrice: 54000,
     description:
       "BOOST gyümölcs-koncentrátum — a Peak koncepció lendülete: értékes gyümölcsök és a guarana elnyújtott stimuláló hatása, amely egyszerre élénkít és erős antioxidáns támogatást nyújt. Mentálisan és fizikailag is a csúcson! Napi kiszerelés — elfér bármely zsebben. Tartósítószert és egyéb adalékanyagot (víz, sűrítő, állagjavító, színezék, ízfokozó) nem tartalmaz!",
     benefits: ["Peak Boost", "Guarana", "Energia", "98% gyümölcs"],
@@ -280,6 +282,8 @@ Vese, méhlepény és a belső szervek`,
   {
     id: "peak-fruit",
     name: "Peak Fruit",
+    cartonUnits: 2,
+    cartonPrice: 54000,
     description:
       "Flavon Peak Fruit gyümölcs-olaj koncentrátum Omega-3, -6 és -9 zsírsavakkal — széles körű támogatás a mindennapi vitalitáshoz.",
     benefits: ["Omega 3-6-9", "Peak Fruit", "Olaj koncentrátum"],
@@ -310,6 +314,8 @@ Vese, méhlepény és a belső szervek`,
   {
     id: "veggie",
     name: "Veggie",
+    cartonUnits: 2,
+    cartonPrice: 54000,
     description:
       "Növényi alapú Flavon koncentrátum a mindennapi zöldségbevitel támogatására.",
     benefits: ["Veggie", "Növényi", "Koncentrátum"],
@@ -324,6 +330,8 @@ Vese, méhlepény és a belső szervek`,
   {
     id: "future",
     name: "Future",
+    cartonUnits: 2,
+    cartonPrice: 54000,
     description:
       "Flavon Future — jövőorientált formula a hosszú távú vitalitásért.",
     benefits: ["Future", "Vitalitás", "Koncentrátum"],
