@@ -3,7 +3,7 @@ export const faqItems = [
     id: "order",
     question: "Hogyan rendelhetek?",
     answer:
-      "Két út van: (1) Az oldalon kosárba teszed a terméket vagy csomagot, majd a pénztárnál rendelésigényt küldesz e-mailben. (2) A „gyártói karton” gombbal a Flavon hivatalos webshopjába kerülsz (affiliate link), ahol közvetlenül is rendelhetsz. A bankkártyás fizetés jelenleg a Flavon oldalán elérhető.",
+      "Két út van: (1) Az oldalon kosárba teszed a terméket vagy csomagot, majd a pénztárnál rendelésigényt küldesz e-mailben. (2) A „gyártói karton” gombbal a Flavon hivatalos webshopjába kerülsz, ahol közvetlenül is rendelhetsz. A bankkártyás fizetés jelenleg a Flavon oldalán elérhető.",
   },
   {
     id: "cart",
