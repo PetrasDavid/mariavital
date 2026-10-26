@@ -1,8 +1,24 @@
 import { siteConfig } from "../config/config";
 
+const FORM_SUBMIT_TIMEOUT_MS = 20000;
+
+export function getFormSubmitRecipient() {
+  return (
+    siteConfig.contact.formSubmitHash ||
+    siteConfig.contact.orderEmail ||
+    siteConfig.contact.email
+  );
+}
+
+export function getFormSubmitActionUrl() {
+  const target = getFormSubmitRecipient();
+  if (!target) throw new Error("Nincs beállítva fogadó e-mail cím.");
+  return `https://formsubmit.co/ajax/${encodeURIComponent(target)}`;
+}
+
 /**
  * Shared FormSubmit AJAX helper (no Outlook / mailto).
- * Primary recipient: orderEmail / email. Optional CC list (sender + secondary).
+ * Includes timeout so the UI never hangs forever.
  */
 export async function submitToFormSubmit({
   subject,
@@ -10,36 +26,47 @@ export async function submitToFormSubmit({
   replyTo,
   cc = [],
 }) {
-  const hash = siteConfig.contact.formSubmitHash;
-  const to =
-    siteConfig.contact.orderEmail || siteConfig.contact.email;
-  const target = hash || to;
-  if (!target) throw new Error("Nincs beállítva fogadó e-mail cím.");
-
-  const endpoint = `https://formsubmit.co/ajax/${encodeURIComponent(target)}`;
+  const endpoint = getFormSubmitActionUrl();
   const pageUrl =
     typeof window !== "undefined"
       ? window.location.href
       : `https://${siteConfig.brand.domain}`;
 
   const ccList = [...new Set(cc.filter(Boolean))].join(",");
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), FORM_SUBMIT_TIMEOUT_MS);
 
-  const response = await fetch(endpoint, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify({
-      _subject: subject,
-      _template: "box",
-      _captcha: false,
-      _replyto: replyTo,
-      ...(ccList ? { _cc: ccList } : {}),
-      _url: pageUrl,
-      ...fields,
-    }),
-  });
+  let response;
+  try {
+    response = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      signal: controller.signal,
+      body: JSON.stringify({
+        _subject: subject,
+        _template: "box",
+        _captcha: false,
+        _replyto: replyTo,
+        ...(ccList ? { _cc: ccList } : {}),
+        _url: pageUrl,
+        ...fields,
+      }),
+    });
+  } catch (err) {
+    if (err?.name === "AbortError") {
+      throw new Error(
+        "A küldés túl sokáig tartott. Kapcsold ki a hirdetésblokkolót (AdBlock), majd próbáld újra.",
+      );
+    }
+    throw new Error(
+      "Nem sikerült kapcsolódni a levelező szolgáltatáshoz. Próbáld újra, vagy írj közvetlenül e-mailben.",
+    );
+  } finally {
+    clearTimeout(timer);
+  }
 
   const data = await response.json().catch(() => ({}));
   const failed =
@@ -69,7 +96,7 @@ export async function submitContactMessage({
     : `Kapcsolatfelvétel | marcsivital`;
 
   const secondary = siteConfig.contact.emailSecondary;
-  // Küldő másolatot kap (_cc) — FormSubmit AJAX-nál nincs _autoresponse
+  // Küldő másolatot kap (_cc) — FormSubmit AJAX-nál nincs külön _autoresponse
   const cc = [email, secondary].filter(Boolean);
 
   return submitToFormSubmit({

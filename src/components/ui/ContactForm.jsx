@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Send, CheckCircle } from "lucide-react";
+import { ChevronDown, Send, CheckCircle, Loader2 } from "lucide-react";
 import { siteConfig } from "../../config/config";
 import { submitContactMessage } from "../../utils/formSubmit";
 import Button from "./Button";
@@ -36,9 +36,11 @@ export default function ContactForm({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    e.stopPropagation();
     setError("");
     setStatus("submitting");
 
+    // Soha ne mailto / Outlook — csak FormSubmit vagy formEndpoint
     if (siteConfig.formEndpoint) {
       try {
         const response = await fetch(siteConfig.formEndpoint, {
@@ -50,7 +52,7 @@ export default function ContactForm({
         setStatus("success");
         setForm(initialFormState);
       } catch {
-        setStatus("error");
+        setStatus("idle");
         setError(
           "Hiba történt a küldés során. Kérjük, próbáld újra vagy hívj minket.",
         );
@@ -63,7 +65,7 @@ export default function ContactForm({
       setStatus("success");
       setForm(initialFormState);
     } catch (err) {
-      setStatus("error");
+      setStatus("idle");
       setError(
         err?.message ||
           "Hiba történt a küldés során. Kérjük, próbáld újra vagy hívj minket.",
@@ -81,6 +83,9 @@ export default function ContactForm({
         <CheckCircle className="h-16 w-16 text-brand-500 mx-auto mb-4" />
         <h3 className="text-xl font-bold text-gray-900 mb-2">{successTitle}</h3>
         <p className="text-gray-600 mb-6">{successBody}</p>
+        <p className="text-sm text-gray-500 mb-6">
+          Nézd a Beérkezett és Spam mappát is a visszaigazoló e-mail miatt.
+        </p>
         <Button variant="outline" onClick={() => setStatus("idle")}>
           Új üzenet küldése
         </Button>
@@ -89,86 +94,100 @@ export default function ContactForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <form onSubmit={handleSubmit} className="space-y-5" noValidate={false}>
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1.5">
+          <label htmlFor={`cf-name-${type}`} className="block text-sm font-medium text-gray-700 mb-1.5">
             Név *
           </label>
           <input
-            id="name"
+            id={`cf-name-${type}`}
             name="name"
             type="text"
             required
             value={form.name}
             onChange={handleChange}
             placeholder="Teljes neved"
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none transition-all"
+            autoComplete="name"
+            disabled={status === "submitting"}
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none transition-all disabled:opacity-60"
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1.5">
+          <label htmlFor={`cf-email-${type}`} className="block text-sm font-medium text-gray-700 mb-1.5">
             Email *
           </label>
           <input
-            id="email"
+            id={`cf-email-${type}`}
             name="email"
             type="email"
             required
             value={form.email}
             onChange={handleChange}
             placeholder="email@pelda.hu"
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none transition-all"
+            autoComplete="email"
+            disabled={status === "submitting"}
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none transition-all disabled:opacity-60"
           />
         </div>
       </div>
 
       <div>
-        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1.5">
+        <label htmlFor={`cf-phone-${type}`} className="block text-sm font-medium text-gray-700 mb-1.5">
           Telefon *
         </label>
         <input
-          id="phone"
+          id={`cf-phone-${type}`}
           name="phone"
           type="tel"
           required
           value={form.phone}
           onChange={handleChange}
           placeholder="+36 30 123 4567"
-          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none transition-all"
+          autoComplete="tel"
+          disabled={status === "submitting"}
+          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none transition-all disabled:opacity-60"
         />
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1.5">
+        <label htmlFor={`cf-message-${type}`} className="block text-sm font-medium text-gray-700 mb-1.5">
           Üzenet
         </label>
         <textarea
-          id="message"
+          id={`cf-message-${type}`}
           name="message"
           rows={4}
           value={form.message}
           onChange={handleChange}
           placeholder={messagePlaceholder}
-          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none transition-all resize-none"
+          disabled={status === "submitting"}
+          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none transition-all resize-none disabled:opacity-60"
         />
       </div>
 
       {error && (
-        <p className="text-sm text-red-600 bg-red-50 px-4 py-2 rounded-lg">{error}</p>
+        <p className="text-sm text-red-600 bg-red-50 px-4 py-3 rounded-lg leading-relaxed">
+          {error}
+        </p>
       )}
 
       <Button
         type="submit"
         variant="secondary"
         size="lg"
-        icon={Send}
+        icon={status === "submitting" ? Loader2 : Send}
         iconPosition="right"
-        className="w-full sm:w-auto"
+        className={`w-full sm:w-auto ${status === "submitting" ? "[&_svg]:animate-spin" : ""}`}
         disabled={status === "submitting"}
       >
-        {status === "submitting" ? "Küldés..." : buttonText}
+        {status === "submitting" ? "Küldés folyamatban..." : buttonText}
       </Button>
+      {status === "submitting" && (
+        <p className="text-sm text-gray-500">
+          Kis türelmet — az üzenetet a szerveren keresztül küldjük, nem a leveleződdel.
+        </p>
+      )}
     </form>
   );
 }
