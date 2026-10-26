@@ -89,7 +89,8 @@ function formatCustomerConfirmation(order) {
   return [
     `Kedves ${order.customer.name || "Vásárló"}!`,
     "",
-    "Köszönjük a rendelésigényedet. Sikeresen megkaptuk.",
+    "Köszönjük a vásárlást és a bizalmadat!",
+    "Örömmel fogadtuk a rendelésigényedet — sikeresen megérkezett hozzánk.",
     "",
     "A rendelésed:",
     items,

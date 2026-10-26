@@ -43,8 +43,9 @@ export default function OrderSuccessPage() {
               </p>
             )}
             <p className="text-gray-600 leading-relaxed mb-4">
-              Sikeresen elküldtük a rendelésigényedet. A megadott e-mailcímedre
-              visszaigazolást is küldtünk a rendelt termékekkel és a végösszeggel.
+              Köszönjük a vásárlást és a bizalmadat! Sikeresen megkaptuk a
+              rendelésigényedet. A megadott e-mailcímedre visszaigazolást is küldtünk
+              a rendelt termékekkel és a végösszeggel.
             </p>
             <p className="text-gray-600 leading-relaxed mb-8">
               Marcsi hamarosan felveszi veled a kapcsolatot a fizetés és a szállítás
