@@ -300,6 +300,8 @@ export const packages = [
     description: "2× Green + 2× Protect — akciós csomag 54 000 Ft-ért (eredeti 65 000 Ft).",
     products: ["Flavon Green", "Flavon Protect"],
     accentColor: "from-emerald-400 to-green-600",
+    image: "/products/belrendszer_karbantartas.jpg",
+    imageAlt: "Bélrendszer karbantartás csomag",
   },
   {
     id: "turbo",
