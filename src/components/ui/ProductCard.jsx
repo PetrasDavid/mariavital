@@ -79,7 +79,7 @@ export default function ProductCard({ product, index = 0, onInfoClick }) {
         {onInfoClick && (
           <button
             type="button"
-            className="mb-4 inline-flex items-center gap-1.5 self-start text-sm font-semibold text-brand-700 hover:text-brand-800 underline-offset-2 hover:underline"
+            className="mb-4 inline-flex w-full items-center justify-center gap-2 rounded-xl border border-gray-200 bg-gray-50 px-3 py-2.5 text-xs sm:text-sm font-medium text-gray-700 hover:bg-gray-100 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
             onClick={(e) => {
               e.stopPropagation();
               onInfoClick(e);
