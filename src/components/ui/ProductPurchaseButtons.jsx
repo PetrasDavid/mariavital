@@ -1,4 +1,4 @@
-import { ShoppingBag, ExternalLink, Info } from "lucide-react";
+import { ShoppingBag, ExternalLink } from "lucide-react";
 import { siteConfig } from "../../config/config";
 import { canAddToCart } from "../../config/productsData";
 import { useCart } from "../../context/CartContext";
@@ -9,7 +9,6 @@ import { shopConfig } from "../../shop/shopConfig";
  * Purchase CTAs:
  * 1) Retail → add to on-site cart (or affiliate link as fallback)
  * 2) Manufacturer carton → external register link
- * 3) Optional product info button
  */
 export default function ProductPurchaseButtons({
   product,
@@ -19,9 +18,7 @@ export default function ProductPurchaseButtons({
   className = "",
   size = "card",
   onClick,
-  onInfoClick,
   disabled = false,
-  showInfoButton = false,
 }) {
   const { addItem, enabled: cartEnabled } = useCart();
   const { push } = useToast();
@@ -51,10 +48,6 @@ export default function ProductPurchaseButtons({
     ? `${base} px-5 py-3.5 text-sm sm:text-base border-2 border-brand-600 text-brand-800 bg-white hover:bg-brand-50`
     : `${base} px-3 py-2.5 text-xs sm:text-sm border-2 border-brand-600 text-brand-800 bg-white hover:bg-brand-50`;
 
-  const infoClasses = isModal
-    ? `${base} px-5 py-3.5 text-sm sm:text-base border border-gray-200 text-gray-700 bg-gray-50 hover:bg-gray-100 font-medium`
-    : `${base} px-3 py-2.5 text-xs sm:text-sm border border-gray-200 text-gray-700 bg-gray-50 hover:bg-gray-100 font-medium`;
-
   const iconClass = isModal ? "h-5 w-5 shrink-0" : "h-4 w-4 shrink-0";
   const disabledClasses = disabled ? "pointer-events-none opacity-50" : "";
 
@@ -72,13 +65,6 @@ export default function ProductPurchaseButtons({
         hrefLabel: "Kosár megnyitása →",
       });
     }
-  };
-
-  const handleInfoClick = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    onClick?.(e);
-    onInfoClick?.(e);
   };
 
   const showManufacturerCarton = !product?.exclusiveToDistributor;
@@ -134,13 +120,6 @@ export default function ProductPurchaseButtons({
           <ExternalLink className={iconClass} aria-hidden />
           <span>{cartonLabel}</span>
         </a>
-      )}
-
-      {showInfoButton && onInfoClick && (
-        <button type="button" className={infoClasses} onClick={handleInfoClick}>
-          <Info className={iconClass} aria-hidden />
-          <span>Részletek</span>
-        </button>
       )}
     </div>
   );

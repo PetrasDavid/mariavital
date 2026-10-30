@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Leaf } from "lucide-react";
+import { Info, Leaf } from "lucide-react";
 import { formatProductPrice } from "../../config/productsData";
 import ProductPurchaseButtons from "./ProductPurchaseButtons";
 
@@ -72,9 +72,23 @@ export default function ProductCard({ product, index = 0, onInfoClick }) {
         <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-3 min-h-[4.5rem]">
           {name}
         </h3>
-        <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3 min-h-[3.75rem]">
+        <p className="text-gray-600 text-sm leading-relaxed mb-3 line-clamp-3 min-h-[3.75rem]">
           {description}
         </p>
+
+        {onInfoClick && (
+          <button
+            type="button"
+            className="mb-4 inline-flex items-center gap-1.5 self-start text-sm font-semibold text-brand-700 hover:text-brand-800 underline-offset-2 hover:underline"
+            onClick={(e) => {
+              e.stopPropagation();
+              onInfoClick(e);
+            }}
+          >
+            <Info className="h-4 w-4 shrink-0" aria-hidden />
+            Részletek
+          </button>
+        )}
 
         <ul className="flex flex-wrap gap-2 mb-5 min-h-[4.5rem] content-start">
           {benefits?.map((benefit) => (
@@ -122,8 +136,6 @@ export default function ProductCard({ product, index = 0, onInfoClick }) {
             retailUrl={retailUrl || affiliateUrl}
             registerUrl={registerUrl}
             disabled={comingSoon}
-            showInfoButton={Boolean(onInfoClick)}
-            onInfoClick={onInfoClick}
             onClick={(e) => e.stopPropagation()}
           />
         </div>
