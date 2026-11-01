@@ -144,7 +144,7 @@ export const siteConfig = {
     formActionUrl: "",
     title: "Iratkozz fel a hírlevélre",
     subtitle:
-      "Tippek egészséghez, életmódhoz és Flavon termékekhez — közvetlenül Marcsitól.",
+      "Hasznos tippek a jojó-effektus nélküli és éhezésmentes fogyáshoz — közvetlenül Marcsitól. Feliratkozáskor ajándék e-bookot küldünk az egészségprogramról.",
     buttonLabel: "Feliratkozás",
     successMessage:
       "Köszönjük! Megnyílt az e-mail ablak — küldd el az üzenetet a feliratkozás befejezéséhez.",
