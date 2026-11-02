@@ -44,12 +44,12 @@ export default function SeoHead({
   const desc =
     description ||
     brand.description ||
-    "Flavon, fogyás, egészség és életmód — Miskolci Mária, marcsivital.";
+    "Éhezésmentes fogyás, egészséges életmód — Miskolci Mária, marcsivital.";
   const url = `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
   const imageUrl = image.startsWith("http") ? image : `${SITE_URL}${image}`;
   const kw =
     keywords ||
-    "Flavon, fogyás, egészség, életmód, Miskolci Mária, Miskolci Marcsi, marcsivital";
+    "éhezésmentes fogyás, egészséges életmód, fogyás, egészség, Miskolci Mária, Miskolci Marcsi, marcsivital";
 
   useEffect(() => {
     document.title = fullTitle;
