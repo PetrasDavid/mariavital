@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Users, GraduationCap, Calendar, Mic, CalendarDays } from "lucide-react";
+import { Users, GraduationCap, Calendar, CalendarDays, Play } from "lucide-react";
 import { siteConfig, platinumPitch } from "../config/config";
 import PageHero from "../components/ui/PageHero";
 import SectionHeading from "../components/ui/SectionHeading";
@@ -13,7 +13,7 @@ const benefits = [
   { icon: Users, title: "Személyes mentorálás", description: "Marcsi vezetésével, kezdőktől haladókig." },
   { icon: GraduationCap, title: "Professzionális képzések", description: "Online és offline tréningek rendszeresen." },
   { icon: Calendar, title: "Események", description: "Csapatépítők, workshopok, közös programok." },
-  { icon: Mic, title: "Podcast & tartalmak", description: "Hamarosan..." },
+  { icon: Play, title: "Videó & tartalmak", description: "Nézd meg a csapat bemutatkozó videóját." },
 ];
 
 const leaders = [
@@ -112,12 +112,16 @@ export default function PlatinumTeamPage() {
             </div>
 
             <div>
-              <SectionHeading title="Podcast & tartalmak" align="left" />
-              <div className="flex items-center gap-4 p-4 rounded-xl bg-white border border-gray-100">
-                <div className="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center shrink-0">
-                  <Mic className="h-5 w-5" />
-                </div>
-                <p className="font-semibold text-gray-900">Hamarosan...</p>
+              <SectionHeading title="Videó" align="left" />
+              <div className="aspect-video rounded-2xl overflow-hidden bg-gray-900 shadow-sm">
+                <iframe
+                  src="https://www.youtube.com/embed/t41xkMjWZwU"
+                  title="Platinum Team — bemutatkozó videó"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  loading="lazy"
+                  className="w-full h-full border-0"
+                />
               </div>
             </div>
           </div>
