@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Heart, TrendingDown, Users, Sparkles, Check } from "lucide-react";
-import { siteConfig, whyChooseMe, storyQuote } from "../config/config";
+import { siteConfig, whyChooseMe, storyQuote, spring2026Story } from "../config/config";
 import { pageSeo } from "../config/seoData";
 import PageHero from "../components/ui/PageHero";
 import Button from "../components/ui/Button";
@@ -118,6 +118,49 @@ export default function AboutPage() {
                 </Button>
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-20 md:pb-28 bg-gradient-to-br from-brand-50 via-white to-rose-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto text-center mb-10"
+          >
+            <span className="text-brand-600 font-semibold text-sm uppercase tracking-wider">
+              {spring2026Story.eyebrow}
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">
+              {spring2026Story.title}
+            </h2>
+            <div className="space-y-4 text-gray-600 text-base sm:text-lg leading-relaxed text-left sm:text-center">
+              {spring2026Story.paragraphs.map((p) => (
+                <p key={p.slice(0, 40)}>{p}</p>
+              ))}
+            </div>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-3 gap-4 md:gap-6">
+            {spring2026Story.images.map((img, i) => (
+              <motion.div
+                key={img.src}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="rounded-2xl overflow-hidden shadow-lg bg-white"
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-full object-cover aspect-[3/4]"
+                  loading="lazy"
+                />
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

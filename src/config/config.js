@@ -217,6 +217,31 @@ export const whyChooseMe = [
 export const storyQuote =
   "Nem csupán lefogytam. Új életet kezdtem. Az eredményemet pedig több mint két éve sikerült megtartanom. Ez adott hitet ahhoz, hogy másoknak is segítsek elindulni.";
 
+/** Marcsi — 2026 tavaszi mérföldkő (Facebook csoport bejegyzés) */
+export const spring2026Story = {
+  title: "2026 Tavasz",
+  eyebrow: "Személyes mérföldkő",
+  paragraphs: [
+    "Rengeteg fantasztikus dolog történt velem… Volt egy tavaszi kiírás a Flavonnál — így kezdődött minden.",
+    "A jutalma egy Michelin-csillagos vacsora a Costes étteremben, és utána a Magyar Tudományos Akadémián egy különleges koncertélmény volt. Sikeresen teljesítettem a kiírást, így vasárnap én is részese lehettem ennek a fantasztikus programnak.",
+    "Az áprilisi hónapnak rengeteg céllal, álommal indultunk neki — ami hónap végére valósággá vált. A kitűzött célokat teljesítve Elit vezetői szintre léptem a Flavonnál.",
+  ],
+  images: [
+    {
+      src: "/stories/2026_tavasz_1.jpg",
+      alt: "Marcsi — 2026 tavasz, Michelin-vacsora és ünneplés",
+    },
+    {
+      src: "/stories/2026_tavasz_2.jpg",
+      alt: "Marcsi — 2026 tavasz, különleges este",
+    },
+    {
+      src: "/stories/2026_tavasz_3.jpg",
+      alt: "Marcsi — 2026 tavasz, Magyar Tudományos Akadémia koncert",
+    },
+  ],
+};
+
 export const platinumPitch = {
   headline: "Egyedül nehéz. Egy jó csapatban viszont sokkal könnyebb fejlődni.",
   points: ["mentorálás", "képzések", "közösség", "támogatás", "üzleti lehetőség"],
