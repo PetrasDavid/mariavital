@@ -4,9 +4,9 @@ export const pageSeo = {
   home: {
     title: "Éhezésmentes fogyás és egészséges életmód | Miskolci Mária",
     description:
-      "marcsivital.eu — Miskolci Mária életmód tanácsadó. Éhezésmentes fogyás, egészséges életmód, energia. Személyes támogatás Miskolcról.",
+      "marcsivital — Miskolci Mária életmód tanácsadó. Éhezésmentes fogyás, jojó-effektus nélküli fogyás, egészséges életmód és energia. Személyes támogatás.",
     keywords:
-      "éhezésmentes fogyás, egészséges életmód, fogyás, egészség, életmód tanácsadó, Miskolci Mária, Miskolci Marcsi, marcsivital",
+      "marcsivital, éhezésmentes fogyás, egészséges életmód, fogyás, jojó-effektus nélküli fogyás, életmódváltás, tartós fogyás, egészség, energia, életmód tanácsadó, Miskolci Mária, Miskolci Marcsi, Miskolc",
     path: "/",
     image: "/marcsivital_logo.jpg",
   },

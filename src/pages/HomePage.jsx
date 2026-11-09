@@ -46,14 +46,20 @@ export default function HomePage() {
               {brand.displayName}
             </h1>
             <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-800 tracking-tight mb-3">
+              Éhezésmentes fogyás · Egészséges életmód
+            </p>
+            <p className="text-base sm:text-lg text-gray-700 mb-2">
               {brand.slogan}
             </p>
-            <p className="text-base sm:text-lg text-brand-700/90 font-medium mb-8">
+            <p className="text-base sm:text-lg text-brand-700/90 font-medium mb-3">
               {brand.identityLine}
+            </p>
+            <p className="text-sm sm:text-base text-gray-600 mb-8 max-w-xl leading-relaxed">
+              {brand.heroSubtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button to="/termekek" variant="secondary" size="lg" icon={ArrowRight}>
-                Flavon termékek
+                Termékek
               </Button>
               <Button to="/rolam" variant="outline" size="lg">
                 Ismerj meg

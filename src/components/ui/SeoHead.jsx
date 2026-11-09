@@ -3,6 +3,7 @@ import { siteConfig } from "../../config/config";
 
 const DEFAULT_IMAGE = siteConfig.brand.logo;
 const SITE_URL = `https://${siteConfig.brand.domain}`;
+const JSON_LD_ID = "marcsivital-jsonld";
 
 function setMeta(attr, key, content) {
   if (!content) return;
@@ -25,8 +26,19 @@ function setCanonical(href) {
   el.setAttribute("href", href);
 }
 
+function setJsonLd(data) {
+  let el = document.getElementById(JSON_LD_ID);
+  if (!el) {
+    el = document.createElement("script");
+    el.id = JSON_LD_ID;
+    el.type = "application/ld+json";
+    document.head.appendChild(el);
+  }
+  el.textContent = JSON.stringify(data);
+}
+
 /**
- * Per-page document title + Open Graph / Twitter meta (SPA-friendly).
+ * Per-page document title + Open Graph / Twitter meta + JSON-LD (SPA-friendly).
  */
 export default function SeoHead({
   title,
@@ -37,7 +49,7 @@ export default function SeoHead({
   type = "website",
   noIndex = false,
 }) {
-  const { brand } = siteConfig;
+  const { brand, distributor, contact, social } = siteConfig;
   const fullTitle = title.includes(brand.name)
     ? title
     : `${title} | ${brand.name}`;
@@ -49,7 +61,7 @@ export default function SeoHead({
   const imageUrl = image.startsWith("http") ? image : `${SITE_URL}${image}`;
   const kw =
     keywords ||
-    "éhezésmentes fogyás, egészséges életmód, fogyás, egészség, Miskolci Mária, Miskolci Marcsi, marcsivital";
+    "marcsivital, éhezésmentes fogyás, egészséges életmód, fogyás, egészség, Miskolci Mária, Miskolci Marcsi";
 
   useEffect(() => {
     document.title = fullTitle;
@@ -72,7 +84,78 @@ export default function SeoHead({
     setMeta("name", "twitter:image", imageUrl);
 
     setCanonical(url);
-  }, [fullTitle, desc, kw, url, imageUrl, type, noIndex, brand.name]);
+
+    const sameAs = [social?.facebook?.href, social?.instagram?.href, social?.messenger?.href].filter(
+      Boolean
+    );
+
+    setJsonLd({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          url: SITE_URL,
+          name: brand.displayName || brand.name,
+          description: brand.description,
+          inLanguage: "hu-HU",
+          publisher: { "@id": `${SITE_URL}/#person` },
+        },
+        {
+          "@type": "Person",
+          "@id": `${SITE_URL}/#person`,
+          name: distributor.formalName,
+          alternateName: [distributor.fullName, distributor.name, "Miskolci Marcsi"],
+          jobTitle: distributor.title,
+          url: SITE_URL,
+          image: `${SITE_URL}${distributor.profileImage}`,
+          description:
+            "Életmód tanácsadó: éhezésmentes fogyás, egészséges életmód, energia és tartós eredmények.",
+          email: contact?.email,
+          telephone: contact?.phone,
+          sameAs,
+          knowsAbout: [
+            "éhezésmentes fogyás",
+            "egészséges életmód",
+            "életmódváltás",
+            "tartós fogyás",
+            "egészség",
+          ],
+        },
+        {
+          "@type": "WebPage",
+          "@id": `${url}#webpage`,
+          url,
+          name: fullTitle,
+          description: desc,
+          isPartOf: { "@id": `${SITE_URL}/#website` },
+          about: { "@id": `${SITE_URL}/#person` },
+          inLanguage: "hu-HU",
+        },
+      ],
+    });
+  }, [
+    fullTitle,
+    desc,
+    kw,
+    url,
+    imageUrl,
+    type,
+    noIndex,
+    brand.name,
+    brand.displayName,
+    brand.description,
+    distributor.formalName,
+    distributor.fullName,
+    distributor.name,
+    distributor.title,
+    distributor.profileImage,
+    contact?.email,
+    contact?.phone,
+    social?.facebook?.href,
+    social?.instagram?.href,
+    social?.messenger?.href,
+  ]);
 
   return null;
 }

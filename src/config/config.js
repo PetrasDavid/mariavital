@@ -13,7 +13,7 @@ export const siteConfig = {
     logo: "/marcsivital_logo.jpg",
     heroHeadline: "Az egészség a legjobb befektetés – önmagadba.",
     heroSubtitle:
-      "Segítek abban, hogy több energiád legyen, jobban érezd magad a bőrödben, és megtaláld azokat a természetes megoldásokat, amelyek hosszú távon is támogatják az egészségedet.",
+      "Éhezésmentes fogyás és egészséges életmód — segítek, hogy több energiád legyen, jobban érezd magad a bőrödben, és tartós, jojó-effektus nélküli eredményt érj el.",
     promise:
       "Nem csodát ígérek. Egy utat mutatok egy energikusabb, egészségesebb élet felé.",
     description:
