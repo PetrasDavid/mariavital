@@ -220,10 +220,9 @@ export default function PlatinumTeamPage() {
                 Írj Messengerben
               </Button>
               <Button
-                href="#jelentkezes"
+                type="button"
                 variant="outline"
-                onClick={(e) => {
-                  e.preventDefault();
+                onClick={() => {
                   document.getElementById("jelentkezes")?.scrollIntoView({
                     behavior: "smooth",
                   });
