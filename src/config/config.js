@@ -264,6 +264,8 @@ export const recognitionStory = {
     {
       src: "/stories/elismeres_2.jpg",
       alt: "Marcsi — elismerés és ünneplés",
+      // Magas portré: középre vágva az arc lelóg — felülről igazítjuk
+      objectPosition: "center 12%",
     },
     {
       src: "/stories/elismeres_3.jpg",

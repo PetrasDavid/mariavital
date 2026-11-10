@@ -217,6 +217,11 @@ export default function AboutPage() {
                   src={img.src}
                   alt={img.alt}
                   className="w-full h-full object-cover aspect-[3/4]"
+                  style={
+                    img.objectPosition
+                      ? { objectPosition: img.objectPosition }
+                      : undefined
+                  }
                   loading="lazy"
                 />
               </motion.div>
