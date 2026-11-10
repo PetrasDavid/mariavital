@@ -242,6 +242,36 @@ export const spring2026Story = {
   ],
 };
 
+/** Marcsi — Flavon jubileumi elismerés */
+export const recognitionStory = {
+  title: "Megérte elindulni",
+  eyebrow: "Van az a pillanat…",
+  paragraphs: [
+    "Tegnap a Flavon jubileumi rendezvényén vehettem részt, egy igazán különleges, inspiráló eseményen. Ott állni ezen a színpadon, látni a sikereket, a boldog arcokat, a rengeteg munkát és kitartást a történetek mögött… egyszerűen fantasztikus érzés volt!",
+    "De tudjátok, mi az, ami számomra igazán fontos? Hogy minden siker egy döntéssel kezdődik. Egy apró lépéssel, egy lehetőséggel, aminek talán eleinte még nem is látjuk, hová vezethet.",
+    "Én sem úgy indultam el ezen az úton, hogy mindent tudtam. Tanultam, fejlődtem, voltak kérdéseim, és lépésről lépésre jutottam el oda, ahol ma tartok. Büszke vagyok arra, amit eddig elértem, és hálás vagyok mindazért, amit ez az út adott nekem.",
+    "Számomra a Flavon nemcsak egy vállalkozás. Hanem egy közösség, folyamatos fejlődés, célok és lehetőség arra, hogy valami olyat építsek, amire igazán büszke lehetek.",
+    "És tudod, mi a legjobb? Nem kell mindent tudnod az induláskor. Nem kell tökéletesnek lenned. Csak nyitottnak kell lenned arra, hogy tanulj, fejlődj, és merj belevágni.",
+    "Most olyan hölgyeket keresek magam mellé, akik szeretnének fejlődni, új célokat kitűzni, és szívesen építenének velem egy közös jövőt. Akik nemcsak álmodozni szeretnének, hanem tennének is az álmaikért.",
+    "Szívesen megmutatom, én mit találtam ebben a lehetőségben, és hogyan lehet elindulni rajta. Lehet, hogy számodra is egy ilyen beszélgetés lesz az első lépés valami új felé.",
+  ],
+  cta: "Ha kíváncsi vagy a Flavon üzleti lehetőségére, vagy szeretnéd tudni, hogyan jutottam el idáig, írj üzenetet a „LEHETŐSÉG” szóval — lehet, hogy éppen most kezdődik a te történeted is!",
+  images: [
+    {
+      src: "/stories/elismeres_1.jpg",
+      alt: "Marcsi — Flavon jubileumi rendezvény, színpad",
+    },
+    {
+      src: "/stories/elismeres_2.jpg",
+      alt: "Marcsi — elismerés és ünneplés",
+    },
+    {
+      src: "/stories/elismeres_3.jpg",
+      alt: "Marcsi — jubileumi pillanat",
+    },
+  ],
+};
+
 export const platinumPitch = {
   headline: "Egyedül nehéz. Egy jó csapatban viszont sokkal könnyebb fejlődni.",
   points: ["mentorálás", "képzések", "közösség", "támogatás", "üzleti lehetőség"],
