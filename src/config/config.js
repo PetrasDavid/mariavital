@@ -248,6 +248,41 @@ export const platinumPitch = {
   cta: "Csatlakozom",
 };
 
+/** Platinum Team — mentorprogram élmény (Facebook bejegyzés) */
+export const mentorProgramStory = {
+  title: "Mentorprogram",
+  eyebrow: "4 nap · 8 sikeres nő · Egy közös út",
+  paragraphs: [
+    "Négy nap, amit nem lehet egyszerűen csak egy továbbképzésnek nevezni.",
+    "8 sikeres vezető nő, akik különböző utakon indultunk el, mégis ugyanazért dolgozunk: fejlődni, tanulni, példát mutatni és másokat is magunkkal vinni az úton.",
+    "Ez a 4 nap adott új tudást, új lendületet, rengeteg beszélgetést, nevetést, felismerést és persze olyan pillanatokat, amiket még sokáig a szívünkben őrzünk.",
+    "Mert a siker nem csak a számokról és eredményekről szól. A siker számomra azt is jelenti, hogy vannak mellettem olyan emberek, akikkel együtt lehet fejlődni, egymást támogatni és együtt örülni egymás sikereinek.",
+    "Hálás vagyok ezért a 4 napért, ezért a csapatért és minden közös élményért. És tudom, hogy ez még csak egy újabb állomás volt… innen megyünk tovább!",
+  ],
+  images: [
+    {
+      src: "/stories/mentorprogram_1.jpg",
+      alt: "Mentorprogram — közös pillanat",
+    },
+    {
+      src: "/stories/mentorprogram_2.jpg",
+      alt: "Mentorprogram — csapat",
+    },
+    {
+      src: "/stories/mentorprogram_3.jpg",
+      alt: "Mentorprogram — 8 vezető nő",
+    },
+    {
+      src: "/stories/mentorprogram_4.jpg",
+      alt: "Mentorprogram — közös út",
+    },
+  ],
+  certificate: {
+    src: "/stories/mentorprogram_oklevel.jpg",
+    alt: "Mentorprogram oklevél",
+  },
+};
+
 export const ebookOffer = {
   title: "7 napos lapos has kihívás!",
   subtitle:

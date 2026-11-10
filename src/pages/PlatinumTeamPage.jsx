@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Users, GraduationCap, Calendar, CalendarDays, Play } from "lucide-react";
-import { siteConfig, platinumPitch } from "../config/config";
+import { siteConfig, platinumPitch, mentorProgramStory } from "../config/config";
 import PageHero from "../components/ui/PageHero";
 import SectionHeading from "../components/ui/SectionHeading";
 import Button from "../components/ui/Button";
@@ -125,6 +125,66 @@ export default function PlatinumTeamPage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="pb-16 md:pb-20 bg-gradient-to-br from-brand-50 via-white to-emerald-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto text-center mb-10"
+          >
+            <span className="text-brand-600 font-semibold text-sm uppercase tracking-wider">
+              {mentorProgramStory.eyebrow}
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">
+              {mentorProgramStory.title}
+            </h2>
+            <div className="space-y-4 text-gray-600 text-base sm:text-lg leading-relaxed text-left sm:text-center">
+              {mentorProgramStory.paragraphs.map((p) => (
+                <p key={p.slice(0, 48)}>{p}</p>
+              ))}
+            </div>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-10">
+            {mentorProgramStory.images.map((img, i) => (
+              <motion.div
+                key={img.src}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.06 }}
+                className="rounded-2xl overflow-hidden shadow-lg bg-white"
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-full object-cover aspect-[3/4]"
+                  loading="lazy"
+                />
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-xl mx-auto rounded-2xl overflow-hidden shadow-xl bg-white border border-brand-100"
+          >
+            <img
+              src={mentorProgramStory.certificate.src}
+              alt={mentorProgramStory.certificate.alt}
+              className="w-full h-auto object-contain"
+              loading="lazy"
+            />
+            <p className="text-center text-sm font-semibold text-brand-800 py-3 px-4">
+              Mentorprogram oklevél
+            </p>
+          </motion.div>
         </div>
       </section>
 
