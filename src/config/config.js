@@ -283,6 +283,34 @@ export const mentorProgramStory = {
   },
 };
 
+/** Platinum Team — vezetőképzés élmény */
+export const platinumLeadershipStory = {
+  title: "Vezetőképzés",
+  eyebrow: "Megannyi felismerés · Rengeteg nevetés · Egy közös cél",
+  paragraphs: [
+    "A Platinum Team vezetőképzése ismét bebizonyította, hogy a siker nem véletlen. A siker mögött tanulás, fejlődés, kitartás és egy olyan közösség áll, ahol valóban felemeljük egymást.",
+    "Ez a 4 nap nem csupán egy képzés volt. Egy újabb lépcsőfok lett azon az úton, ahol nemcsak jobb vezetővé, hanem jobb emberré is válunk.",
+    "Hiszem, hogy a vezető nem attól vezető, hogy elöl áll… hanem attól, hogy példát mutat, inspirál és másokat is sikerre segít.",
+    "Hálás vagyok, hogy ennek a fantasztikus közösségnek a tagja lehetek. Köszönöm a felső vezetőimnek és a csapattársaimnak ezt a felejthetetlen négy napot!",
+    "A fejlődés nem ér véget itt… ez még csak a következő szint kezdete!",
+  ],
+  cta: "Szeretnél velünk tartani? Keress privát üzenetben, vagy töltsd ki az űrlapot — megbeszéljük a részleteket.",
+  images: [
+    {
+      src: "/stories/platinum_team_1.jpg",
+      alt: "Platinum Team vezetőképzés — közös pillanat",
+    },
+    {
+      src: "/stories/platinum_team_2.jpg",
+      alt: "Platinum Team vezetőképzés — csapat",
+    },
+    {
+      src: "/stories/platinum_team_3.jpg",
+      alt: "Platinum Team vezetőképzés — 4 nap együtt",
+    },
+  ],
+};
+
 export const ebookOffer = {
   title: "7 napos lapos has kihívás!",
   subtitle:
