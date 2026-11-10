@@ -233,7 +233,7 @@ export default function PlatinumTeamPage() {
             </div>
           </motion.div>
 
-          <div className="grid sm:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
             {platinumLeadershipStory.images.map((img, i) => (
               <motion.div
                 key={img.src}

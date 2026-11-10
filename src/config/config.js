@@ -297,6 +297,10 @@ export const platinumLeadershipStory = {
   cta: "Szeretnél velünk tartani? Keress privát üzenetben, vagy töltsd ki az űrlapot — megbeszéljük a részleteket.",
   images: [
     {
+      src: "/csapatkep.jpg",
+      alt: "Platinum Team közös csapatkép",
+    },
+    {
       src: "/stories/platinum_team_1.jpg",
       alt: "Platinum Team vezetőképzés — közös pillanat",
     },
