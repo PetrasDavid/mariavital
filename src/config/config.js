@@ -217,6 +217,20 @@ export const whyChooseMe = [
 export const storyQuote =
   "Nem csupán lefogytam. Új életet kezdtem. Az eredményemet pedig több mint két éve sikerült megtartanom. Ez adott hitet ahhoz, hogy másoknak is segítsek elindulni.";
 
+/** Sajtómegjelenések */
+export const pressMentions = [
+  {
+    id: "bors-2025",
+    source: "Bors Online",
+    date: "2025. január 13.",
+    title:
+      "„Azt mondták lehetetlen lesz a fogyás” – Csodamódszerrel nyerte vissza leánykori súlyát Marcsi",
+    summary:
+      "Miskolci Mária története a Borsban: Hashimoto mellett éhezésmentes fogyás, Ringa Dance és tartós eredmény.",
+    href: "https://borsonline.origo.hu/aktualis/2025/01/fogyas-sulyproblema-marcsi",
+  },
+];
+
 /** Marcsi — 2026 tavaszi mérföldkő (Facebook csoport bejegyzés) */
 export const spring2026Story = {
   title: "2026 Tavasz",
