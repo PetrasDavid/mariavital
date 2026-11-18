@@ -223,10 +223,13 @@ export const pressMentions = [
     id: "bors-2025",
     source: "Bors Online",
     date: "2025. január 13.",
+    badge: "Újságcikk",
+    highlight: "„Azt mondták, lehetetlen lesz a fogyás”",
     title:
-      "„Azt mondták lehetetlen lesz a fogyás” – Csodamódszerrel nyerte vissza leánykori súlyát Marcsi",
+      "Csodamódszerrel nyerte vissza leánykori súlyát Marcsi — megjelent a Borsban",
     summary:
-      "Miskolci Mária története a Borsban: Hashimoto mellett éhezésmentes fogyás, Ringa Dance és tartós eredmény.",
+      "Miskolci Mária története országos sajtóban: Hashimoto mellett is sikerült a tartós, éhezésmentes fogyás. Olvasd el a teljes cikket!",
+    cta: "Elolvasom a Bors-cikket",
     href: "https://borsonline.origo.hu/aktualis/2025/01/fogyas-sulyproblema-marcsi",
   },
 ];

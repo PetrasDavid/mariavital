@@ -140,46 +140,69 @@ export default function AboutPage() {
       {pressMentions.length > 0 && (
         <section className="pb-16 md:pb-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center mb-8">
-              <span className="text-brand-600 font-semibold text-sm uppercase tracking-wider">
-                Sajtó
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2">
-                Rólam a médiában
-              </h2>
-            </div>
-            <div className="max-w-3xl mx-auto space-y-4">
-              {pressMentions.map((item) => (
-                <a
-                  key={item.id}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex gap-4 items-start p-5 rounded-2xl bg-white border border-gray-100 shadow-sm hover:border-brand-200 hover:shadow-md transition-all"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center shrink-0">
-                    <Newspaper className="h-6 w-6" />
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-800 via-brand-700 to-emerald-800 text-white shadow-2xl shadow-brand-900/20"
+            >
+              <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,white,transparent_55%)]" />
+              <div className="relative p-6 sm:p-10 md:p-12">
+                <div className="flex flex-wrap items-center gap-3 mb-5">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-amber-400 text-amber-950 text-xs font-bold px-3 py-1.5 uppercase tracking-wide">
+                    <Newspaper className="h-3.5 w-3.5" />
+                    {pressMentions[0].badge || "Sajtó"}
+                  </span>
+                  <span className="text-brand-100 text-sm font-medium">
+                    {pressMentions[0].source} · {pressMentions[0].date}
+                  </span>
+                </div>
+
+                <p className="text-brand-100 font-semibold text-sm uppercase tracking-[0.18em] mb-3">
+                  Országos média · Rólam írtak
+                </p>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight max-w-3xl">
+                  {pressMentions[0].highlight || pressMentions[0].title}
+                </h2>
+                <p className="mt-4 text-brand-50/95 text-base sm:text-lg leading-relaxed max-w-2xl">
+                  {pressMentions[0].summary}
+                </p>
+
+                <div className="mt-8 flex flex-wrap items-center gap-4">
+                  <a
+                    href={pressMentions[0].href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-white text-brand-900 font-bold px-5 py-3.5 text-sm sm:text-base hover:bg-brand-50 transition-colors shadow-lg"
+                  >
+                    {pressMentions[0].cta || "Cikk elolvasása"}
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                  <p className="text-sm text-brand-100/90 max-w-xs">
+                    {pressMentions[0].title}
+                  </p>
+                </div>
+
+                {pressMentions.length > 1 && (
+                  <div className="mt-8 pt-6 border-t border-white/15 space-y-3">
+                    {pressMentions.slice(1).map((item) => (
+                      <a
+                        key={item.id}
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-between gap-3 rounded-xl bg-white/10 hover:bg-white/15 px-4 py-3 transition-colors"
+                      >
+                        <span className="font-semibold text-sm sm:text-base">
+                          {item.source}: {item.highlight || item.title}
+                        </span>
+                        <ExternalLink className="h-4 w-4 shrink-0" />
+                      </a>
+                    ))}
                   </div>
-                  <div className="min-w-0 flex-1 text-left">
-                    <p className="text-xs font-semibold text-brand-700 uppercase tracking-wide">
-                      {item.source} · {item.date}
-                    </p>
-                    <p className="mt-1 font-bold text-gray-900 leading-snug">
-                      {item.title}
-                    </p>
-                    {item.summary && (
-                      <p className="mt-2 text-sm text-gray-600 leading-relaxed">
-                        {item.summary}
-                      </p>
-                    )}
-                    <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700">
-                      Cikk elolvasása
-                      <ExternalLink className="h-3.5 w-3.5" />
-                    </span>
-                  </div>
-                </a>
-              ))}
-            </div>
+                )}
+              </div>
+            </motion.div>
           </div>
         </section>
       )}
