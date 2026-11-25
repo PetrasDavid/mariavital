@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import ScrollToTop from "./ScrollToTop";
 import CookieNotice from "../ui/CookieNotice";
+import SalePromoPopup from "../ui/SalePromoPopup";
 
 export default function Layout() {
   return (
@@ -14,6 +15,7 @@ export default function Layout() {
       </main>
       <Footer />
       <CookieNotice />
+      <SalePromoPopup />
     </div>
   );
 }
