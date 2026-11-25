@@ -104,7 +104,7 @@ export default function ProductCard({ product, index = 0, onInfoClick }) {
         <div className="pt-4 border-t border-gray-100 mt-auto space-y-4">
           <div>
             <p className="text-xs text-gray-500 uppercase tracking-wide mb-0.5">
-              Kiskereskedelmi ár
+              {onSale ? "Akciós ár" : "Kiskereskedelmi ár"}
             </p>
             {isRange ? (
               <p className="text-lg font-bold text-brand-700 leading-snug">{priceDisplay}</p>

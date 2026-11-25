@@ -80,7 +80,7 @@ function ProductModal({ product, onClose }) {
                   <p className="text-2xl font-bold text-brand-700">
                     {priceDisplay.current}
                     <span className="text-sm font-normal text-gray-500 ml-2">
-                      kiskereskedelmi ár
+                      {product.onSale ? "akciós ár" : "kiskereskedelmi ár"}
                     </span>
                   </p>
                 </div>
